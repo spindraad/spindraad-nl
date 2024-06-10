@@ -3,39 +3,20 @@ import type { MetaFunction } from "@remix-run/node";
 import { Input } from "~/components/ui/input"
 import { Textarea } from "~/components/ui/textarea"
 // import { Button } from "~/components/ui/button"
-import { Link } from "@remix-run/react";
 import { LightbulbIcon, BoltIcon, BriefcaseIcon, BrushIcon, CodeIcon, RocketIcon, MountainIcon} from '~/components/icons';
+import Header from '~/components/Header';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "spindraad" },
+    { name: "description", content: "Spindraad bouwt de beste web applicaties." },
   ];
 };
 
 export default function Component() {
   return (
     <div className="flex flex-col min-h-[100dvh]">
-      <header className="px-4 lg:px-6 h-14 flex items-center">
-        <Link to="#" className="flex items-center justify-center" >
-          <MountainIcon className="h-6 w-6" />
-          <span className="sr-only">Acme Web Studio</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link to="#" className="text-sm font-medium hover:underline underline-offset-4" >
-            Services
-          </Link>
-          <Link to="#" className="text-sm font-medium hover:underline underline-offset-4" >
-            Portfolio
-          </Link>
-          <Link to="#" className="text-sm font-medium hover:underline underline-offset-4" >
-            Clients
-          </Link>
-          <Link to="#" className="text-sm font-medium hover:underline underline-offset-4" >
-            Contact
-          </Link>
-        </nav>
-      </header>
+      <Header />
       <main className="flex-1">
         <section className="w-full h-[80vh] flex flex-col items-center justify-center bg-[url('/placeholder.svg')] bg-cover bg-center">
           <div className="container px-4 md:px-6 text-center space-y-4">

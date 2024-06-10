@@ -16,8 +16,18 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      manrope: ["Manrope Variable", "sans-serif"],
+      chivo: ["Chivo Variable", "sans-serif"],
+    },
     extend: {
       colors: {
+        'deep-blue': "rgb(var(--deep-blue) / <alpha-value>)",
+        'vibrant-teal': "rgb(var(--vibrant-teal) / <alpha-value>)",
+        'soft-gray': "rgb(var(--soft-gray) / <alpha-value>)",
+        'crisp-white': "rgb(var(--crisp-white) / <alpha-value>)",
+        'accent-orange': "rgb(var(--accent-orange) / <alpha-value>)",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
