@@ -21,6 +21,8 @@
   "dependencies": {
     "@fontsource-variable/chivo": "^5.0.14",
     "@fontsource-variable/manrope": "^5.0.20",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
     "@remix-run/node": "^2.9.2",

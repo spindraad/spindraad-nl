@@ -4,10 +4,16 @@ import {
   library,
   toHtml,
 } from '@fortawesome/fontawesome-svg-core';
-import * as faIcons from '~/utils/icons';
+import {
+  faMedal,
+  faLaptopCode,
+  faUsersRectangle,
+  faMobileAlt,
+  faChartLine,
+  faScrewdriverWrench, faLink, faSearch
+} from '@fortawesome/free-solid-svg-icons';
 
-const icons = Object.values(faIcons);
-library.add(...icons);
+library.add(faMedal, faLaptopCode, faUsersRectangle, faMobileAlt, faChartLine, faScrewdriverWrench, faLink, faSearch);
 
 export type Props = {
   name: IconName;

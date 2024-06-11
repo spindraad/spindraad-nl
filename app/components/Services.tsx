@@ -1,12 +1,55 @@
 import Pill from '~/components/Pill';
-import { BoltIcon, BriefcaseIcon, BrushIcon, CodeIcon, LightbulbIcon, RocketIcon } from '~/components/icons';
+import Icon, { Props as IconProps } from '~/components/Icon';
+
+const services: ServiceItemProps[] = [
+  {
+    title: 'Webontwikkeling op maat',
+    description: 'Het ontwerpen en ontwikkelen van op maat gemaakte websites en webapplicaties die specifiek zijn afgestemd op de behoeften en doelstellingen van jouw bedrijf.',
+    icon: 'medal',
+  },
+  {
+    title: 'Interactieve webapplicaties',
+    description: 'Ontwerp en ontwikkeling van op maat gemaakte, interactieve webapplicaties die naadloos functioneren op alle moderne browsers en apparaten.',
+    icon: 'laptop-code',
+  },
+  {
+    title: 'Gebruiksvriendelijkheid',
+    description: 'Het creëren van intuïtieve en gebruiksvriendelijke interfaces die de gebruikerservaring verbeteren en zorgen voor een hogere betrokkenheid en conversie',
+    icon: 'users-rectangle',
+  },
+  {
+    title: 'SEO en prestatieoptimalisatie',
+    description: 'Optimaliseren van websites voor zoekmachines en prestaties om de zichtbaarheid in zoekresultaten te verbeteren en de laadtijden te verkorten.',
+    icon: 'search',
+  },
+  {
+    title: 'Digitale strategie',
+    description: 'Het ontwikkelen van een digitale strategie die aansluit bij de doelstellingen van jouw bedrijf en helpt om jouw online aanwezigheid te versterken.',
+    icon: 'chart-line',
+  },
+  {
+    title: 'Responsief ontwerp',
+    description: 'Creëren van visueel aantrekkelijke en functioneel responsieve websites die de gebruikerservaring op zowel desktops als mobiele apparaten optimaliseren.',
+    icon: 'mobile-alt',
+  },
+  {
+    title: 'Beheer en onderhoud',
+    description: 'Het bieden van doorlopende ondersteuning en onderhoud voor webapplicaties om de prestaties, veiligheid en stabiliteit te garanderen.',
+    icon: 'screwdriver-wrench'
+  },
+  {
+    title: 'API-integraties en koppelingen',
+    description: 'Ontwikkelen en integreren van API’s om verschillende softwaretoepassingen en databronnen te koppelen, waardoor functionaliteiten binnen webapplicaties worden verbeterd.',
+    icon: 'link'
+  }
+];
 
 export default function Services() {
-  return <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+  return <section id="services" className="w-full py-12 md:py-24 lg:py-32">
     <div className="container px-4 md:px-6">
       <div className="flex flex-col items-center justify-center space-y-4 text-center">
         <div className="space-y-2">
-          <Pill>Onze diensten</Pill>
+          <Pill color="vibrant-teal">Onze diensten</Pill>
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
             Een uitgebreid aanbod van diensten
           </h2>
@@ -17,82 +60,35 @@ export default function Services() {
           </p>
         </div>
       </div>
+
       <div className="mx-auto grid max-w-5xl grid-cols-1 sm:grid-cols-2 gap-4 py-12 lg:gap-6">
-        <div
-          className="flex flex-col items-center justify-center space-y-4 border border-gray-200 rounded-lg p-4 dark:border-gray-700">
-          <div className="bg-gray-200 text-gray-900 p-3 rounded-full">
-            <BrushIcon className="h-6 w-6"/>
-          </div>
-          <div className="space-y-2 text-center">
-            <h3 className="text-lg font-bold">Web Design</h3>
-            <p className="text-gray-500 dark:text-gray-400">
-              Wij creëren visueel indrukwekkende en gebruiksvriendelijke websites die je publiek betoveren.
-            </p>
-          </div>
-        </div>
-        <div
-          className="flex flex-col items-center justify-center space-y-4 border border-gray-200 rounded-lg p-4 dark:border-gray-700">
-          <div className="bg-gray-200 text-gray-900 p-3 rounded-full">
-            <CodeIcon className="h-6 w-6"/>
-          </div>
-          <div className="space-y-2 text-center">
-            <h3 className="text-lg font-bold">Web Development</h3>
-            <p className="text-gray-500 dark:text-gray-400">
-              We bouwen hoogpresterende, schaalbare webapplicaties die je bedrijf vooruit helpen.
-            </p>
-          </div>
-        </div>
-        <div
-          className="flex flex-col items-center justify-center space-y-4 border border-gray-200 rounded-lg p-4 dark:border-gray-700">
-          <div className="bg-gray-200 text-gray-900 p-3 rounded-full">
-            <LightbulbIcon className="h-6 w-6"/>
-          </div>
-          <div className="space-y-2 text-center">
-            <h3 className="text-lg font-bold">Digitale Strategie</h3>
-            <p className="text-gray-500 dark:text-gray-400">
-              Het ontwikkelen van uitgebreide digitale strategieën om je online aanwezigheid af te stemmen op je
-              bedrijfsdoelen.
-            </p>
-          </div>
-        </div>
-        <div
-          className="flex flex-col items-center justify-center space-y-4 border border-gray-200 rounded-lg p-4 dark:border-gray-700">
-          <div className="bg-gray-200 text-gray-900 p-3 rounded-full">
-            <RocketIcon className="h-6 w-6"/>
-          </div>
-          <div className="space-y-2 text-center">
-            <h3 className="text-lg font-bold">SEO Optimization</h3>
-            <p className="text-gray-500 dark:text-gray-400">
-              Je website’s zichtbaarheid en ranking in zoekmachines verbeteren om meer verkeer en leads te
-              genereren.
-            </p>
-          </div>
-        </div>
-        <div
-          className="flex flex-col items-center justify-center space-y-4 border border-gray-200 rounded-lg p-4 dark:border-gray-700">
-          <div className="bg-gray-200 text-gray-900 p-3 rounded-full">
-            <BoltIcon className="h-6 w-6"/>
-          </div>
-          <div className="space-y-2 text-center">
-            <h3 className="text-lg font-bold">Performance Optimization</h3>
-            <p className="text-gray-500 dark:text-gray-400">
-              Zorgen dat je website snel laadt en optimaal presteert op alle apparaten en browsers.
-            </p>
-          </div>
-        </div>
-        <div
-          className="flex flex-col items-center justify-center space-y-4 border border-gray-200 rounded-lg p-4 dark:border-gray-700">
-          <div className="bg-gray-200 text-gray-900 p-3 rounded-full">
-            <BriefcaseIcon className="h-6 w-6"/>
-          </div>
-          <div className="space-y-2 text-center">
-            <h3 className="text-lg font-bold">Branding en Identiteit</h3>
-            <p className="text-gray-500 dark:text-gray-400">
-              Het creëren van een samenhangende en memorabele merkidentiteit om je bedrijf te onderscheiden.
-            </p>
-          </div>
-        </div>
+        { services.map((service, index) => (
+          <ServiceItem key={ index } { ...service } />
+        )) }
       </div>
     </div>
   </section>;
+}
+
+type ServiceItemProps = {
+  icon: IconProps['name'];
+  title: string;
+  description: string;
+}
+
+function ServiceItem({ title, description, icon }: ServiceItemProps) {
+  return (
+    <div
+      className="flex flex-col items-center justify-center space-y-4 border border-vibrant-teal bg-transparent rounded-lg p-4 group transition-all">
+      <div className="bg-vibrant-teal text-crisp-white rounded-full h-12 w-12 flex place-content-center place-items-center">
+        <Icon name={ icon } sizes="l" />
+      </div>
+      <div className="space-y-2 text-center">
+        <h3 className="text-lg font-bold">{ title }</h3>
+        <p className="text-gray-400 text-sm">
+          { description }
+        </p>
+      </div>
+    </div>
+  );
 }

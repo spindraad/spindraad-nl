@@ -5,23 +5,23 @@ type Props = {
   color?: Colors;
 };
 
-export default function Pill({ children, color = Colors.DEEP_BLUE }: Props) {
+export default function Pill({ children, color = 'deep-blue' }: Props) {
   let colorClass = 'bg-deep-blue';
 
   switch (color) {
-    case Colors.DEEP_BLUE:
+    case 'deep-blue':
       colorClass = 'bg-deep-blue text-soft-gray';
       break;
-    case Colors.VIBRANT_TEAL:
+    case 'vibrant-teal':
       colorClass = 'bg-vibrant-teal text-soft-gray';
       break;
-    case Colors.SOFT_GRAY:
+    case 'soft-gray':
       colorClass = 'bg-soft-gray text-deep-blue';
       break;
-    case Colors.CRISP_WHITE:
+    case 'crisp-white':
       colorClass = 'bg-crisp-white text-deep-blue';
       break;
-    case Colors.ACCENT_ORANGE:
+    case 'accent-orange':
       colorClass = 'bg-accent-orange text-soft-gray';
       break;
   }
