@@ -8,13 +8,13 @@ export default function Header() {
       </Link>
       <nav className="ml-auto flex gap-4 sm:gap-6">
         <Link to="#" className="text-sm font-medium hover:underline underline-offset-4">
-          Services
+          Diensten
         </Link>
         <Link to="#" className="text-sm font-medium hover:underline underline-offset-4">
           Portfolio
         </Link>
         <Link to="#" className="text-sm font-medium hover:underline underline-offset-4">
-          Clients
+          Klanten
         </Link>
         <Link to="#" className="text-sm font-medium hover:underline underline-offset-4">
           Contact
