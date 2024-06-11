@@ -1,6 +1,8 @@
 import type { Preview } from "@storybook/react";
 import { createRemixStub } from '@remix-run/testing';
 
+import '../app/tailwind.css';
+
 const preview: Preview = {
   parameters: {
 
