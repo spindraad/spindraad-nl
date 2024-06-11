@@ -2,11 +2,11 @@ import type { MetaFunction } from '@remix-run/node';
 // import { Label } from "~/components/ui/label"
 // import { Button } from "~/components/ui/button"
 import Header from '~/components/Header';
-import { Hero } from '~/components/Hero';
-import { Services } from '~/components/Services';
-import { Portfolio } from '~/components/Portfolio';
-import { Customers } from '~/components/Customers';
-import { Contact } from '~/components/Contact';
+import Hero from '~/components/Hero';
+import Services from '~/components/Services';
+import Portfolio from '~/components/Portfolio';
+import Customers from '~/components/Customers';
+import Contact from '~/components/Contact';
 
 export const meta: MetaFunction = () => {
   return [
