@@ -11,13 +11,13 @@ type Story = StoryObj<typeof Pill>;
 
 export const Default: Story = {
   args: {
-    caption: 'A small caption here',
+    children: 'A small caption here',
   },
 };
 
 export const WithColor: Story = {
   args: {
-    caption: 'A small caption here',
+    children: 'A small caption here',
     color: Colors.ACCENT_ORANGE,
   },
   argTypes: {

@@ -3,8 +3,9 @@ import type { MetaFunction } from "@remix-run/node";
 import { Input } from "~/components/ui/input"
 import { Textarea } from "~/components/ui/textarea"
 // import { Button } from "~/components/ui/button"
-import { LightbulbIcon, BoltIcon, BriefcaseIcon, BrushIcon, CodeIcon, RocketIcon, MountainIcon} from '~/components/icons';
+import { LightbulbIcon, BoltIcon, BriefcaseIcon, BrushIcon, CodeIcon, RocketIcon } from '~/components/icons';
 import Header from '~/components/Header';
+import Pill from "~/components/Pill";
 
 export const meta: MetaFunction = () => {
   return [
@@ -18,17 +19,17 @@ export default function Component() {
     <div className="flex flex-col min-h-[100dvh]">
       <Header />
       <main className="flex-1">
-        <section className="w-full h-[80vh] flex flex-col items-center justify-center bg-[url('/placeholder.svg')] bg-cover bg-center">
+        <section className="w-full h-[80vh] flex flex-col items-center justify-center bg-[url('/placeholder.svg')] bg-cover bg-center bg-accent-orange">
           <div className="container px-4 md:px-6 text-center space-y-4">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none text-white">
                 Elevate Your Digital Presence
               </h1>
-              <div className="inline-block rounded-lg bg-gray-900 px-3 py-1 text-sm text-gray-50">
+              <Pill>
                 Crafting Stunning Web Experiences
-              </div>
+              </Pill>
             </div>
-            <p className="max-w-[600px] text-gray-200 md:text-xl">
+            <p className="max-w-[600px] mx-auto text-gray-200 md:text-xl">
               Acme Web Studio crafts stunning, high-performing web experiences that captivate your audience and drive
               results.
             </p>
@@ -38,7 +39,7 @@ export default function Component() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-gray-900 px-3 py-1 text-sm text-gray-50">Our Services</div>
+                <Pill>Our Services</Pill>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                   Crafting Exceptional Digital Experiences
                 </h2>
@@ -121,7 +122,7 @@ export default function Component() {
         <section id="portfolio" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 lg:gap-10">
             <div className="space-y-3">
-              <div className="inline-block rounded-lg bg-gray-900 px-3 py-1 text-sm text-gray-50">Our Portfolio</div>
+              <Pill>Our Portfolio</Pill>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Showcasing Our Exceptional Work</h2>
               <p className="mx-auto max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                 Explore a selection of our award-winning web designs and applications that have captivated audiences and
@@ -174,7 +175,7 @@ export default function Component() {
         <section id="clients" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 lg:gap-10">
             <div className="space-y-3">
-              <div className="inline-block rounded-lg bg-gray-900 px-3 py-1 text-sm text-gray-50">Our Clients</div>
+              <Pill>Our Clients</Pill>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Trusted by Leading Brands</h2>
               <p className="mx-auto max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                 Our talented team has had the privilege of working with some of the most respected brands in the
@@ -242,7 +243,7 @@ export default function Component() {
         <section id="contact" className="w-full py-12 md:py-24 lg:py-32 border-t">
           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
-              <div className="inline-block rounded-lg bg-gray-900 px-3 py-1 text-sm text-gray-50">Get in Touch</div>
+              <Pill>Get in Touch</Pill>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Let's Discuss Your Next Project</h2>
               <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                 Acme Web Studio crafts stunning, high-performing web experiences that captivate your audience and drive

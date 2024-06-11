@@ -1,11 +1,11 @@
 import { Colors } from '~/utils';
 
 type Props = {
-  caption: string;
+  children: string;
   color?: Colors;
 };
 
-export default function Pill({ caption, color = Colors.DEEP_BLUE }: Props) {
+export default function Pill({ children, color = Colors.DEEP_BLUE }: Props) {
   let colorClass = 'bg-deep-blue';
 
   switch (color) {
@@ -28,7 +28,7 @@ export default function Pill({ caption, color = Colors.DEEP_BLUE }: Props) {
 
   return (
     <p className={ `inline-block rounded-lg px-3 py-1 text-sm ${colorClass}` }>
-      { caption }
+      { children }
     </p>
   );
 }
