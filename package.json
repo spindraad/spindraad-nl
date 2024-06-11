@@ -12,7 +12,11 @@
     "dev:storybook": "storybook dev -p 6006 --no-open",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "sui": "shadcn-ui",
+    "sui:add": "shadcn-ui add -y",
+    "sui:diff": "shadcn-ui diff",
+    "generate": "plop component --"
   },
   "dependencies": {
     "@fontsource-variable/chivo": "^5.0.14",
@@ -56,7 +60,9 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.8.0",
+    "plop": "^4.0.1",
     "postcss": "^8.4.38",
+    "shadcn-ui": "^0.4.1",
     "storybook": "^8.1.6",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.1.6",
