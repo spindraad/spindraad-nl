@@ -10,10 +10,14 @@ import {
   faUsersRectangle,
   faMobileAlt,
   faChartLine,
-  faScrewdriverWrench, faLink, faSearch
+  faScrewdriverWrench,
+  faLink,
+  faSearch,
+  faStroopwafel,
+  faPaperPlane,
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faMedal, faLaptopCode, faUsersRectangle, faMobileAlt, faChartLine, faScrewdriverWrench, faLink, faSearch);
+library.add(faMedal, faLaptopCode, faUsersRectangle, faMobileAlt, faChartLine, faScrewdriverWrench, faLink, faSearch, faStroopwafel, faPaperPlane);
 
 export type Props = {
   name: IconName;
