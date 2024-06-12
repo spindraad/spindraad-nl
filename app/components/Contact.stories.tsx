@@ -20,16 +20,12 @@ type Story = StoryObj<typeof Contact>;
 
 export const Default: Story = {
   args: {
-    action: '/api/contact',
     // @ts-ignore
     remixStub: {
       initialEntries: ['/'],
       routes: [
         {
           path: '/',
-        },
-        {
-          path: '/api/contact',
           action: async () => {
             await new Promise((resolve) => setTimeout(resolve, 2000));
             const data: ActionData = {
@@ -45,16 +41,12 @@ export const Default: Story = {
 
 export const WithError: Story = {
   args: {
-    action: '/api/contact',
     // @ts-ignore
     remixStub: {
       initialEntries: ['/'],
       routes: [
         {
           path: '/',
-        },
-        {
-          path: '/api/contact',
           action: async () => {
             await new Promise((resolve) => setTimeout(resolve, 2000));
             const data: ActionData = {

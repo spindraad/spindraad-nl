@@ -3,14 +3,10 @@ import { Input } from '~/components/ui/input';
 import { Textarea } from '~/components/ui/textarea';
 import { Button } from '~/components/ui/button';
 import { Label } from '~/components/ui/label';
-import { useFetcher } from '@remix-run/react';
+import { useFetcher, useFormAction } from '@remix-run/react';
 import Icon from '~/components/Icon';
 import { useEffect, useState } from 'react';
 import Message from '~/components/Message';
-
-type Props = {
-  action: string;
-};
 
 export type ActionData = {
   success: boolean;
@@ -30,8 +26,9 @@ export type ActionData = {
   };
 };
 
-export default function Contact({ action }: Props) {
+export default function Contact() {
   const fetcher = useFetcher<ActionData>();
+  const action = useFormAction();
 
   const [ message, setMessage ] = useState('');
 
