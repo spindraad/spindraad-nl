@@ -19,24 +19,19 @@ export default function Component() {
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <Header/>
+
       <main className="flex-1">
         <Hero/>
 
-        <div className="border-8 border-b-0 border-t-0 border-accent-orange">
-          <Services/>
-          <Portfolio/>
-        </div>
+        <Services/>
+        <Portfolio/>
 
         <Customers/>
 
-        <div className="border-8 border-b-0 border-t-0 border-accent-orange">
-          <Contact/>
-        </div>
+        <Contact/>
       </main>
 
-      <div className="border-8 border-t-0 border-accent-orange">
-        <Footer/>
-      </div>
+      <Footer/>
     </div>
   );
 }
