@@ -3,32 +3,17 @@ import { Input } from '~/components/ui/input';
 import { Textarea } from '~/components/ui/textarea';
 import { Button } from '~/components/ui/button';
 import { Label } from '~/components/ui/label';
-import { useFetcher, useFormAction } from '@remix-run/react';
+import { useFetcher } from '@remix-run/react';
 import Icon from '~/components/Icon';
 import { useEffect, useState } from 'react';
 import Message from '~/components/Message';
+import { ContactFormValues, ContactFormErrors } from '~/validations/contactform';
+import { ActionData } from '~/types/ActionData';
 
-export type ActionData = {
-  success: boolean;
-  errors?: {
-    name?: string;
-    email?: string;
-    brief?: string;
-    deadline?: string;
-    budget?: string;
-  }
-  data?: {
-    name: string;
-    email: string;
-    brief: string;
-    deadline: string;
-    budget: string;
-  };
-};
+export type ContactFormActionData = ActionData<ContactFormValues, ContactFormErrors>;
 
 export default function Contact() {
-  const fetcher = useFetcher<ActionData>();
-  const action = useFormAction();
+  const fetcher = useFetcher<ContactFormActionData>();
 
   const [ message, setMessage ] = useState('');
 
@@ -65,18 +50,19 @@ export default function Contact() {
         </div>
 
         { fetcher.data && fetcher.data.success ? (
-          <div className="mx-auto w-full space-y-2">
+          <div className="mx-auto w-full mt-8">
             <Message variant="success">{ message }</Message>
           </div>
         ) : (
           <>
             { fetcher.data && !fetcher.data.success && (
-              <div className="mx-auto w-full space-y-2">
+              <div className="mx-auto w-full my-8">
                 <Message variant="error">{ message }</Message>
               </div>
             ) }
             <div className="mx-auto w-full max-w-sm space-y-2">
-              <fetcher.Form method="post" action={ action } className="grid grid-cols-1 gap-4 text-left">
+              <fetcher.Form method="post" action="/api/contactform" className="grid grid-cols-1 gap-4 text-left">
+                <input className="hidden" type="email" name="user-email-address" value="" onChange={() => {}} />
                 <div className="flex flex-col gap-2">
                   <Label className={`${fetcher.data?.errors?.name ? 'text-red-400' : ''}`} htmlFor="name">Naam</Label>
                   <Input id="name" name="name" type="text" className={ `max-w-lg flex-1 ${fetcher.data?.errors?.name ? 'border-red-400' : ''}` } aria-invalid={fetcher.data?.errors?.name ? true : undefined}

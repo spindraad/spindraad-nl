@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Contact, { ActionData } from '~/components/Contact';
+import Contact, { ContactFormActionData } from '~/components/Contact';
 
 export default {
   title: 'Components/Contact',
@@ -20,7 +20,6 @@ type Story = StoryObj<typeof Contact>;
 
 export const Default: Story = {
   args: {
-    // @ts-ignore
     remixStub: {
       initialEntries: ['/'],
       routes: [
@@ -28,8 +27,15 @@ export const Default: Story = {
           path: '/',
           action: async () => {
             await new Promise((resolve) => setTimeout(resolve, 2000));
-            const data: ActionData = {
+            const data: ContactFormActionData = {
               success: true,
+              values: {
+                name: 'John Doe',
+                email: '',
+                brief: 'This is a message',
+                deadline: '',
+                budget: '',
+              }
             }
             return data;
           }
@@ -41,7 +47,6 @@ export const Default: Story = {
 
 export const WithError: Story = {
   args: {
-    // @ts-ignore
     remixStub: {
       initialEntries: ['/'],
       routes: [
@@ -49,7 +54,7 @@ export const WithError: Story = {
           path: '/',
           action: async () => {
             await new Promise((resolve) => setTimeout(resolve, 2000));
-            const data: ActionData = {
+            const data: ContactFormActionData = {
               success: false,
               errors: {
                 name: 'Name is required',

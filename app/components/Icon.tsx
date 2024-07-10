@@ -15,9 +15,28 @@ import {
   faSearch,
   faStroopwafel,
   faPaperPlane,
-} from '@fortawesome/free-solid-svg-icons';
+  faCopyright,
+} from '@awesome.me/kit-feaffe80b3/icons/classic/solid';
+import {
+  faMastodon,
+  faTwitter,
+} from '@awesome.me/kit-feaffe80b3/icons/classic/brands';
 
-library.add(faMedal, faLaptopCode, faUsersRectangle, faMobileAlt, faChartLine, faScrewdriverWrench, faLink, faSearch, faStroopwafel, faPaperPlane);
+library.add(
+  faMedal,
+  faLaptopCode,
+  faUsersRectangle,
+  faMobileAlt,
+  faChartLine,
+  faScrewdriverWrench,
+  faLink,
+  faSearch,
+  faStroopwafel,
+  faPaperPlane,
+  faCopyright,
+  faMastodon,
+  faTwitter,
+);
 
 export type Props = {
   name: IconName;
@@ -37,28 +56,32 @@ sizeMap.set('3xl', 'fa-3x');
 sizeMap.set('full', 'fa-5x');
 
 const Icon = ({
-                name,
-                prefix = 'fas',
-                className = '',
-                sizes = 'm',
-                faClasses = '',
-              }: Props) => {
-  const icon = fontAwesomeIcon(
-    {
-      prefix,
-      iconName: name,
-    },
-    {
-      classes: [faClasses, sizeMap.get(sizes) || ''],
-    }
-  ).abstract.shift();
+  name,
+  prefix = 'fas',
+  className = '',
+  sizes = 'm',
+  faClasses = '',
+}: Props) => {
+  try {
+    const icon = fontAwesomeIcon(
+      {
+        prefix,
+        iconName: name,
+      },
+      {
+        classes: [ faClasses, sizeMap.get(sizes) || '' ],
+      }
+    ).abstract.shift();
 
-  return (
-    <span
-      className={className}
-      dangerouslySetInnerHTML={{ __html: toHtml(icon) }}
-    />
-  );
+    return (
+      <span
+        className={ className }
+        dangerouslySetInnerHTML={ { __html: toHtml(icon) } }
+      />
+    );
+  } catch (error) {
+    throw new Error(`Icon "${ name }" not found.`);
+  }
 };
 
 export default Icon;

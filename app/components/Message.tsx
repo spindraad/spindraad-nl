@@ -10,7 +10,7 @@ export default function Message({ children, variant, id }: Props) {
 
   let variantClasses = 'bg-deep-blue/90 border-deep-blue text-crisp-white';
   if (variant === 'success') {
-    variantClasses = 'bg-green-200 border-green-300 text-green-800';
+    variantClasses = 'bg-green-50 border-green-300 text-green-800';
   }
 
   if (variant === 'neutral') {
@@ -18,7 +18,7 @@ export default function Message({ children, variant, id }: Props) {
   }
 
   if (variant === 'error') {
-    variantClasses = 'bg-red-200 border-red-300 text-red-800';
+    variantClasses = 'bg-red-50 border-red-300 text-red-800';
   }
 
   if (variant === 'outline') {

@@ -16,18 +16,20 @@
     "sui": "shadcn-ui",
     "sui:add": "shadcn-ui add -y",
     "sui:diff": "shadcn-ui diff",
-    "generate": "plop component --"
+    "generate": "plop component --",
+    "test": "vitest"
   },
   "dependencies": {
+    "@awesome.me/kit-feaffe80b3": "^1.0.7",
     "@fontsource-variable/chivo": "^5.0.14",
     "@fontsource-variable/manrope": "^5.0.20",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
-    "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
-    "@remix-run/node": "^2.9.2",
-    "@remix-run/react": "^2.9.2",
-    "@remix-run/serve": "^2.9.2",
+    "@remix-run/node": "^2.10.2",
+    "@remix-run/react": "^2.10.2",
+    "@remix-run/serve": "^2.10.2",
+    "@sendgrid/mail": "^8.1.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "isbot": "^4.1.0",
@@ -40,8 +42,8 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.5.0",
-    "@remix-run/dev": "^2.9.2",
-    "@remix-run/testing": "^2.9.2",
+    "@remix-run/dev": "^2.10.2",
+    "@remix-run/testing": "^2.10.2",
     "@storybook/addon-essentials": "^8.1.6",
     "@storybook/addon-interactions": "^8.1.6",
     "@storybook/addon-links": "^8.1.6",
@@ -68,7 +70,8 @@
     "tailwindcss": "^3.4.4",
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vite-tsconfig-paths": "^4.2.1",
+    "vitest": "^1.6.0"
   },
   "engines": {
     "node": ">=18.0.0"

@@ -1,12 +1,11 @@
-import type { MetaFunction } from '@remix-run/node';
-// import { Label } from "~/components/ui/label"
-// import { Button } from "~/components/ui/button"
+import { type MetaFunction } from '@remix-run/node';
 import Header from '~/components/Header';
 import Hero from '~/components/Hero';
 import Services from '~/components/Services';
 import Portfolio from '~/components/Portfolio';
 import Customers from '~/components/Customers';
 import Contact from '~/components/Contact';
+import Footer from '~/components/Footer';
 
 export const meta: MetaFunction = () => {
   return [
@@ -26,6 +25,7 @@ export default function Component() {
         <Customers/>
         <Contact/>
       </main>
+      <Footer/>
     </div>
   );
 }
