@@ -11,6 +11,7 @@ export const meta: MetaFunction = () => {
   return [
     { title: "spindraad" },
     { name: "description", content: "Spindraad bouwt de beste web applicaties." },
+    { name: 'theme-color', content: '#ff7043'}
   ];
 };
 
@@ -20,12 +21,22 @@ export default function Component() {
       <Header/>
       <main className="flex-1">
         <Hero/>
-        <Services/>
-        <Portfolio/>
+
+        <div className="border-8 border-b-0 border-t-0 border-accent-orange">
+          <Services/>
+          <Portfolio/>
+        </div>
+
         <Customers/>
-        <Contact/>
+
+        <div className="border-8 border-b-0 border-t-0 border-accent-orange">
+          <Contact/>
+        </div>
       </main>
-      <Footer/>
+
+      <div className="border-8 border-t-0 border-accent-orange">
+        <Footer/>
+      </div>
     </div>
   );
 }
