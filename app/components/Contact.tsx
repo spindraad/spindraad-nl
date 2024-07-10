@@ -111,7 +111,7 @@ export default function Contact() {
                 <Button type="submit" className="mt-2 w-full">
                   <Icon name={ isSubmitting ? 'stroopwafel' : 'paper-plane' }
                         className={ `mr-2 ${ isSubmitting ? 'animate-spin' : '' }` }/>
-                  Submit
+                  Indienen
                 </Button>
               </fetcher.Form>
             </div>
