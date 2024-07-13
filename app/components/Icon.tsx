@@ -5,17 +5,17 @@ import {
   toHtml,
 } from '@fortawesome/fontawesome-svg-core';
 import {
-  faMedal,
   faLaptopCode,
   faUsersRectangle,
   faMobileAlt,
-  faChartLine,
   faScrewdriverWrench,
   faLink,
   faSearch,
-  faStroopwafel,
+} from '@awesome.me/kit-feaffe80b3/icons/classic/light';
+import {
   faPaperPlane,
   faCopyright,
+  faStroopwafel,
 } from '@awesome.me/kit-feaffe80b3/icons/classic/solid';
 import {
   faMastodon,
@@ -23,11 +23,9 @@ import {
 } from '@awesome.me/kit-feaffe80b3/icons/classic/brands';
 
 library.add(
-  faMedal,
   faLaptopCode,
   faUsersRectangle,
   faMobileAlt,
-  faChartLine,
   faScrewdriverWrench,
   faLink,
   faSearch,
@@ -41,7 +39,7 @@ library.add(
 export type Props = {
   name: IconName;
   className?: React.HTMLAttributes<HTMLSpanElement>['className'];
-  prefix?: Extract<IconPrefix, 'fas' | 'fab' | 'far'>;
+  prefix?: IconPrefix;
   sizes?: 's' | 'm' | 'l' | 'xl' | '2xl' | '3xl' | 'full';
   faClasses?: string;
 };

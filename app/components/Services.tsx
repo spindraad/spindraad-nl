@@ -3,18 +3,13 @@ import Icon, { Props as IconProps } from '~/components/Icon';
 
 const services: ServiceItemProps[] = [
   {
-    title: 'Webontwikkeling op maat',
-    description: 'Het ontwerpen en ontwikkelen van op maat gemaakte websites en webapplicaties die specifiek zijn afgestemd op de behoeften en doelstellingen van jouw bedrijf.',
-    icon: 'medal',
-  },
-  {
-    title: 'Interactieve webapplicaties',
-    description: 'Ontwerp en ontwikkeling van op maat gemaakte, interactieve webapplicaties die naadloos functioneren op alle moderne browsers en apparaten.',
+    title: 'Interactieve websites en -applicaties',
+    description: 'Het ontwerpen en ontwikkelen van op maat gemaakte interactieve webapplicaties of websites die specifiek zijn afgestemd op de behoeften en doelstellingen van jouw bedrijf.',
     icon: 'laptop-code',
   },
   {
-    title: 'Gebruiksvriendelijkheid',
-    description: 'Het creëren van intuïtieve en gebruiksvriendelijke interfaces die de gebruikerservaring verbeteren en zorgen voor een hogere betrokkenheid en conversie',
+    title: 'Gebruiksvriendelijkheid en toegankelijkheid',
+    description: 'Het creëren van intuïtieve en gebruiksvriendelijke interfaces die voor iedereen toegankelijk zijn en zorgen voor een hogere betrokkenheid en conversie.',
     icon: 'users-rectangle',
   },
   {
@@ -23,18 +18,13 @@ const services: ServiceItemProps[] = [
     icon: 'search',
   },
   {
-    title: 'Digitale strategie',
-    description: 'Het ontwikkelen van een digitale strategie die aansluit bij de doelstellingen van jouw bedrijf en helpt om jouw online aanwezigheid te versterken.',
-    icon: 'chart-line',
-  },
-  {
     title: 'Responsief ontwerp',
-    description: 'Creëren van visueel aantrekkelijke en functioneel responsieve websites die de gebruikerservaring op zowel desktops als mobiele apparaten optimaliseren.',
+    description: 'Creëren van visueel aantrekkelijke en functioneel responsieve websites die naadloos functioneren op alle moderne browsers en apparaten.',
     icon: 'mobile-alt',
   },
   {
-    title: 'Beheer en onderhoud',
-    description: 'Het bieden van doorlopende ondersteuning en onderhoud voor webapplicaties om de prestaties, veiligheid en stabiliteit te garanderen.',
+    title: 'Beheer, onderhoud en hosting',
+    description: 'Het bieden van doorlopende ondersteuning en onderhoud voor webapplicaties om de prestaties, veiligheid en stabiliteit te garanderen. Ook kunnen we helpen met het hosten van je webapplicatie of website.',
     icon: 'screwdriver-wrench'
   },
   {
@@ -81,7 +71,7 @@ function ServiceItem({ title, description, icon }: ServiceItemProps) {
     <div
       className="flex flex-col items-center justify-center space-y-4 border border-vibrant-teal bg-transparent rounded-lg p-4 group transition-all">
       <div className="bg-vibrant-teal text-crisp-white rounded-full h-12 w-12 flex place-content-center place-items-center">
-        <Icon name={ icon } sizes="l" />
+        <Icon prefix="fal" name={ icon } sizes="l" />
       </div>
       <div className="space-y-2 text-center">
         <h3 className="text-lg font-bold">{ title }</h3>
