@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <div className="grid grid-cols-3 px-24 py-12">
       <div>
-        <Anchor className="text-xl" href="mailto:hallo@spindraad.nl">hallo@spindraad.nl</Anchor>
+        <Anchor className="text-xl text-deep-blue font-bold" href="mailto:hallo@spindraad.nl">hallo@spindraad.nl</Anchor>
 
         <p className="mt-2">
           Torenallee 36-40<br/>
@@ -24,7 +24,7 @@ export default function Footer() {
       <div className="text-right flex justify-between gap-12">
         <Navigation orientation="vertical" size="md" gap="sm" />
 
-        <ul className="text-left space-y-4">
+        <ul className="text-left space-y-4 font-thin">
           <li>
             <Anchor className="space-x-2" rel="me noopener noreferrer" href="https://mastodon.social/@spindraad" target="_blank">
               <Icon prefix="fab" name="mastodon"/> Mastodon

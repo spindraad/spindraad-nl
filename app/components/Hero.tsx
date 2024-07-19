@@ -1,4 +1,5 @@
 import Pill from '~/components/Pill';
+import SpindraadCaption from '~/components/SpindraadCaption';
 
 export default function Hero() {
   return <section
@@ -13,7 +14,7 @@ export default function Hero() {
         </Pill>
       </div>
       <p className="max-w-4xl mx-auto text-gray-200 md:text-2xl">
-        <span className="text-deep-blue font-chivo">spindraad</span> is een full-service webbureau dat zich
+        <SpindraadCaption /> is een full-service webbureau dat zich
         specialiseert in het bouwen van prachtige, gebruiksvriendelijke websites en webapplicaties.
       </p>
     </div>

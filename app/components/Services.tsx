@@ -1,5 +1,6 @@
 import Pill from '~/components/Pill';
 import Icon, { Props as IconProps } from '~/components/Icon';
+import SpindraadCaption from '~/components/SpindraadCaption';
 
 const services: ServiceItemProps[] = [
   {
@@ -45,7 +46,7 @@ export default function Services() {
           </h2>
           <p
             className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-            Van strategie en ontwerp tot ontwikkeling en implementatie, spindraad biedt een uitgebreid pakket aan
+            Van strategie en ontwerp tot ontwikkeling en implementatie, <SpindraadCaption /> biedt een uitgebreid pakket aan
             diensten om je digitale aanwezigheid naar een hoger niveau te tillen.
           </p>
         </div>

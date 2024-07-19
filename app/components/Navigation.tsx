@@ -12,17 +12,17 @@ export default function Navigation({ orientation = 'horizontal', size = 'sm', ga
   const orientationClass = orientation === 'horizontal' ? 'flex-row' : 'flex-col';
 
   return (
-    <nav className={ `ml-auto flex ${gapSize} ${orientationClass} items-center` }>
-      <Anchor font="body" href="#diensten" className={fontSize}>
+    <nav className={ `ml-auto flex ${gapSize} ${orientationClass} items-center font-manrope font-thin` }>
+      <Anchor href="#diensten" className={fontSize}>
         Diensten
       </Anchor>
-      <Anchor font="body" href="#portfolio" className={fontSize}>
+      <Anchor href="#portfolio" className={fontSize}>
         Portfolio
       </Anchor>
-      <Anchor font="body" href="#klanten" className={fontSize}>
+      <Anchor href="#klanten" className={fontSize}>
         Klanten
       </Anchor>
-      <Anchor font="body" href="#contact" className={fontSize}>
+      <Anchor href="#contact" className={fontSize}>
         Contact
       </Anchor>
     </nav>

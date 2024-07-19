@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import Message from '~/components/Message';
 import { ContactFormValues, ContactFormErrors } from '~/validations/contactform';
 import { ActionData } from '~/types/ActionData';
+import SpindraadCaption from '~/components/SpindraadCaption';
 
 export type ContactFormActionData = ActionData<ContactFormValues, ContactFormErrors>;
 
@@ -41,11 +42,12 @@ export default function Contact() {
           <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Wat wordt je volgende project?</h2>
           <p
             className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-            spindraad creëert verbluffende, hoogpresterende webervaringen die je publiek betoveren en resultaten
+            <SpindraadCaption /> creëert verbluffende, hoogpresterende
+            webervaringen die je publiek betoveren en resultaten
             opleveren. Laten we samenwerken om je volgende project tot leven te brengen.
           </p>
           <p className="italic text-sm text-gray-500">
-            Alle velden zijn verplicht.
+          Alle velden zijn verplicht.
           </p>
         </div>
 
