@@ -1,5 +1,6 @@
 import Pill from '~/components/Pill';
 import drakenfruitLogo from '~/assets/images/drakenfruit-logo.png';
+import watershedLogo from '~/assets/images/watershed-logo.png';
 
 export default function Customers() {
   return <section id="klanten" className="w-full py-12 md:py-24 lg:py-32 bg-vibrant-teal">
@@ -14,13 +15,14 @@ export default function Customers() {
         </p>
       </div>
       <div className="grid w-full grid-cols-2 items-center justify-center gap-6 md:grid-cols-3 lg:gap-12">
-        {Array.from({ length: 6 }).map((_, index) => (
-          <CustomerItem
-            key={index}
-            logo={drakenfruitLogo}
-            customer="Drakenfruit"
-          />
-        ))}
+        <CustomerItem
+          logo={drakenfruitLogo}
+          customer="Drakenfruit"
+        />
+        <CustomerItem
+          logo={watershedLogo}
+          customer="Watershed"
+        />
       </div>
     </div>
   </section>;
@@ -33,11 +35,11 @@ type CustomerItemProps = {
 
 function CustomerItem({ logo, customer }: CustomerItemProps) {
   return (
-    <figure className="group">
+    <figure className="group h-52">
       <img
         src={ logo }
         alt={customer}
-        className="aspect-[2/1] overflow-hidden rounded-lg object-contain object-center grayscale scale-95 transition-all transform group-hover:scale-100 group-hover:grayscale-0"
+        className="aspect-square h-52 mx-auto overflow-hidden rounded-lg object-contain object-center grayscale scale-95 transition-all transform group-hover:scale-100 group-hover:grayscale-0"
       />
       <figcaption className="text-center font-chivo font-bold">{customer}</figcaption>
     </figure>

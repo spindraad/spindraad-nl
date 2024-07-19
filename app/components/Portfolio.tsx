@@ -1,22 +1,18 @@
 import Pill from '~/components/Pill';
 
-import img from '~/assets/images/ilya-pavlov-OqtafYT5kTw-unsplash.jpg';
+import drakenfruitLogo from '~/assets/images/drakenfruit-logo.png';
+import watershedLogo from '~/assets/images/watershed-logo.png';
 
 const items: PortfolioItemProps[] = [
   {
     title: 'Drakenfruit Portaal',
     description: 'Een gebruikersportaal voor de klanten van Drakenfruit, waar ze een toegang hebben tot hun projecten en een schat aan informatie tot hun beschikking hebben.',
-    image: img,
+    image: drakenfruitLogo,
   },
   {
     title: 'Watershed',
     description: 'Een erg dynamische en interactieve website voor Watershed, waar mensen informatie kunnen vinden over de projecten en de organisatie en tickets kunnen kopen voor lezingen en evenementen.',
-    image: img,
-  },
-  {
-    title: 'Let\'s Leds',
-    description: 'Een webshop voor Let\'s Leds, waar ze hun producten kunnen verkopen en klanten kunnen informeren over de voordelen van LED-verlichting.',
-    image: img,
+    image: watershedLogo,
   }
 ];
 
@@ -33,7 +29,7 @@ export default function Portfolio() {
           resultaten hebben geboekt voor onze klanten.
         </p>
       </div>
-      <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 justify-center">
         { items.map((item, index) => (
           <PortfolioItem key={ index } { ...item } />
         )) }
@@ -53,10 +49,10 @@ function PortfolioItem({ title, description, image }: PortfolioItemProps) {
   return (
     <div className="rounded-xl overflow-hidden">
       <img
-        src={ img }
+        src={ image }
         height="300"
         alt="Portfolio Item"
-        className="aspect-[4/3] object-cover"
+        className="aspect-[4/3] object-cover w-full"
       />
       <div className="p-4 bg-soft-gray dark:bg-gray-800 h-full">
         <h3 className="text-lg font-bold">{ title }</h3>
