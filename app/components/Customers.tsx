@@ -2,7 +2,7 @@ import Pill from '~/components/Pill';
 import drakenfruitLogo from '~/assets/images/drakenfruit-logo.png';
 
 export default function Customers() {
-  return <section id="clients" className="w-full py-12 md:py-24 lg:py-32 bg-vibrant-teal">
+  return <section id="klanten" className="w-full py-12 md:py-24 lg:py-32 bg-vibrant-teal">
     <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 lg:gap-10">
       <div className="space-y-3">
         <Pill color="crisp-white">Onze Klanten</Pill>
