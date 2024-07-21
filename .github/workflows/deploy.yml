@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           cache: npm
-          node-version: 18
+          node-version: 20
 
       - name: 📥 Install deps
         run: npm ci
@@ -52,10 +52,10 @@ jobs:
           cmd: 'jq .version package.json -r'
 
       - name: Extract repository from values.yaml
-        uses: sergeysova/jq-action@v2
+        uses: mikefarah/yq@v4.44.2
         id: repository
         with:
-          cmd: 'jq .image.repository values.yaml -r'
+          cmd: 'yq .image.repository values.yaml'
 
       - name: Build container image
         run: docker build -t $(echo ${{steps.repository.outputs.value }}):$(echo ${{ steps.version.outputs.value }}) -t $(echo ${{steps.repository.outputs.value }}):latest .
