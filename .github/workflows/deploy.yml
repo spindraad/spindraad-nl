@@ -55,7 +55,7 @@ jobs:
         uses: mikefarah/yq@v4.44.2
         id: repository
         with:
-          cmd: 'yq .image.repository values.yaml'
+          cmd: "yq '.app.image.repository' values.yaml"
 
       - name: Build container image
         run: docker build -t $(echo ${{steps.repository.outputs.value }}):$(echo ${{ steps.version.outputs.value }}) -t $(echo ${{steps.repository.outputs.value }}):latest .
