@@ -1,0 +1,99 @@
+name: 🚀 Launch
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    name: 🏗️ Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          cache: npm
+          node-version: 18
+
+      - name: 📥 Install deps
+        run: npm ci
+        env:
+          FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+
+      - name: 🏗️ Build
+        run: npm run build
+
+  docker:
+    name: 🐳 Docker
+    runs-on: ubuntu-latest
+    needs: [ build ]
+
+    # only build/deploy main branch on pushes
+    if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
+
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: 🐳 Install DigitalOcean CLI
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      - name: Extract version from package.json
+        uses: sergeysova/jq-action@v2
+        id: version
+        with:
+          cmd: 'jq .version package.json -r'
+
+      - name: Extract repository from values.yaml
+        uses: sergeysova/jq-action@v2
+        id: repository
+        with:
+          cmd: 'jq .image.repository values.yaml -r'
+
+      - name: Build container image
+        run: docker build -t $(echo ${{steps.repository.outputs.value }}):$(echo ${{ steps.version.outputs.value }}) -t $(echo ${{steps.repository.outputs.value }}):latest .
+
+      - name: Log in to DigitalOcean Container Registry with short-lived credentials
+        run: doctl registry login --expiry-seconds 1200
+
+      - name: Push image to DigitalOcean Container Registry
+        run: docker push $(echo ${{steps.repository.outputs.value }}) --all-tags
+
+  deploy:
+    name: 🚀 Deploy
+    runs-on: ubuntu-latest
+    needs: [ docker ]
+
+    # only build/deploy main branch on pushes
+    if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
+
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Extract version from package.json
+        uses: sergeysova/jq-action@v2
+        id: version
+        with:
+          cmd: 'jq .version package.json -r'
+
+      - name: ☸️ Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3
+
+      - name: ☸️ Set Kubernetes config
+        run: |
+          echo "${{ secrets.KUBE_CONFIG }}" > kubeconfig
+          export KUBECONFIG=./kubeconfig
+
+      - name: 🚀 Deploy to Kubernetes
+        run: |
+          helm upgrade --install spindraad-nl . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }})

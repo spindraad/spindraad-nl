@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.app.name }}-ingress
+  namespace: {{ .Values.app.namespace }}
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.app.domain }}
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls.certresolver: myresolver
+    traefik.ingress.kubernetes.io/router.tls: "true"
+  labels:
+    app: {{ .Values.app.name }}
+spec:
+  rules:
+    - host: {{ .Values.app.domain }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.app.name }}
+                port:
+                  number: 80
+    - host: spindraad.nl
+      http:
+        paths:
+            - path: /
+              pathType: Prefix
+              backend:
+                service:
+                  name: {{ .Values.app.name }}
+                  port:
+                    number: 80
+  tls:
+    - hosts:
+        - {{ .Values.app.domain }}
+        - spindraad.nl
