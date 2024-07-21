@@ -44,7 +44,7 @@ jobs:
         run: ls -la
 
       - name: echo repo
-        uses: mikefarah/yq@4.44.2
+        uses: mikefarah/yq@v4.44.2
         with:
           cmd: "yq .app.image.repository values.yaml"
 
