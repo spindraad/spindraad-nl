@@ -59,6 +59,8 @@ jobs:
 
       - name: Build container image
         run: docker build -t $(echo ${{steps.repository.outputs.result }}):$(echo ${{ steps.version.outputs.value }}) -t $(echo ${{steps.repository.outputs.result }}):latest .
+        env:
+          FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
 
       - name: Log in to DigitalOcean Container Registry with short-lived credentials
         run: doctl registry login --expiry-seconds 1200
