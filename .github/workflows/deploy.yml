@@ -43,6 +43,12 @@ jobs:
       - name: List dir
         run: ls -la
 
+      - name: echo repo
+        uses: mikefarah/yq@4.44.2
+        with:
+          cmd: "yq .app.image.repository values.yaml"
+
+
       - name: 🐳 Install DigitalOcean CLI
         uses: digitalocean/action-doctl@v2
         with:
@@ -59,6 +65,9 @@ jobs:
         id: repository
         with:
           cmd: "yq '.app.image.repository' values.yaml"
+
+      - name: Print repository
+        run: echo ${{ steps.repository.outputs.value }}
 
       - name: Build container image
         run: docker build -t $(echo ${{steps.repository.outputs.value }}):$(echo ${{ steps.version.outputs.value }}) -t $(echo ${{steps.repository.outputs.value }}):latest .
