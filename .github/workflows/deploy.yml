@@ -40,6 +40,9 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
 
+      - name: List dir
+        run: ls -la
+
       - name: 🐳 Install DigitalOcean CLI
         uses: digitalocean/action-doctl@v2
         with:
