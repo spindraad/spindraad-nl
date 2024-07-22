@@ -9,6 +9,8 @@ FROM base as deps
 
 WORKDIR /app
 
+RUN env
+
 ADD package.json package-lock.json .npmrc ./
 RUN npm install --include=dev
 
