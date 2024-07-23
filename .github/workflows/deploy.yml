@@ -97,6 +97,13 @@ jobs:
         with:
           cmd: 'jq .version package.json -r'
 
+      - name: Show extracted values
+        run: |
+          echo "Version: ${{ steps.version.outputs.value }}"
+          echo "Repository: ${{ steps.repository.outputs.result }}"
+          echo "Appname: ${{ steps.appname.outputs.result }}"
+          echo "Name": ${{ steps.name.outputs.result }}
+
       - name: 🚀 Deploy to cluster
         uses: wahyd4/kubectl-helm-action@v0.1.2
         with:
