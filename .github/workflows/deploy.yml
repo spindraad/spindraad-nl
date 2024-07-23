@@ -99,7 +99,8 @@ jobs:
 
       - name: 🚀 Deploy to cluster
         uses: wahyd4/kubectl-helm-action@v0.1.2
-        run: |
-          helm upgrade --install $(echo ${{ steps.name.outputs.result }}) . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }})
+        with:
+          args:
+            helm upgrade --install $(echo ${{ steps.name.outputs.result }}) . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }})
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_BASE64 }}
