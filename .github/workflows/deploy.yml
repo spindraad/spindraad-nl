@@ -94,7 +94,7 @@ jobs:
       - name: ☸️ Install Helm
         uses: Azure/setup-helm@v4.2.0
         with:
-          version: v3
+          version: "v3.13.3"
 
       - name: ☸️ Set Kubernetes config
         run: |
