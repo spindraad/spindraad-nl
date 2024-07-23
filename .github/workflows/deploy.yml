@@ -107,6 +107,6 @@ jobs:
         uses: wahyd4/kubectl-helm-action@v0.1.2
         with:
           args:
-            helm upgrade --install $(echo ${{ steps.appname.outputs.result }}) . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }}) --create-namespace
+            helm upgrade --install $(echo ${{ steps.appname.outputs.result }}) . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }}) --namespace=$(echo ${{ steps.namespace.outputs.result }}) --create-namespace
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_BASE64 }}
