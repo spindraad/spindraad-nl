@@ -17,7 +17,7 @@
     "sui": "shadcn-ui",
     "sui:add": "shadcn-ui add -y",
     "sui:diff": "shadcn-ui diff",
-    "generate": "plop component --",
+    "generate": "templates/plop-templates component --",
     "test": "vitest"
   },
   "dependencies": {

@@ -26,8 +26,8 @@ export default function (plop) {
       {
         type: 'addMany',
         destination: 'app/components',
-        templateFiles: 'templates/plop/component/**',
-        base: 'templates/plop/component',
+        templateFiles: 'plop-templates/plop/component/**',
+        base: 'plop-templates/plop/component',
       },
     ],
   });
