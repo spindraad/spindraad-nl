@@ -65,7 +65,7 @@ jobs:
 
       - name: Extract app name from values.yaml
         uses: mikefarah/yq@v4.44.2
-        id: name
+        id: appname
         with:
           cmd: "yq .app.name values.yaml"
 
@@ -101,6 +101,6 @@ jobs:
         uses: wahyd4/kubectl-helm-action@v0.1.2
         with:
           args:
-            helm upgrade --install $(echo ${{ steps.name.outputs.result }}) . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }})
+            helm upgrade --install $(echo ${{ steps.appname.outputs.result }}) . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }})
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_BASE64 }}
