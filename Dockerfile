@@ -10,9 +10,12 @@ FROM base as deps
 WORKDIR /app
 
 RUN --mount=type=secret,id=FONT_AWESOME_TOKEN \
-    FONT_AWESOME_TOKEN=$(cat /run/secrets/FONT_AWESOME_TOKEN)
+    export FONT_AWESOME_TOKEN=$(cat /run/secrets/FONT_AWESOME_TOKEN) && \
+    echo "//npm.fontawesome.com/:_authToken=${FONT_AWESOME_TOKEN}" > .npmrc \
+    && echo "@fortawesome:registry=https://npm.fontawesome.com/" >> .npmrc \
+    && echo "@awesome.me:registry=https://npm.fontawesome.com/" >> .npmrc
 
-ADD package.json package-lock.json .npmrc ./
+ADD package.json package-lock.json ./
 RUN npm install --include=dev
 
 # Setup production node_modules
