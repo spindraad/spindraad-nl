@@ -63,12 +63,6 @@ jobs:
         with:
           cmd: "yq .app.image.repository values.yaml"
 
-      - name: Extract app name from values.yaml
-        uses: mikefarah/yq@v4.44.2
-        id: appname
-        with:
-          cmd: "yq .app.name values.yaml"
-
       - name: Build container image
         uses: docker/build-push-action@v6
         with:
@@ -97,12 +91,11 @@ jobs:
         with:
           cmd: 'jq .version package.json -r'
 
-      - name: Show extracted values
-        run: |
-          echo "Version: ${{ steps.version.outputs.value }}"
-          echo "Repository: ${{ steps.repository.outputs.result }}"
-          echo "Appname: ${{ steps.appname.outputs.result }}"
-          echo "Name": ${{ steps.name.outputs.result }}
+      - name: Extract app name from values.yaml
+        uses: mikefarah/yq@v4.44.2
+        id: appname
+        with:
+          cmd: "yq .app.name values.yaml"
 
       - name: 🚀 Deploy to cluster
         uses: wahyd4/kubectl-helm-action@v0.1.2
