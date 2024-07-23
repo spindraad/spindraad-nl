@@ -58,7 +58,7 @@ jobs:
           cmd: "yq .app.image.repository values.yaml"
 
       - name: Build container image
-        run: docker build --secret id=TEST,env=${{ TEST }} -t $(echo ${{steps.repository.outputs.result }}):$(echo ${{ steps.version.outputs.value }}) -t $(echo ${{steps.repository.outputs.result }}):latest .
+        run: docker build --secret id=TEST,env=$(echo $TEST) -t $(echo ${{steps.repository.outputs.result }}):$(echo ${{ steps.version.outputs.value }}) -t $(echo ${{steps.repository.outputs.result }}):latest .
         env:
           TEST: 'Hello World!'
 
