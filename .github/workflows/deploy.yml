@@ -97,10 +97,19 @@ jobs:
         with:
           cmd: "yq .app.name values.yaml"
 
+      - name: Extract namespace from values.yaml
+        uses: mikefarah/yq@v4.44.2
+        id: namespace
+        with:
+          cmd: "yq .app.namespace values.yaml"
+
       - name: 🚀 Deploy to cluster
         uses: wahyd4/kubectl-helm-action@v0.1.2
         with:
           args:
-            helm upgrade --install $(echo ${{ steps.appname.outputs.result }}) . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }})
+            helm upgrade --install $(echo ${{ steps.appname.outputs.result }}) . \
+            --set appVersion=$(echo ${{ steps.version.outputs.value }}) \
+            --set image.tag=$(echo ${{ steps.version.outputs.value }}) \
+            --create-namespace
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_BASE64 }}
