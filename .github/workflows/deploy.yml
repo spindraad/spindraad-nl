@@ -58,7 +58,9 @@ jobs:
           cmd: "yq .app.image.repository values.yaml"
 
       - name: Build container image
-        run: docker build --secret id=FONT_AWESOME_TOKEN,env=${{ secrets.FONT_AWESOME_TOKEN }} -t $(echo ${{steps.repository.outputs.result }}):$(echo ${{ steps.version.outputs.value }}) -t $(echo ${{steps.repository.outputs.result }}):latest .
+        run: docker build --secret id=TEST,env=${{ TEST }} -t $(echo ${{steps.repository.outputs.result }}):$(echo ${{ steps.version.outputs.value }}) -t $(echo ${{steps.repository.outputs.result }}):latest .
+        env:
+          TEST: 'Hello World!'
 
       - name: Log in to DigitalOcean Container Registry with short-lived credentials
         run: doctl registry login --expiry-seconds 1200
