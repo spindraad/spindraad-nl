@@ -51,11 +51,6 @@ jobs:
           password: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
           logout: true
 
-#      - name: 🐳 Install DigitalOcean CLI
-#        uses: digitalocean/action-doctl@v2
-#        with:
-#          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-#
       - name: Extract version from package.json
         uses: sergeysova/jq-action@v2
         id: version
@@ -77,15 +72,6 @@ jobs:
           push: true
           secrets: |
             FONT_AWESOME_TOKEN=${{ secrets.FONT_AWESOME_TOKEN }}
-#
-#      - name: Build container image
-#        run: docker build --secret id=FONT_AWESOME_TOKEN,env=${{ secrets.FONT_AWESOME_TOKEN }} -t $(echo ${{steps.repository.outputs.result }}):$(echo ${{ steps.version.outputs.value }}) -t $(echo ${{steps.repository.outputs.result }}):latest .
-#
-#      - name: Log in to DigitalOcean Container Registry with short-lived credentials
-#        run: doctl registry login --expiry-seconds 1200
-#
-#      - name: Push image to DigitalOcean Container Registry
-#        run: docker push $(echo ${{steps.repository.outputs.value }}) --all-tags
 
   deploy:
     name: 🚀 Deploy
@@ -106,7 +92,7 @@ jobs:
           cmd: 'jq .version package.json -r'
 
       - name: ☸️ Install Helm
-        uses: azure/setup-helm@v1
+        uses: Azure/setup-helm@v4.2.0
         with:
           version: v3
 
