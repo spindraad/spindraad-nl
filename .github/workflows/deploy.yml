@@ -63,6 +63,12 @@ jobs:
         with:
           cmd: "yq .app.image.repository values.yaml"
 
+      - name: Extract app name from values.yaml
+        uses: mikefarah/yq@v4.44.2
+        id: name
+        with:
+          cmd: "yq .app.name values.yaml"
+
       - name: Build container image
         uses: docker/build-push-action@v6
         with:
@@ -91,11 +97,9 @@ jobs:
         with:
           cmd: 'jq .version package.json -r'
 
-      - name: ☸️ Install Helm
-        uses: Azure/setup-helm@v4.2.0
-
-      - name: 🚀 Deploy to Kubernetes
+      - name: 🚀 Deploy to cluster
+        uses: wahyd4/kubectl-helm-action@v0.1.2
         run: |
-          helm upgrade --install spindraad-nl . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }})
+          helm upgrade --install $(echo ${{ steps.name.outputs.result }}) . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }})
         env:
-          KUBECONFIG: $(echo ${{ secrets.KUBE_CONFIG_BASE64 }} | base64 -d)
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_BASE64 }}
