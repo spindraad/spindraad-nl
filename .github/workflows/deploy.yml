@@ -76,7 +76,7 @@ jobs:
             ${{ steps.repository.outputs.result }}:latest
           push: true
           secrets: |
-            FONTAWESOME_NPM_TOKEN=${{ secrets.FONT_AWESOME_TOKEN }}
+            FONT_AWESOME_TOKEN=${{ secrets.FONT_AWESOME_TOKEN }}
 #
 #      - name: Build container image
 #        run: docker build --secret id=FONT_AWESOME_TOKEN,env=${{ secrets.FONT_AWESOME_TOKEN }} -t $(echo ${{steps.repository.outputs.result }}):$(echo ${{ steps.version.outputs.value }}) -t $(echo ${{steps.repository.outputs.result }}):latest .

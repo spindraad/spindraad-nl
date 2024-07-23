@@ -9,11 +9,8 @@ FROM base as deps
 
 WORKDIR /app
 
-RUN --mount=type=secret,id=FONTAWESOME_NPM_TOKEN \
-    FONTAWESOME_NPM_TOKEN=$(cat /run/secrets/FONTAWESOME_NPM_TOKEN) \
-    ls -la /run/secrets
-
-RUN env
+RUN --mount=type=secret,id=FONT_AWESOME_TOKEN \
+    FONT_AWESOME_TOKEN=$(cat /run/secrets/FONT_AWESOME_TOKEN)
 
 ADD package.json package-lock.json .npmrc ./
 RUN npm install --include=dev
