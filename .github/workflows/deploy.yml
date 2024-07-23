@@ -94,15 +94,8 @@ jobs:
       - name: ☸️ Install Helm
         uses: Azure/setup-helm@v4.2.0
 
-      - name: ☸️ Set Kubernetes config
-        run: |
-          echo "${{ secrets.KUBE_CONFIG }}" > kubeconfig
-          export KUBECONFIG=./kubeconfig
-        env:
-          KUBECONFIG: ${{ secrets.KUBE_CONFIG }}
-
       - name: 🚀 Deploy to Kubernetes
         run: |
           helm upgrade --install spindraad-nl . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }})
         env:
-          KUBECONFIG: ${{ secrets.KUBE_CONFIG }}
+          KUBECONFIG: $(echo ${{ secrets.KUBE_CONFIG_BASE64 }} | base64 -d)
