@@ -24,7 +24,7 @@ export async function action({ request }: ActionFunctionArgs) {
   const { values } = results;
 
   try {
-    await sendMail(values?.email, 'Contact formulier is ingevuld', values);
+    await sendMail('Contact formulier is ingevuld', values);
     return json<ContactFormActionData>(results, { status: 200 });
   }
   catch (error: unknown) {
