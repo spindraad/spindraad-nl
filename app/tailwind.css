@@ -4,11 +4,11 @@
 
 @layer base {
   :root {
-    --deep-blue: 0 51 102;
-    --vibrant-teal: 48 213 200;
-    --soft-gray: 244 244 244;
-    --crisp-white: 255 255 255;
-    --accent-orange: 255 112 67;
+    --deep-blue: 0 51 102; /* #003366 */
+    --vibrant-teal: 48 213 200; /* #30D5C8 */
+    --soft-gray: 244 244 244; /* #F4F4F4 */
+    --crisp-white: 255 255 255; /* #FFFFFF */
+    --accent-orange: 255 112 67; /* #FF7043 */
 
     --font-manrope: 'Manrope Variable', sans-serif;
     --font-chivo: 'Chivo Variable', sans-serif;

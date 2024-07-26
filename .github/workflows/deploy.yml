@@ -73,40 +73,40 @@ jobs:
           secrets: |
             FONT_AWESOME_TOKEN=${{ secrets.FONT_AWESOME_TOKEN }}
 
-  deploy:
-    name: 🚀 Deploy
-    runs-on: ubuntu-latest
-    needs: [ docker ]
-
-    # only build/deploy main branch on pushes
-    if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
-
-    steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Extract version from package.json
-        uses: sergeysova/jq-action@v2
-        id: version
-        with:
-          cmd: 'jq .version package.json -r'
-
-      - name: Extract app name from values.yaml
-        uses: mikefarah/yq@v4.44.2
-        id: appname
-        with:
-          cmd: "yq .app.name values.yaml"
-
-      - name: Extract namespace from values.yaml
-        uses: mikefarah/yq@v4.44.2
-        id: namespace
-        with:
-          cmd: "yq .app.namespace values.yaml"
-
-      - name: 🚀 Deploy to cluster
-        uses: wahyd4/kubectl-helm-action@v0.1.2
-        with:
-          args:
-            helm upgrade --install $(echo ${{ steps.appname.outputs.result }}) . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }}) --namespace=$(echo ${{ steps.namespace.outputs.result }}) --create-namespace
-        env:
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_BASE64 }}
+#  deploy:
+#    name: 🚀 Deploy
+#    runs-on: ubuntu-latest
+#    needs: [ docker ]
+#
+#    # only build/deploy main branch on pushes
+#    if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
+#
+#    steps:
+#      - name: ⬇️ Checkout repo
+#        uses: actions/checkout@v3
+#
+#      - name: Extract version from package.json
+#        uses: sergeysova/jq-action@v2
+#        id: version
+#        with:
+#          cmd: 'jq .version package.json -r'
+#
+#      - name: Extract app name from values.yaml
+#        uses: mikefarah/yq@v4.44.2
+#        id: appname
+#        with:
+#          cmd: "yq .app.name values.yaml"
+#
+#      - name: Extract namespace from values.yaml
+#        uses: mikefarah/yq@v4.44.2
+#        id: namespace
+#        with:
+#          cmd: "yq .app.namespace values.yaml"
+#
+#      - name: 🚀 Deploy to cluster
+#        uses: wahyd4/kubectl-helm-action@v0.1.2
+#        with:
+#          args:
+#            helm upgrade --install $(echo ${{ steps.appname.outputs.result }}) . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }}) --namespace=$(echo ${{ steps.namespace.outputs.result }}) --create-namespace
+#        env:
+#          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_BASE64 }}
