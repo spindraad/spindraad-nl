@@ -32,7 +32,7 @@ export default function Footer() {
       </div>
 
       <div className="text-right flex justify-between gap-12">
-        <Navigation orientation="vertical" size="md" gap="sm" />
+        <Navigation className="ml-auto" orientation="vertical" size="md" gap="sm" />
 
         <ul className="text-left space-y-4 font-thin">
           <li>

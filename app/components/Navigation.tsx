@@ -1,18 +1,19 @@
 import Anchor from './Anchor';
 
 type Props = {
+  className?: string;
   orientation?: 'horizontal' | 'vertical';
   size?: 'sm' | 'md';
   gap?: 'sm' | 'md';
 };
 
-export default function Navigation({ orientation = 'horizontal', size = 'sm', gap = 'md' }: Props) {
+export default function Navigation({ orientation = 'horizontal', size = 'sm', gap = 'md', className = '' }: Props) {
   const fontSize = size === 'sm' ? 'text-sm' : 'text-base';
   const gapSize = gap === 'sm' ? 'gap-1 sm:gap-3' : 'gap-4 sm:gap-6';
   const orientationClass = orientation === 'horizontal' ? 'flex-row' : 'flex-col';
 
   return (
-    <nav className={ `ml-auto flex ${gapSize} ${orientationClass} items-center font-manrope font-thin` }>
+    <nav className={ `${className} flex ${gapSize} ${orientationClass} items-center font-manrope font-thin` }>
       <Anchor href="#diensten" className={fontSize}>
         Diensten
       </Anchor>
