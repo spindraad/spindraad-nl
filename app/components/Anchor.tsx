@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { Link, LinkProps } from '@remix-run/react';
 
 interface BaseLinkProps {
@@ -15,7 +16,7 @@ interface ExternalLinkProps extends BaseLinkProps, Omit<React.DetailedHTMLProps<
 
 type Props = InternalLinkProps | ExternalLinkProps;
 
-export default function Anchor({ external, ...props }: Props) {
+const Anchor = forwardRef<HTMLAnchorElement, Props>(({ external, ...props }, ref) => {
   const classes = `border-b-2 border-crisp-white hover:border-accent-orange transition-colors`;
 
   if (external) {
@@ -23,6 +24,7 @@ export default function Anchor({ external, ...props }: Props) {
     const { className, href, children, ...linkProps } = props as ExternalLinkProps;
     return (
       <a
+        ref={ref}
         className={`${className ?? ''} ${classes}`}
         href={href}
         {...linkProps}
@@ -36,6 +38,7 @@ export default function Anchor({ external, ...props }: Props) {
   const { className, href, children, ...linkProps } = props as InternalLinkProps;
   return (
     <Link
+      ref={ref}
       className={`${className ?? ''} ${classes}`}
       to={href}
       {...linkProps}
@@ -43,4 +46,7 @@ export default function Anchor({ external, ...props }: Props) {
       {children}
     </Link>
   );
-}
+});
+Anchor.displayName = 'Anchor';
+
+export default Anchor;

@@ -1,12 +1,22 @@
 import Icon from '~/components/Icon';
 import Navigation from '~/components/Navigation';
 import Anchor from '~/components/Anchor';
+import { useEffect, useRef } from 'react';
 
 export default function Footer() {
+
+  const mailToRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    if (mailToRef.current) {
+      mailToRef.current.href = `mailto:hallo@spindraad.nl`;
+    }
+  }, [mailToRef]);
+
   return (
     <div className="grid grid-cols-3 px-24 py-12">
       <div>
-        <Anchor className="text-xl text-deep-blue font-bold" href="mailto:hallo@spindraad.nl">hallo@spindraad.nl</Anchor>
+        <Anchor ref={mailToRef} className="text-xl text-deep-blue font-bold" href="mailto:stake.metros_07@icloud.com">hallo@spindraad.nl</Anchor>
 
         <p className="mt-2">
           Torenallee 36-40<br/>
