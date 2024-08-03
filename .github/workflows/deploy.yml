@@ -103,6 +103,11 @@ jobs:
         with:
           cmd: "yq .app.namespace values.yaml"
 
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
       # Save the right kuberenetes context depending on the branch name
       - name: Save DigitalOcean kubeconfig for dev environment
         if: github.ref == 'refs/heads/dev'
