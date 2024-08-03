@@ -110,7 +110,7 @@ jobs:
 
       # Save the right kuberenetes context depending on the branch name
       - name: Save DigitalOcean kubeconfig for production environment
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 spindraad-app-cluster
 
       - name: 🚀 Deploy to cluster
