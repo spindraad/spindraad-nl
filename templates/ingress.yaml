@@ -6,8 +6,8 @@ metadata:
   annotations:
     external-dns.alpha.kubernetes.io/hostname: {{ .Values.app.domain }}
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.tls.certresolver: myresolver
     traefik.ingress.kubernetes.io/router.tls: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-issuer
   labels:
     app: {{ .Values.app.name }}
 spec:
@@ -22,17 +22,7 @@ spec:
                 name: {{ .Values.app.name }}
                 port:
                   number: 80
-    - host: spindraad.nl
-      http:
-        paths:
-            - path: /
-              pathType: Prefix
-              backend:
-                service:
-                  name: {{ .Values.app.name }}
-                  port:
-                    number: 80
   tls:
-    - hosts:
+    - secretName: {{ .Values.app.name }}-cert
+      hosts:
         - {{ .Values.app.domain }}
-        - spindraad.nl
