@@ -29,17 +29,18 @@ export const links: LinksFunction = () => [
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-      </body>
+    <head>
+      <meta charSet="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <Meta/>
+      <Links/>
+      <script defer data-domain="spindraad.nl" src="/js/script.js"></script>
+    </head>
+    <body>
+    { children }
+    <ScrollRestoration/>
+    <Scripts/>
+    </body>
     </html>
   );
 }
