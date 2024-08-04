@@ -22,7 +22,18 @@ spec:
                 name: {{ .Values.app.name }}
                 port:
                   number: 80
+    - host: {{ .Values.prod.domain }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.app.name }}
+                port:
+                  number: 80
   tls:
     - secretName: {{ .Values.app.name }}-cert
       hosts:
         - {{ .Values.app.domain }}
+        - {{ .Values.prod.domain }}

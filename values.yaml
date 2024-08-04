@@ -5,3 +5,5 @@ app:
   image:
     repository: registry.digitalocean.com/lodybo-registry/spindraad-nl
     tag: latest
+prod:
+  domain: spindraad.nl
