@@ -37,3 +37,4 @@ spec:
       hosts:
         - {{ .Values.app.domain }}
         - {{ .Values.prod.domain }}
+        - www.{{ .Values.prod.domain }}
