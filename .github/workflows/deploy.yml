@@ -120,15 +120,14 @@ jobs:
 
       - name: debug
         run: |
-          ls -la ~
-          ls -la ~/.kube
           test -s ~/.kube/config && echo "File has contents" || echo "File is empty"
           kubectl version
+          helm version
 
-      - name: 🚀 Deploy to cluster
-        uses: wahyd4/kubectl-helm-action@v0.1.2
-        with:
-          args:
-            helm upgrade --install $(echo ${{ steps.appname.outputs.result }}) . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }}) --namespace=$(echo ${{ steps.namespace.outputs.result }}) --create-namespace
-        env:
-          KUBE_CONFIG_DATA: $(cat ~/.kube/config | base64 -w 0)
+#      - name: 🚀 Deploy to cluster
+#        uses: wahyd4/kubectl-helm-action@v0.1.2
+#        with:
+#          args:
+#            helm upgrade --install $(echo ${{ steps.appname.outputs.result }}) . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }}) --namespace=$(echo ${{ steps.namespace.outputs.result }}) --create-namespace
+#        env:
+#          KUBE_CONFIG_DATA: $(cat ~/.kube/config | base64 -w 0)
