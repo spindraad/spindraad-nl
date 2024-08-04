@@ -53,3 +53,4 @@ spec:
     - secretName: {{ .Values.app.externalDomain }}-cert
       hosts:
         - {{ .Values.app.externalDomain }}
+        - www.{{ .Values.app.externalDomain }}
