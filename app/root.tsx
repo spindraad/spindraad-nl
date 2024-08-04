@@ -5,7 +5,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { LinksFunction } from '@remix-run/node';
+import { LinksFunction, MetaFunction } from '@remix-run/node';
 import stylesheet from "~/tailwind.css?url";
 import chivo from "@fontsource-variable/chivo?url";
 import manrope from "@fontsource-variable/manrope?url";
@@ -25,6 +25,14 @@ export const links: LinksFunction = () => [
     type: 'image/png',
   },
 ];
+
+export const meta: MetaFunction = () => ([
+  {
+    tag: 'link',
+    rel: 'canonical',
+    href: 'https://spindraad.nl',
+  }
+]);
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
