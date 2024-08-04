@@ -118,6 +118,13 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 spindraad-app-cluster
 
+      - name: debug
+        run: |
+          ls -la ~
+          ls -la ~/.kube
+          test -s ~/.kube/config && echo "File has contents" || echo "File is empty"
+          kubectl version
+
       - name: 🚀 Deploy to cluster
         uses: wahyd4/kubectl-helm-action@v0.1.2
         with:
