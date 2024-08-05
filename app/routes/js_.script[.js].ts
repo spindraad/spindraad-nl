@@ -7,7 +7,7 @@ export const loader = async () => {
   const script = await plausibleScriptData.text();
   const { status, headers } = plausibleScriptData;
 
-  headers.delete('content-encoding');
+  headers.set('content-encoding', 'gzip');
   return new Response(script, {
     status,
     headers,
