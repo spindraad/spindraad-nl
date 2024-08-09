@@ -15,9 +15,6 @@ RUN --mount=type=secret,id=FONT_AWESOME_TOKEN \
     && echo "@fortawesome:registry=https://npm.fontawesome.com/" >> .npmrc \
     && echo "@awesome.me:registry=https://npm.fontawesome.com/" >> .npmrc
 
-RUN --mount=type=secret,id=SENDGRID_API_KEY \
-    export SENDGRID_API_KEY=$(cat /run/secrets/SENDGRID_API_KEY)
-
 ADD package.json package-lock.json ./
 RUN npm install --include=dev
 
@@ -42,6 +39,9 @@ RUN npm run build
 
 # Finally, build the production image with minimal footprint
 FROM base
+
+RUN --mount=type=secret,id=SENDGRID_API_KEY \
+    export SENDGRID_API_KEY=$(cat /run/secrets/SENDGRID_API_KEY)
 
 WORKDIR /app
 
