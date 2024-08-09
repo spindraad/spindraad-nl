@@ -111,16 +111,16 @@ jobs:
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
-      # Save the right kuberenetes context depending on the branch name
+      # Save the right kubernetes context depending on the branch name
       - name: Save DigitalOcean kubeconfig for dev environment
         if: github.ref == 'refs/heads/dev'
         run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 spindraad-dev-cluster
 
-      # Save the right kuberenetes context depending on the branch name
+      # Save the right kubernetes context depending on the branch name
       - name: Save DigitalOcean kubeconfig for production environment
         if: github.ref == 'refs/heads/main'
         run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 spindraad-app-cluster
 
       - name: 🚀 Deploy to cluster
         run:
-          helm upgrade --install $(echo ${{ steps.appname.outputs.result }}) . --set appVersion=$(echo ${{ steps.version.outputs.value }}) --set image.tag=$(echo ${{ steps.version.outputs.value }}) --namespace=$(echo ${{ steps.namespace.outputs.result }}) --create-namespace
+          helm upgrade --install $(echo ${{ steps.appname.outputs.result }}) . --set app.image.tag=$(echo ${{ steps.version.outputs.value }}) --namespace=$(echo ${{ steps.namespace.outputs.result }}) --create-namespace
