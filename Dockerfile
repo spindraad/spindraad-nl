@@ -1,11 +1,11 @@
 # base node image
-FROM --platform=linux/amd64 node:18-bullseye-slim as base
+FROM node:20-bullseye-slim AS base
 
 # set for base and all layer that inherit from it
 ENV NODE_ENV production
 
 # Install all node_modules, including dev dependencies
-FROM base as deps
+FROM base AS deps
 
 WORKDIR /app
 
@@ -19,7 +19,7 @@ ADD package.json package-lock.json ./
 RUN npm install --include=dev
 
 # Setup production node_modules
-FROM base as production-deps
+FROM base AS production-deps
 
 WORKDIR /app
 
@@ -28,7 +28,7 @@ ADD package.json package-lock.json .npmrc ./
 RUN npm prune --omit=dev
 
 # Build the app
-FROM base as build
+FROM base AS build
 
 WORKDIR /app
 
