@@ -41,7 +41,9 @@ RUN npm run build
 FROM base
 
 RUN --mount=type=secret,id=SENDGRID_API_KEY \
-    export SENDGRID_API_KEY=$(cat /run/secrets/SENDGRID_API_KEY)
+    echo "SENDGRID_API_KEY=${SENDGRID_API_KEY}" > .env
+
+RUN export $(cat .env | xargs)
 
 WORKDIR /app
 
@@ -51,4 +53,4 @@ COPY --from=build /app/build /app/build
 COPY --from=build /app/public /app/public
 ADD . .
 
-CMD ["npm", "start"]
+
