@@ -68,15 +68,15 @@ jobs:
           echo ${{ steps.repository.outputs.result }}:${{ steps.version.outputs.value }}
           echo ${{ steps.repository.outputs.result }}:latest
 
-#      - name: Build container image
-#        uses: docker/build-push-action@v6
-#        with:
-#          tags: |
-#            ${{ steps.repository.outputs.result }}:${{ steps.version.outputs.value }}
-#            ${{ steps.repository.outputs.result }}:latest
-#          push: true
-#          secrets: |
-#            FONT_AWESOME_TOKEN=${{ secrets.FONT_AWESOME_TOKEN }}
+      - name: Build container image
+        uses: docker/build-push-action@v6
+        with:
+          tags: |
+            ${{ steps.repository.outputs.result }}:${{ steps.version.outputs.value }}
+            ${{ steps.repository.outputs.result }}:latest
+          push: true
+          secrets: |
+            FONT_AWESOME_TOKEN=${{ secrets.FONT_AWESOME_TOKEN }}
 
 #  deploy:
 #    name: 🚀 Deploy
