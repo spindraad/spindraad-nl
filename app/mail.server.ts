@@ -5,7 +5,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const from = {
   email: 'contactformulier@spindraad.nl',
-  name: 'Contactformulier Spindraad',
+  name: 'Contactformulier spindraad',
 };
 
 function convertValuesToHtml(values: ContactFormValues) {

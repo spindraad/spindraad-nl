@@ -10,7 +10,7 @@ import Footer from '~/components/Footer';
 export const meta: MetaFunction = () => {
   return [
     { title: "spindraad" },
-    { name: "description", content: "Spindraad bouwt de beste web applicaties." },
+    { name: "description", content: "spindraad bouwt de beste web applicaties." },
     { name: 'theme-color', content: '#ff7043'}
   ];
 };
