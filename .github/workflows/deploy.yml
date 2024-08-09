@@ -70,6 +70,7 @@ jobs:
           push: true
           secrets: |
             FONT_AWESOME_TOKEN=${{ secrets.FONT_AWESOME_TOKEN }}
+            SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}
 
   deploy:
     name: 🚀 Deploy
