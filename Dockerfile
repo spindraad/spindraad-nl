@@ -40,11 +40,6 @@ RUN npm run build
 # Finally, build the production image with minimal footprint
 FROM base
 
-RUN --mount=type=secret,id=SENDGRID_API_KEY \
-    echo "SENDGRID_API_KEY=${SENDGRID_API_KEY}" > .env
-
-RUN export $(cat .env | xargs)
-
 WORKDIR /app
 
 COPY --from=production-deps /app/node_modules /app/node_modules

@@ -123,5 +123,10 @@ jobs:
         run: sed -i "s/<VERSION>/${{ steps.version.outputs.value }}/g" Chart.yaml
 
       - name: 🚀 Deploy to cluster
-        run:
-          helm upgrade --install $(echo ${{ steps.appname.outputs.result }}) . --set app.image.tag=$(echo ${{ steps.version.outputs.value }}) --namespace=$(echo ${{ steps.namespace.outputs.result }}) --create-namespace
+        run: >
+          helm upgrade --install
+          $(echo ${{ steps.appname.outputs.result }}) .
+          --set app.image.tag=$(echo ${{ steps.version.outputs.value }})
+          --set secrets.sendgridApiKey=${{ secrets.SENDGRID_API_KEY }}
+          --namespace=$(echo ${{ steps.namespace.outputs.result }})
+          --create-namespace

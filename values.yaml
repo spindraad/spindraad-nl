@@ -10,3 +10,5 @@ service:
   name: spindraad-nl
   port: 80
   targetPort: 3000
+secrets:
+    sendgridApiKey: "<PLACEHOLDER>"
