@@ -27,6 +27,9 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('package-lock.json') }}
 
+      - name: check
+        run: ls -la
+
       - name: 📥 Install deps
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
