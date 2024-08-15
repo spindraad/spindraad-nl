@@ -28,10 +28,10 @@ jobs:
           key: node_modules-${{ hashFiles('package-lock.json') }}
 
       - name: check
-        run: | 
+        run: |
           echo ${{ steps.cache.outputs.cache-hit }}
           ls -la
-          npm ls
+          npm ls || true
           ls -la node_modules
 
       - name: 📥 Install deps
