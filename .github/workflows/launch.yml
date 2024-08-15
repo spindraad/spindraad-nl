@@ -27,18 +27,17 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('package-lock.json') }}
 
-      - name: check
-        run: |
-          echo ${{ steps.cache.outputs.cache-hit }}
-          ls -la
-          npm ls || true
-          ls -la node_modules
-
       - name: 📥 Install deps
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
         env:
           FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+
+      - name: check
+        run: |
+          echo ${{ steps.cache.outputs.cache-hit }}
+          ls -la
+          ls -la node_modules
 
       - name: 🏗️ Build
         run: npm run build
