@@ -36,15 +36,6 @@ jobs:
       - name: 🏗️ Build
         run: npm run build
 
-      - name: 🗑️ Prune dev dependencies
-        run: npm prune --omit=dev
-
-      - name: 📦 Package
-        uses: actions/upload-artifact@v4
-        with:
-          name: package
-          path: package.json
-
       - name: 📦 Archive build
         uses: actions/upload-artifact@v4
         with:
@@ -62,10 +53,8 @@ jobs:
     if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
 
     steps:
-      - name: ⬇️ Download package.json
-        uses: actions/download-artifact@v4
-        with:
-          name: package
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
 
       - name: ⬇️ Download build artifacts
         uses: actions/download-artifact@v4
@@ -81,9 +70,17 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('package-lock.json') }}
 
-
       - name: List directories
         run: ls -la
+
+      - name: List npm modules
+        run: npm ls | wc -l
+
+      - name: 🗑️ Prune dev dependencies
+        run: npm prune --omit=dev
+
+      - name: List npm modules
+        run: npm ls | wc -l
 
       - name: 🐳 Setup Docker Buildx
         uses: docker/setup-buildx-action@v3
