@@ -18,10 +18,17 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
-          cache: npm
           node-version: 20
 
+      - name: Cache node_modules
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('package-lock.json') }}
+
       - name: 📥 Install deps
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
         env:
           FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
@@ -44,12 +51,6 @@ jobs:
           name: build
           path: build
 
-      - name: 📦 Archive node_modules
-        uses: actions/upload-artifact@v4
-        with:
-          name: node_modules
-          path: node_modules
-
   docker:
     name: 🐳 Docker
     runs-on: ubuntu-latest
@@ -68,11 +69,14 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build
+          path: build
 
-      - name: ⬇️ Download node_modules
-        uses: actions/download-artifact@v4
+      - name: ⬇️ Restore node_modules cache
+        uses: actions/cache@v4
         with:
-          name: node_modules
+          path: node_modules
+          key: node_modules-${{ hashFiles('package-lock.json') }}
+
 
       - name: List directories
         run: ls -la
