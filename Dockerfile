@@ -2,7 +2,7 @@ FROM node:20-bullseye-slim
 
 ENV NODE_ENV=production
 
-WORKDIR /app
+WORKDIR /spindraad-app
 ADD . /app
 
 RUN ls -la

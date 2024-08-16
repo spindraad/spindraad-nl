@@ -53,8 +53,14 @@ jobs:
     if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
 
     steps:
+      - name: List directories
+        run: ls -la
+
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
+
+      - name: List directories
+        run: ls -la
 
       - name: ⬇️ Download build artifacts
         uses: actions/download-artifact@v4
