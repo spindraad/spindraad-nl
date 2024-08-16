@@ -104,7 +104,7 @@ jobs:
 
       - name: 🐳 Build container image
         run: >
-          ls -la
+          ls -la &&
           docker buildx build --no-cache
           -t ${{ steps.repository.outputs.result }}:${{ steps.version.outputs.value }}
           -t ${{ steps.repository.outputs.result }}:latest
