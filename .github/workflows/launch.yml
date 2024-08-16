@@ -76,9 +76,6 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('package-lock.json') }}
 
-      - name: List directories
-        run: ls -la
-
       - name: List npm modules
         run: npm ls | wc -l
 
@@ -87,6 +84,12 @@ jobs:
 
       - name: List npm modules
         run: npm ls | wc -l
+
+      - name: List directories
+        run: |
+          ls -la
+          ls -la node_modules
+          ls -la node_modules/.bin
 
       - name: 🐳 Setup Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -114,6 +117,7 @@ jobs:
       - name: 🐳 Build container image
         uses: docker/build-push-action@v6
         with:
+          no-cache: true
           tags: |
             ${{ steps.repository.outputs.result }}:${{ steps.version.outputs.value }}
             ${{ steps.repository.outputs.result }}:latest
