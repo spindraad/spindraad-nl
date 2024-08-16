@@ -33,12 +33,6 @@ jobs:
         env:
           FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
 
-      - name: check
-        run: |
-          echo ${{ steps.cache.outputs.cache-hit }}
-          ls -la
-          ls -la node_modules
-
       - name: 🏗️ Build
         run: npm run build
 
@@ -66,9 +60,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build
-          path: |
-            build
-            public
 
       - name: ⬇️ Restore node_modules cache
         uses: actions/cache@v4
@@ -76,23 +67,11 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('package-lock.json') }}
 
-      - name: List npm modules
-        run: npm ls | wc -l
-
       - name: 🗑️ Prune dev dependencies
         run: npm prune --omit=dev
 
-      - name: List npm modules
-        run: npm ls | wc -l
-
       - name: List directories
         run: ls -la
-
-      - name: List node_modules
-        run: ls -la node_modules
-
-      - name: List node_modules/.bin
-        run: ls -la node_modules/.bin
 
       - name: 🐳 Setup Docker Buildx
         uses: docker/setup-buildx-action@v3

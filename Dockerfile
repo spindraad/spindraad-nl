@@ -3,7 +3,7 @@ FROM node:20-bullseye-slim
 ENV NODE_ENV=production
 
 WORKDIR /app
-ADD . .
+ADD . /app
 
 RUN ls -la
 RUN ls -la /app
