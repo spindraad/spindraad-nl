@@ -103,24 +103,17 @@ jobs:
         run: ls -la
 
       - name: 🐳 Build container image
-        run: >
-          ls -la &&
-          docker buildx build --no-cache
-          -t ${{ steps.repository.outputs.result }}:${{ steps.version.outputs.value }}
-          -t ${{ steps.repository.outputs.result }}:latest
-          .
-
-#      - name: 🐳 Build container image
-#        uses: docker/build-push-action@v6
-#        with:
-#          no-cache: true
-#          tags: |
-#            ${{ steps.repository.outputs.result }}:${{ steps.version.outputs.value }}
-#            ${{ steps.repository.outputs.result }}:latest
-#          push: true
-#          secrets: |
-#            FONT_AWESOME_TOKEN=${{ secrets.FONT_AWESOME_TOKEN }}
-#            SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          no-cache: true
+          tags: |
+            ${{ steps.repository.outputs.result }}:${{ steps.version.outputs.value }}
+            ${{ steps.repository.outputs.result }}:latest
+          push: true
+          secrets: |
+            FONT_AWESOME_TOKEN=${{ secrets.FONT_AWESOME_TOKEN }}
+            SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}
 #
 #  deploy:
 #    name: 🚀 Deploy
