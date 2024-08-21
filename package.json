@@ -20,7 +20,8 @@
     "sui:diff": "shadcn-ui diff",
     "generate": "templates/plop-templates component --",
     "test": "vitest",
-    "postversion": "git push --follow-tags"
+    "postversion": "git push --follow-tags",
+    "update-web-types": "node update-webawesome-web-types.js"
   },
   "dependencies": {
     "@awesome.me/kit-feaffe80b3": "^1.0.7",
