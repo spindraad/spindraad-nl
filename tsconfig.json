@@ -1,6 +1,7 @@
 {
   "include": [
     "environment.d.ts",
+    "webawesome.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/.server/**/*.ts",

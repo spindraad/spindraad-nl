@@ -24,6 +24,10 @@ export const links: LinksFunction = () => [
     href: '/favicon.ico',
     type: 'image/png',
   },
+  {
+    rel: 'stylesheet',
+    href: 'https://early.webawesome.com/webawesome@3.0.0-alpha.2/dist/themes/default.css',
+  }
 ];
 
 export const meta: MetaFunction = () => ([
@@ -36,13 +40,19 @@ export const meta: MetaFunction = () => ([
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="nl">
     <head>
       <meta charSet="utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
       <Meta/>
       <Links/>
       <script defer data-domain="spindraad.nl" src="/js/script.js"></script>
+      <script
+        type="module"
+        src="https://early.webawesome.com/webawesome@3.0.0-alpha.2/dist/webawesome.loader.js"
+        data-fa-kit-code="feaffe80b3"
+      ></script>
+      <script type="module" src="https://early.webawesome.com/webawesome@3.0.0-alpha.2/dist/translations/nl.js"></script>
     </head>
     <body>
     { children }
