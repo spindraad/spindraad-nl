@@ -1,10 +1,12 @@
 import SpindraadCaption from '~/components/SpindraadCaption';
+import SpindraadLogo from '~/components/SpindraadLogo';
 
 export default function HeadquartersRoute() {
   return (
     <div className="grid grid-areas-hq grid-cols-hq grid-rows-hq min-h-[100dvh]">
       <header className="grid-in-header flex flex-row justify-between px-5 items-center">
-        <h1 className="text-xl"><SpindraadCaption /></h1>
+        <SpindraadLogo to="/" />
+
         <nav className="col-span-2">
           <ul className="flex space-x-2">
             <li><a href="/">home</a></li>

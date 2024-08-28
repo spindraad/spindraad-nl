@@ -93,7 +93,7 @@ module.exports = {
       },
       gridTemplateRows: {
         "hq": `
-          3rem
+          5rem
           1fr
           3rem
          `

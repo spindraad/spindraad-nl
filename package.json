@@ -18,7 +18,7 @@
     "sui": "shadcn-ui",
     "sui:add": "shadcn-ui add -y",
     "sui:diff": "shadcn-ui diff",
-    "generate": "templates/plop-templates component --",
+    "generate": "plop component --",
     "test": "vitest",
     "postversion": "git push --follow-tags",
     "update-web-types": "node update-webawesome-web-types.js"
