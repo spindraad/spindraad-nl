@@ -1,7 +1,7 @@
 import Icon from '~/components/Icon';
-import Navigation from '~/components/Navigation';
 import Anchor from '~/components/Anchor';
 import { useEffect, useRef } from 'react';
+import SiteNavigation from '~/components/SiteNavigation';
 
 export default function Footer() {
 
@@ -32,7 +32,7 @@ export default function Footer() {
         </p>
       </div>
 
-      <Navigation className="order-3 ml-0 " orientation="vertical" size="md" gap="sm" />
+      <SiteNavigation className="order-3 ml-0 " orientation="vertical" size="md" gap="sm" />
       <ul className="order-4 text-center lg:text-left space-y-4 font-thin">
         <li>
           <Anchor className="space-x-2" rel="me noopener noreferrer" href="https://mastodon.social/@spindraad" target="_blank">

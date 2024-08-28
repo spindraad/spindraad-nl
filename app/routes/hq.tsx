@@ -1,21 +1,21 @@
+import { MetaFunction } from '@remix-run/react';
 import SpindraadCaption from '~/components/SpindraadCaption';
 import SpindraadLogo from '~/components/SpindraadLogo';
+import HeadQuarterNavigation from '~/components/HeadQuarterNavigation';
+
+export const meta: MetaFunction = () => [
+  {
+    title: 'Headquarters | spindraad',
+  },
+];
 
 export default function HeadquartersRoute() {
   return (
     <div className="grid grid-areas-hq grid-cols-hq grid-rows-hq min-h-[100dvh]">
       <header className="grid-in-header flex flex-row justify-between px-5 items-center">
-        <SpindraadLogo to="/" />
+        <SpindraadLogo to="/hq" />
 
-        <nav className="col-span-2">
-          <ul className="flex space-x-2">
-            <li><a href="/">home</a></li>
-            <li><a href="/services">services</a></li>
-            <li><a href="/portfolio">portfolio</a></li>
-            <li><a href="/customers">customers</a></li>
-            <li><a href="/contact">contact</a></li>
-          </ul>
-        </nav>
+        <HeadQuarterNavigation />
       </header>
 
       <aside className="grid-in-aside bg-deep-blue text-crisp-white py-10 px-5">
