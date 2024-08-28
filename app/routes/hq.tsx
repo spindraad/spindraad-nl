@@ -1,4 +1,5 @@
-import { MetaFunction } from '@remix-run/react';
+import { MetaFunction, Outlet } from '@remix-run/react';
+
 import SpindraadCaption from '~/components/SpindraadCaption';
 import SpindraadLogo from '~/components/SpindraadLogo';
 import HeadQuarterNavigation from '~/components/HeadQuarterNavigation';
@@ -24,8 +25,7 @@ export default function HeadquartersRoute() {
       </aside>
 
       <main className="grid-in-main p-10">
-        <h2>spindraad</h2>
-        <p>spindraad bouwt de beste web applicaties.</p>
+        <Outlet />
       </main>
 
       <footer className="grid-in-footer px-5 flex place-items-center">

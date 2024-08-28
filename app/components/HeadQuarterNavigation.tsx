@@ -4,15 +4,15 @@ export default function HeadQuarterNavigation() {
   const items: NavigationItem[] = [
     {
       label: 'Dashboard',
-      href: '/dashboard',
+      href: '/hq',
     },
     {
       label: 'Uren',
-      href: '/urenregistratie'
+      href: '/hq/urenregistratie'
     },
     {
       label: 'Klanten',
-      href: '/klanten'
+      href: '/hq/klanten'
     },
     {
       label: 'spindraad.nl',
