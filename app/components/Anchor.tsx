@@ -1,12 +1,12 @@
 import { forwardRef } from 'react';
-import { Link, LinkProps } from '@remix-run/react';
+import { NavLink, NavLinkProps } from '@remix-run/react';
 
 interface BaseLinkProps {
   external?: boolean;
   href: string;
 }
 
-interface InternalLinkProps extends BaseLinkProps, Omit<LinkProps, 'to'> {
+interface InternalLinkProps extends BaseLinkProps, Omit<NavLinkProps, 'to'> {
   external?: false;
 }
 
@@ -37,14 +37,14 @@ const Anchor = forwardRef<HTMLAnchorElement, Props>(({ external, ...props }, ref
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { className, href, children, ...linkProps } = props as InternalLinkProps;
   return (
-    <Link
+    <NavLink
       ref={ref}
       className={`${className ?? ''} ${classes}`}
       to={href}
       {...linkProps}
     >
       {children}
-    </Link>
+    </NavLink>
   );
 });
 Anchor.displayName = 'Anchor';

@@ -8,15 +8,16 @@ export default function HeadQuarterNavigation() {
     },
     {
       label: 'Uren',
-      href: '/hq/urenregistratie'
+      href: '/hq/urenregistratie',
     },
     {
       label: 'Klanten',
-      href: '/hq/klanten'
+      href: '/hq/klanten',
     },
     {
       label: 'spindraad.nl',
-      href: '/'
+      href: '/',
+      className: 'border-accent-orange border-b'
     }
   ];
 
