@@ -28,3 +28,10 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.app.name }}-secrets
                   key: SENDGRID_API_KEY
+          resources:
+            requests:
+              cpu: "10m"      # 0.01 cores or 10 millicores
+              memory: "128Mi"
+            limits:
+              cpu: "100m"     # 0.1 cores or 100 millicores
+              memory: "150Mi"
