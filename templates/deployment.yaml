@@ -35,3 +35,19 @@ spec:
             limits:
               cpu: "100m"     # 0.1 cores or 100 millicores
               memory: "150Mi"
+          livenessProbe:
+            httpGet:
+              path: /healthz        # Endpoint to check
+              port: {{ .Values.service.targetPort }}            # Port number of the app
+            initialDelaySeconds: 10 # Time to wait before starting the probe
+            periodSeconds: 10       # Interval between probes
+            timeoutSeconds: 1       # Probe timeout
+            failureThreshold: 3     # Restart after 3 failed probes
+          readinessProbe:
+            httpGet:
+              path: /ready          # Endpoint that indicates readiness
+              port: {{ .Values.service.targetPort }}
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 1
+            failureThreshold: 3
