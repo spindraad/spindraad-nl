@@ -1,20 +1,11 @@
 import { ActionFunctionArgs } from '@remix-run/node';
 
 export async function action({ request }: ActionFunctionArgs) {
-  const { method, body } = request;
+  const clonedRequest = request.clone();
 
-  const response = await fetch('https://plausible.io/api/event', {
-    body,
-    method,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+  const response = await fetch('https://plausible.io/api/event', clonedRequest);
   const responseBody = await response.text();
-  const { status, headers } = response;
 
-  return new Response(responseBody, {
-    status,
-    headers,
-  });
+  const clonedResponse = response.clone();
+  return new Response(responseBody, clonedResponse);
 }
