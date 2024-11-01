@@ -1,7 +1,7 @@
 import { ActionFunctionArgs } from '@remix-run/node';
 
 export async function action({ request }: ActionFunctionArgs) {
-  const { method, body } = request;
+  const { method, body, headers } = request;
 
   console.log('headers: ', Object.fromEntries(request.headers));
 
@@ -10,13 +10,15 @@ export async function action({ request }: ActionFunctionArgs) {
     method,
     headers: {
       'Content-Type': 'application/json',
+      'User-Agent': headers.get('User-Agent') || '',
+      'X-Forwarded-For': headers.get('X-Forwarded-For') || headers.get('X-Real-IP') || '',
     },
   });
-  const { status, headers } = response;
+  const { status, headers: responseHeaders } = response;
   const responseBody = await response.text();
 
   return new Response(responseBody, {
     status,
-    headers,
+    headers: responseHeaders,
   });
 }
