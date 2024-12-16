@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Pill from './Pill';
-import { Colors } from '~/utils';
 
 export default {
   title: 'Atoms/Pill',
@@ -18,11 +17,11 @@ export const Default: Story = {
 export const WithColor: Story = {
   args: {
     children: 'A small caption here',
-    color: Colors.ACCENT_ORANGE,
+    color: 'accent-orange',
   },
   argTypes: {
     color: {
-      options: Object.values(Colors),
+      options: ['deep-blue', 'vibrant-teal', 'soft-gray', 'crisp-white', 'accent-orange'],
       control: {
         type: 'select',
       },
