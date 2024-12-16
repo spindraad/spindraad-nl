@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Anchor from './Anchor';
 
 export default {
-  title: 'Components/Anchor',
+  title: 'Atoms/Anchor',
   component: Anchor,
 } satisfies Meta<typeof Anchor>;
 

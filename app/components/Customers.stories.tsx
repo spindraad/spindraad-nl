@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Customers from './Customers';
 
 export default {
-  title: 'Components/Customers',
+  title: 'Organisms/Customers',
   component: Customers,
   decorators: [
     (Story) => (

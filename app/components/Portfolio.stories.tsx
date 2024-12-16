@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Portfolio from './Portfolio';
 
 export default {
-  title: 'Components/Portfolio',
+  title: 'Organisms/Portfolio',
   component: Portfolio,
   decorators: [
     (Story) => (

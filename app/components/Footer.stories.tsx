@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Footer from './Footer';
 
 export default {
-  title: 'Components/Footer',
+  title: 'Organisms/Footer',
   component: Footer,
   decorators: [
     (Story) => (

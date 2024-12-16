@@ -3,7 +3,7 @@ import Pill from './Pill';
 import { Colors } from '~/utils';
 
 export default {
-  title: 'Components/Pill',
+  title: 'Atoms/Pill',
   component: Pill,
 } satisfies Meta<typeof Pill>;
 

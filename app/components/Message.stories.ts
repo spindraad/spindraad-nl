@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Message from './Message';
 
 export default {
-  title: 'Components/Message',
+  title: 'Atoms/Message',
   component: Message,
 } satisfies Meta<typeof Message>;
 
