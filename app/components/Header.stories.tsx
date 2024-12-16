@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Header from './Header';
 
 export default {
-  title: 'Organisms/Header',
+  title: 'Molecules/Header',
   component: Header,
   decorators: [
     (Story) => (
