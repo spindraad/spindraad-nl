@@ -7,7 +7,7 @@
   "scripts": {
     "build": "run-p build:*",
     "build:vite": "remix vite:build",
-    "storybook:build": "storybook build",
+    "build:storybook": "storybook build",
     "dev": "run-p dev:*",
     "dev:vite": "remix vite:dev",
     "dev:storybook": "storybook dev -p 6006 --no-open",
@@ -18,8 +18,14 @@
     "sui:add": "shadcn-ui add -y",
     "sui:diff": "shadcn-ui diff",
     "generate": "plop component --",
-    "test": "vitest",
-    "postversion": "git push --follow-tags"
+    "test": "run-p test:unit test:components",
+    "test:unit": "vitest",
+    "test:components": "test-storybook",
+    "test:components:ci": "concurrently --kill-others --success first --names \"storybook,test\" --prefix-colors \"magenta,blue\" --pad-prefix \"npm run storybook:serve\" \"npm run storybook:wait-on && npm run test:components\"",
+    "postversion": "git push --follow-tags",
+    "storybook:serve": "http-server storybook-static -p 6006 --silent",
+    "storybook:wait-on": "wait-on tcp:6006",
+    "playwright:install": "playwright install --with-deps"
   },
   "dependencies": {
     "@awesome.me/kit-feaffe80b3": "^1.0.7",
@@ -45,6 +51,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.5.0",
+    "@playwright/test": "^1.49.1",
     "@remix-run/dev": "^2.15.1",
     "@remix-run/testing": "^2.15.1",
     "@storybook/addon-essentials": "^8.4.7",
@@ -54,11 +61,13 @@
     "@storybook/react": "^8.4.7",
     "@storybook/react-vite": "^8.4.7",
     "@storybook/test": "^8.4.7",
+    "@storybook/test-runner": "^0.20.1",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
     "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.0",
     "eslint": "^8.38.0",
     "eslint-import-resolver-typescript": "^3.7.0",
     "eslint-plugin-import": "^2.31.0",
@@ -66,6 +75,8 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.11.1",
+    "http-server": "^14.1.1",
+    "playwright": "^1.49.1",
     "plop": "^4.0.1",
     "postcss": "^8.4.49",
     "shadcn-ui": "^0.9.4",
@@ -74,7 +85,8 @@
     "typescript": "^5.7.2",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1",
-    "vitest": "^1.6.0"
+    "vitest": "^1.6.0",
+    "wait-on": "^8.0.1"
   },
   "engines": {
     "node": ">=20.14.0"

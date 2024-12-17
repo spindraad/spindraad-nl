@@ -1,4 +1,4 @@
-name: 🚀 Launch
+name: 🏗️ Check and validate, build, deploy
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
       - dev
       - main
   pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -33,6 +34,9 @@ jobs:
         env:
           FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
 
+      - name: 🔍 Lint
+        run: npm run lint
+
       - name: 🏗️ Build
         run: npm run build
 
@@ -43,6 +47,50 @@ jobs:
           path: |
             build
             public
+
+  test-unit:
+  name: 🧪 Test Unit
+  runs-on: ubuntu-latest
+
+  steps:
+    - name: ⬇️ Checkout repository
+      uses: actions/checkout@v4
+
+    - name: ⎔ Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: 📥 Install dependencies
+      run: npm ci
+
+    - name: 🧪 Test
+      run: npm run test:unit
+
+  test-components:
+    name: 🧪 Test Components
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⎔ Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📥 Install dependencies
+        run: npm ci
+
+      - name: 🎭 Install Playwright dependencies
+        run: npm run playwright:install
+
+      - name: 🏗️ Build Storybook
+        run: npm run build:storybook
+
+      - name: 🧪 Test
+        run: npm run test:components:ci
 
   docker:
     name: 🐳 Docker
