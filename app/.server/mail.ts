@@ -34,3 +34,19 @@ export async function sendMail(subject: string, values: ContactFormValues) {
     throw err;
   }
 }
+
+export function spamCheck(values: ContactFormValues) {
+  // Highly customized spam check
+
+  let isSpam = false;
+
+  if (values.email.includes('do-not-respond.me')) {
+    isSpam = true;
+  }
+
+  if (values.brief === values.budget && values.budget === values.deadline) {
+    isSpam = true;
+  }
+
+  return isSpam;
+}

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Navigation from './Navigation';
 
 export default {
-  title: 'Components/Site Navigation',
+  title: 'Molecules/Site Navigation',
   component: Navigation,
 } satisfies Meta<typeof Navigation>;
 

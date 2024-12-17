@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SpindraadCaption from './SpindraadCaption';
 
 export default {
-  title: 'Components/spindraad Caption',
+  title: 'Atoms/spindraad Caption',
   component: SpindraadCaption,
 } satisfies Meta<typeof SpindraadCaption>;
 

@@ -14,7 +14,7 @@ export default function Footer() {
   }, [mailToRef]);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[1fr_3fr_0.5fr_0.5fr] xl:grid-cols-[1fr_4fr_0.5fr_0.5fr] gap-y-6 px-6 xl:px-24 py-12">
+    <div className="mt-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[1fr_3fr_0.5fr_0.5fr] xl:grid-cols-[1fr_4fr_0.5fr_0.5fr] gap-y-6 px-6 xl:px-24 py-12">
 
       <div className="col-span-2 md:col-span-1 order-2 lg:order-1 text-center lg:text-left">
         <Anchor ref={mailToRef} className="text-xl text-deep-blue font-bold" href="mailto:stake.metros_07@icloud.com">hallo@spindraad.nl</Anchor>

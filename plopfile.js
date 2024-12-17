@@ -8,10 +8,10 @@ export default function (plop) {
         message: 'What is the name of the component?',
       },
       {
-        type: 'input',
+        type: 'list',
         name: 'storybookCategory',
         message: 'In what Storybook category should this component be placed?',
-        default: 'Components',
+        choices: ['Atoms', 'Molecules', 'Organisms', 'Templates', 'Pages'],
       },
       {
         type: 'input',
@@ -26,8 +26,8 @@ export default function (plop) {
       {
         type: 'addMany',
         destination: 'app/components',
-        templateFiles: 'plop-templates/plop/component/**',
-        base: 'plop-templates/plop/component',
+        templateFiles: 'plop-templates/component/**',
+        base: 'plop-templates/component',
       },
     ],
   });
