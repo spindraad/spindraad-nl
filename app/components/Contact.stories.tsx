@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Contact, { ContactFormActionData } from '~/components/Contact';
 
 export default {
-  title: 'Organisms/Contact',
+  title: 'Templates/Contact',
   component: Contact,
   decorators: [
     (Story) => (

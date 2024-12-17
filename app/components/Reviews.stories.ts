@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Reviews from './Reviews';
 
 export default {
-  title: 'Organisms/Reviews',
+  title: 'Templates/Reviews',
   component: Reviews,
 } satisfies Meta<typeof Reviews>;
 
