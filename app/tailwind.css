@@ -120,12 +120,15 @@
   .content > * {
     grid-column: content;
   }
+
   .popout {
     grid-column: popout;
   }
+
   .feature {
     grid-column: feature;
   }
+
   .full {
     grid-column: full;
   }

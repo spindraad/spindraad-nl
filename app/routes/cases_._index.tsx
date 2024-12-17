@@ -16,7 +16,7 @@ export default function CasesIndexRoute() {
   const { cases } = useLoaderData<typeof loader>();
 
   return (
-    <PageLayout>
+    <PageLayout classes="content">
       <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-12">Cases</h1>
 
       <div className="grid grid-cols-1 grid-rows-1">

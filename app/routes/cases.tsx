@@ -4,7 +4,7 @@ import PageLayout from '~/components/PageLayout';
 export default function CasesRoutesLayout() {
   return (
     <PageLayout>
-      <div className="prose md:prose-lg lg:prose-xl xl:prose-2xl">
+      <div className="prose sm:prose-sm prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl marker:text-accent-orange prose-figcaption:text-sm content max-w-none">
         <Outlet />
       </div>
     </PageLayout>

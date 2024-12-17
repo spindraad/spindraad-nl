@@ -4,14 +4,15 @@ import Footer from '~/components/Footer';
 
 type Props = {
   children: ReactNode;
+  classes?: string;
 };
 
-export default function PageLayout({ children }: Props) {
+export default function PageLayout({ children, classes = '' }: Props) {
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <Header/>
 
-      <main className="mt-4 content">
+      <main className={classes}>
         { children }
       </main>
 
