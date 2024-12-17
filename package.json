@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.5.0",
+    "@mdx-js/rollup": "^3.1.0",
     "@playwright/test": "^1.49.1",
     "@remix-run/dev": "^2.15.1",
     "@remix-run/testing": "^2.15.1",
