@@ -6,6 +6,7 @@ import Portfolio from '~/components/Portfolio';
 import Customers from '~/components/Customers';
 import Contact from '~/components/Contact';
 import Footer from '~/components/Footer';
+import Reviews from '~/components/Reviews';
 
 export const meta: MetaFunction = () => {
   return [
@@ -27,6 +28,8 @@ export default function Component() {
         <Portfolio/>
 
         <Customers/>
+
+        <Reviews/>
 
         <Contact/>
       </main>
