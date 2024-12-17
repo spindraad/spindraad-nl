@@ -1,4 +1,4 @@
-name: 🚀 Launch
+name: 🏗️ Check and validate, build, deploy
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
       - dev
       - main
   pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -33,6 +34,9 @@ jobs:
         env:
           FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
 
+      - name: 🔍 Lint
+        run: npm run lint
+
       - name: 🏗️ Build
         run: npm run build
 
@@ -44,10 +48,60 @@ jobs:
             build
             public
 
+  test-unit:
+    name: 🧪 Test Unit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⎔ Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📥 Install deps
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+        env:
+          FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+
+      - name: 🧪 Test
+        run: npm run test:unit
+
+  test-components:
+    name: 🧪 Test Components
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⎔ Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📥 Install deps
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+        env:
+          FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+
+      - name: 🎭 Install Playwright dependencies
+        run: npm run playwright:install
+
+      - name: 🏗️ Build Storybook
+        run: npm run build:storybook
+
+      - name: 🧪 Test
+        run: npm run test:components:ci
+
   docker:
     name: 🐳 Docker
     runs-on: ubuntu-latest
-    needs: [ build ]
+    needs: [ build, test-unit, test-components ]
 
     # only build/deploy main branch on pushes
     if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
