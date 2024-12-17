@@ -17,6 +17,9 @@ export default function Navigation({ orientation = 'horizontal', size = 'sm', ga
       <Anchor href="#diensten" className={fontSize} initiallyHideUnderline>
         Diensten
       </Anchor>
+      <Anchor href="/cases" className={fontSize} initiallyHideUnderline>
+        Cases
+      </Anchor>
       <Anchor href="#portfolio" className={fontSize} initiallyHideUnderline>
         Portfolio
       </Anchor>
