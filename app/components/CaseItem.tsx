@@ -1,20 +1,15 @@
-type Props = {
-  title: string;
-  summary: string;
-  image: string;
-  customer: string;
-  logo: string;
-  featured?: boolean;
-};
+import { Link } from '@remix-run/react';
+import { Case } from '~/data/cases';
 
-export default function CaseItem({ title, summary, image, customer, logo, featured }: Props) {
+type Props = Case;
+
+export default function CaseItem({ title, summary, image, url, customer, logo, featured }: Props) {
   const wrapperClasses = `
     group
     flex
     ${ featured ? 'flex-row col-span-2' : 'flex-col' }
     ${ featured ? 'bg-accent-orange' : 'bg-crisp-white' }
     w-full
-    h-full
     border-2
     border-soft-gray
     hover:border-accent-orange
@@ -27,7 +22,7 @@ export default function CaseItem({ title, summary, image, customer, logo, featur
 
   const imageClasses = `
     ${ featured ? 'w-1/3' : 'w-full' }
-    ${ featured ? 'h-full' : 'h-52' }
+    ${ featured ? 'aspect-square' : 'aspect-video' }
     object-cover
     scale-100
     group-hover:scale-105
@@ -40,12 +35,19 @@ export default function CaseItem({ title, summary, image, customer, logo, featur
     p-4
   `;
 
+  const titleClasses = `
+    text-xl
+    font-bold
+    ${featured ? 'text-white' : 'text-black group-hover:text-deep-blue'}
+    transition-colors
+  `;
+
   return (
-    <div className={wrapperClasses}>
+    <Link to={url} className={wrapperClasses}>
       <img className={imageClasses} src={ image } alt={ title } />
 
       <div className={contentWrapperClasses}>
-        <h2 className="text-xl font-bold text-black group-hover:text-deep-blue transition-colors">{ title }</h2>
+        <h2 className={titleClasses}>{ title }</h2>
         <p>{ summary }</p>
 
         <div className="flex flex-row items-center justify-between gap-4">
@@ -53,6 +55,6 @@ export default function CaseItem({ title, summary, image, customer, logo, featur
           <img className="w-full h-12 self-end object-contain" src={ logo } alt={ customer } />
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

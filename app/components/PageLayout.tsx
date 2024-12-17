@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import Header from '~/components/Header';
+import Footer from '~/components/Footer';
 
 type Props = {
   children: ReactNode;
@@ -10,9 +11,11 @@ export default function PageLayout({ children }: Props) {
     <div className="flex flex-col min-h-[100dvh]">
       <Header/>
 
-      <main className="flex-1 mt-4 content">
+      <main className="mt-4 content">
         { children }
       </main>
+
+      <Footer/>
     </div>
   );
 }

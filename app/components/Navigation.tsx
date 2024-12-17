@@ -14,19 +14,19 @@ export default function Navigation({ orientation = 'horizontal', size = 'sm', ga
 
   return (
     <nav className={ `${className} flex ${gapSize} ${orientationClass} items-center font-manrope font-thin` }>
-      <Anchor href="#diensten" className={fontSize} initiallyHideUnderline>
+      <Anchor href="/#diensten" className={fontSize} initiallyHideUnderline>
         Diensten
       </Anchor>
-      <Anchor href="/cases" className={fontSize} initiallyHideUnderline>
+      <Anchor isNavLink href="/cases" className={fontSize} initiallyHideUnderline>
         Cases
       </Anchor>
-      <Anchor href="#portfolio" className={fontSize} initiallyHideUnderline>
+      <Anchor href="/#portfolio" className={fontSize} initiallyHideUnderline>
         Portfolio
       </Anchor>
-      <Anchor href="#klanten" className={fontSize} initiallyHideUnderline>
+      <Anchor href="/#klanten" className={fontSize} initiallyHideUnderline>
         Klanten
       </Anchor>
-      <Anchor href="#contact" className={fontSize} initiallyHideUnderline>
+      <Anchor href="/#contact" className={fontSize} initiallyHideUnderline>
         Contact
       </Anchor>
     </nav>

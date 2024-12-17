@@ -15,6 +15,7 @@ type Story = StoryObj<typeof CaseItem>;
 const createCaseItem = () => ({
   title: faker.lorem.sentence(),
   summary: faker.lorem.paragraph(),
+  url: faker.internet.url(),
   image: faker.image.urlPicsumPhotos({ blur: 0 }),
   customer: faker.company.name(),
   logo: faker.helpers.arrayElement([drakenfruitLogo, letsLedsLogo, watershedLogo]),
@@ -31,6 +32,20 @@ export const SingleItem: Story = {
   ]
 };
 
+export const FeaturedItem: Story = {
+  args: {
+    ...createCaseItem(),
+    featured: true,
+  },
+  decorators: [
+    (Story) => (
+      <div className="grid grid-rows-1 grid-cols-1 w-[700px]">
+        {Story()}
+      </div>
+    )
+  ]
+}
+
 export const MultipleItems: Story = {
   render: () => {
     const items = Array.from({ length: 9 }, createCaseItem);
@@ -44,17 +59,3 @@ export const MultipleItems: Story = {
     );
   }
 };
-
-export const FeaturedItem: Story = {
-  args: {
-    ...createCaseItem(),
-    featured: true,
-  },
-  decorators: [
-    (Story) => (
-    <div className="grid grid-rows-1 grid-cols-1">
-      {Story()}
-    </div>
-    )
-  ]
-}
