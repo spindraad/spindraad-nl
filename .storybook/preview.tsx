@@ -33,7 +33,7 @@ const preview: Preview = {
     options: {
       storySort: {
         method: 'alphabetical',
-        order: ['Documentation', 'Components'],
+        order: ['Documentation', 'Atoms', 'Molecules', 'Organisms', 'Templates', 'Pages'],
         locale: 'en-US',
       },
     },

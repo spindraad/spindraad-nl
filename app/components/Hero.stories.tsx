@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Hero from './Hero';
 
 export default {
-  title: 'Organisms/Hero',
+  title: 'Templates/Hero',
   component: Hero,
   decorators: [
     (Story) => (
