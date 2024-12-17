@@ -61,8 +61,11 @@ jobs:
         with:
           node-version: '20'
 
-      - name: 📥 Install dependencies
+      - name: 📥 Install deps
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
+        env:
+          FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
 
       - name: 🧪 Test
         run: npm run test:unit
@@ -80,8 +83,11 @@ jobs:
         with:
           node-version: '20'
 
-      - name: 📥 Install dependencies
+      - name: 📥 Install deps
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
+        env:
+          FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
 
       - name: 🎭 Install Playwright dependencies
         run: npm run playwright:install
