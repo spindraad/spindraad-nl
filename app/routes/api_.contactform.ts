@@ -1,7 +1,7 @@
 import { ActionFunctionArgs, json } from '@remix-run/node';
 import { validateContactForm } from '~/validations/contactform';
 import { ContactFormActionData } from '~/components/Contact';
-import { sendMail } from '~/mail.server';
+import { sendMail } from '~/.server/mail';
 
 export const loader = () => json('Method not allowed', { status: 405 });
 
