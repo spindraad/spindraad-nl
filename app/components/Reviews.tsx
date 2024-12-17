@@ -1,5 +1,6 @@
 import Pill from '~/components/Pill';
 import { Review, reviews } from '~/data/reviews';
+import Anchor from '~/components/Anchor';
 
 export default function Reviews() {
   return (
@@ -26,17 +27,19 @@ export default function Reviews() {
 
 type ReviewItemProps = Review;
 
-function ReviewItem({ customer, image, review }: ReviewItemProps) {
+function ReviewItem({ customer, image, webpage, review }: ReviewItemProps) {
   return (
-    <div className="flex flex-row items-center gap-4">
+    <div className="flex flex-col items-center gap-2">
       <img
         src={ image }
         alt={customer}
-        className="aspect-square object-cover w-36 h-36"
+        className="object-contain w-full h-12"
       />
-        <div className="prose">
-          <blockquote className="text-gray-400 text-sm h-full" dangerouslySetInnerHTML={{ __html: review }} />
-          <p className="text-sm font-bold">&mdash; { customer }</p>
+        <div className="prose-sm prose-blockquote:border-l-0">
+          <blockquote className="text-gray-400 text-sm" dangerouslySetInnerHTML={{ __html: review }} />
+          <p className="text-sm font-bold">
+            &mdash; <Anchor href={webpage} external>{ customer }</Anchor>
+          </p>
         </div>
     </div>
   );
