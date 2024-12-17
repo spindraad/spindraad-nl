@@ -4,6 +4,7 @@ import { Link, LinkProps } from '@remix-run/react';
 interface BaseLinkProps {
   external?: boolean;
   href: string;
+  initiallyHideUnderline?: boolean;
 }
 
 interface InternalLinkProps extends BaseLinkProps, Omit<LinkProps, 'to'> {
@@ -16,8 +17,8 @@ interface ExternalLinkProps extends BaseLinkProps, Omit<React.DetailedHTMLProps<
 
 type Props = InternalLinkProps | ExternalLinkProps;
 
-const Anchor = forwardRef<HTMLAnchorElement, Props>(({ external, ...props }, ref) => {
-  const classes = `border-b-2 border-crisp-white hover:border-accent-orange transition-colors`;
+const Anchor = forwardRef<HTMLAnchorElement, Props>(({ external, initiallyHideUnderline = false, ...props }, ref) => {
+  const classes = `border-b-2 ${initiallyHideUnderline ? 'border-crisp-white hover:border-accent-orange' : 'border-accent-orange'} transition-colors`;
 
   if (external) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

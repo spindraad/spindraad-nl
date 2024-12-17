@@ -23,3 +23,12 @@ export const External: Story = {
     children: 'Dit is een externe link',
   },
 }
+
+export const InitiallyHideUnderline: Story = {
+  args: {
+    external: false,
+    href: '#',
+    children: 'Dit is een link',
+    initiallyHideUnderline: true,
+  },
+}
