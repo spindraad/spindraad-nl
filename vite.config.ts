@@ -9,6 +9,15 @@ installGlobals();
 const isStorybook = process.argv[1]?.includes("storybook");
 
 export default defineConfig({
-  plugins: [!isStorybook && remix(), tsconfigPaths()],
+  plugins: [!isStorybook && remix({
+    future: {
+      v3_routeConfig: false,
+      v3_singleFetch: false,
+      v3_throwAbortReason: true,
+      v3_relativeSplatPath: true,
+      v3_fetcherPersist: true,
+      v3_lazyRouteDiscovery: true,
+    }
+  }), tsconfigPaths()],
   test: {}
 });
