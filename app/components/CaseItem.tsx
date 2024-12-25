@@ -30,16 +30,25 @@ export default function CaseItem({ title, summary, image, url, customer, logo, f
   `;
 
   const contentWrapperClasses = `
-    ${ featured ? 'w-2/3' : 'w-full' }
-    space-y-4 
+    ${ featured ? 'w-2/3' : 'w-full h-full' }
+    flex
+    flex-col
+    gap-4
     p-4
   `;
 
   const titleClasses = `
     text-xl
     font-bold
-    ${featured ? 'text-white' : 'text-black group-hover:text-deep-blue'}
+    ${featured ? 'text-gray-100 group-hover:text-white' : 'text-deep-blue group-hover:text-vibrant-teal'}
     transition-colors
+  `;
+
+  const customerClasses = `
+    font-chivo
+    w-full
+    ${featured ? 'text-deep-blue' : 'text-gray-400'}
+    text-sm
   `;
 
   return (
@@ -48,10 +57,10 @@ export default function CaseItem({ title, summary, image, url, customer, logo, f
 
       <div className={contentWrapperClasses}>
         <h2 className={titleClasses}>{ title }</h2>
-        <p>{ summary }</p>
+        <p className="text-sm">{ summary }</p>
 
-        <div className="flex flex-row items-center justify-between gap-4">
-          <p className="font-chivo w-full">{ customer }</p>
+        <div className="flex flex-row items-center justify-between gap-4 mt-auto">
+          <p className={customerClasses}>{ customer }</p>
           <img className="w-full h-12 self-end object-contain" src={ logo } alt={ customer } />
         </div>
       </div>
