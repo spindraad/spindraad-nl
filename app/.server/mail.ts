@@ -52,6 +52,7 @@ export function spamCheck(values: ContactFormValues) {
 }
 
 function addresseeIsSpam(values: ContactFormValues) {
+  // Does not run.
   const bannedEmails = [
     'do-not-respond.me',
     'dont-reply.me',
