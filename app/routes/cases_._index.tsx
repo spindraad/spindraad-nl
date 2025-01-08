@@ -19,7 +19,7 @@ export default function CasesIndexRoute() {
     <PageLayout classes="content">
       <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-12">Cases</h1>
 
-      <div className="feature grid grid-cols-3 grid-rows-1">
+      <div className="feature grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-1">
         { cases.map((item, index) => (
           <CaseItem key={index} {...item} />
         ))}
