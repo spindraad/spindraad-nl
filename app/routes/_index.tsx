@@ -10,19 +10,20 @@ import Reviews from '~/components/Reviews';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "spindraad" },
-    { name: "description", content: "spindraad bouwt de beste web applicaties." },
-    { name: 'theme-color', content: '#ff7043'},
+    { title: 'spindraad' },
+    { name: 'description', content: 'spindraad bouwt de beste web applicaties.' },
+    { name: 'theme-color', content: '#ff7043' },
     { name: 'og:title', content: 'spindraad' },
     { name: 'og:description', content: 'spindraad bouwt de beste web applicaties.' },
-    { name: 'og:image', content: '/linkedin-share-module.png' },
+    { name: 'og:image', content: 'https://spindraad.nl/linkedin-share-module.png' },
     { name: 'og:url', content: 'https://spindraad.nl' },
     { name: 'og:type', content: 'website' },
+    { name: 'og:logo', content:'https://spindraad.nl/spindraad-logo' },
     { name: 'twitter:card', content: 'summary' },
     { name: 'twitter:site', content: '@spindraad' },
     { name: 'twitter:title', content: 'spindraad' },
     { name: 'twitter:description', content: 'spindraad bouwt de beste web applicaties.' },
-    { name: 'twitter:image', content: '/linkedin-share-module.png' },
+    { name: 'twitter:image', content: 'https://spindraad.nl/linkedin-share-module.png' },
   ];
 };
 
