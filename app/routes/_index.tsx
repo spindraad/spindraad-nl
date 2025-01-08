@@ -15,14 +15,14 @@ export const meta: MetaFunction = () => {
     { name: 'theme-color', content: '#ff7043'},
     { name: 'og:title', content: 'spindraad' },
     { name: 'og:description', content: 'spindraad bouwt de beste web applicaties.' },
-    { name: 'og:image', content: '/spindraad-logo.png' },
+    { name: 'og:image', content: '/linkedin-share-module.png' },
     { name: 'og:url', content: 'https://spindraad.nl' },
     { name: 'og:type', content: 'website' },
     { name: 'twitter:card', content: 'summary' },
     { name: 'twitter:site', content: '@spindraad' },
     { name: 'twitter:title', content: 'spindraad' },
     { name: 'twitter:description', content: 'spindraad bouwt de beste web applicaties.' },
-    { name: 'twitter:image', content: '/spindraad-logo.png' },
+    { name: 'twitter:image', content: '/linkedin-share-module.png' },
   ];
 };
 
