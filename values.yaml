@@ -3,6 +3,7 @@ app:
   namespace: corp-spindraad-nl # projects-<app-name> for customer projects
   domain: spindraad-nl.spindraad.app
   externalDomain: spindraad.nl
+  devDomain: spindraad-nl.spindraad.dev
   image:
     repository: registry.digitalocean.com/lodybo-registry/spindraad-nl
     tag: latest
