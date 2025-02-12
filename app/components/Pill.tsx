@@ -3,9 +3,10 @@ import { Colors } from '~/utils';
 type Props = {
   children: string;
   color?: Colors;
+  textSize?: 'xs' | 'sm';
 };
 
-export default function Pill({ children, color = 'deep-blue' }: Props) {
+export default function Pill({ children, textSize = 'sm', color = 'deep-blue' }: Props) {
   let colorClass = 'bg-deep-blue';
 
   switch (color) {
@@ -27,7 +28,7 @@ export default function Pill({ children, color = 'deep-blue' }: Props) {
   }
 
   return (
-    <p className={ `inline-block rounded-lg px-3 py-1 text-sm ${colorClass}` }>
+    <p className={ `inline-block rounded-lg px-3 py-1 ${textSize === 'sm' ? 'text-sm' : 'text-xs'} ${colorClass}` }>
       { children }
     </p>
   );

@@ -1,5 +1,6 @@
 import { PortfolioItem } from '~/data/portfolio';
 import { Link } from '@remix-run/react';
+import Pill from '~/components/Pill';
 
 type Props = PortfolioItem
 
@@ -33,12 +34,12 @@ export default function PortfolioGridItem({ title, summary, logo, featured, url,
     ${ featured ? 'w-2/3' : 'w-full h-full' }
     flex
     flex-col
-    gap-4
+    gap-6
     p-4
   `;
 
   const titleClasses = `
-    text-xl
+    text-2xl
     font-bold
     ${featured ? 'text-gray-100 group-hover:text-white' : 'text-deep-blue'}
     transition-colors
@@ -56,11 +57,18 @@ export default function PortfolioGridItem({ title, summary, logo, featured, url,
       <img className={imageClasses} src={ image } alt={ title } />
 
       <div className={contentWrapperClasses}>
-        <h2 className={titleClasses}>{ title }</h2>
-        <p className="text-sm">{ summary }</p>
+        <div className="flex flex-col gap-1">
+          <p className={customerClasses}>{ customer }</p>
+          <h2 className={titleClasses}>{ title }</h2>
+        </div>
+        <div className="flex flex-row flex-wrap gap-2">
+          { tags.map((tag, index) => (
+            <Pill key={index} textSize="xs" color="soft-gray">{tag}</Pill>
+          ))}
+        </div>
+        <p className="text-base">{ summary }</p>
 
         <div className="flex flex-row items-center justify-between gap-4 mt-auto">
-          <p className={customerClasses}>{ customer }</p>
           <img className="w-full h-12 self-end object-contain" src={ logo } alt={ customer } />
         </div>
       </div>
