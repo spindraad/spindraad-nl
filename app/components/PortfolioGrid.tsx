@@ -7,9 +7,9 @@ type Props = {
 
 export default function PortfolioGrid({ portfolioItems }: Props) {
   return (
-    <ul className="flex flex-row flex-wrap gap-4">
+    <ul className="grid grid-cols-[repeat(3,minmax(18rem,24rem))] gap-4">
       {portfolioItems.map((item, index) => (
-        <li key={index} className="w-full max-w-96">
+        <li key={index} className="w-full">
           <PortfolioGridItem {...item} />
         </li>
       ))}

@@ -16,11 +16,12 @@ type Story = StoryObj<typeof PortfolioGrid>;
 const portfolioItems: PortfolioItem[] = Array.from({ length: 9 }, () => ({
   title: faker.lorem.sentence(),
   summary: faker.lorem.paragraph(),
-  url: faker.internet.url(),
+  url: faker.helpers.arrayElement([ faker.internet.url(), undefined ]),
   image: faker.image.urlPicsumPhotos({ blur: 0 }),
+  wip: faker.datatype.boolean(),
   customer: faker.company.name(),
-  logo: faker.helpers.arrayElement([drakenfruitLogo, letsLedsLogo, watershedLogo]),
-  tags: faker.helpers.arrayElements(['Web Application', 'WordPress', 'Custom WordPress theme', 'Custom WordPress Plugin', 'Web site']),
+  logo: faker.helpers.arrayElement([ drakenfruitLogo, letsLedsLogo, watershedLogo ]),
+  tags: faker.helpers.arrayElements([ 'Web Application', 'WordPress', 'Custom WordPress theme', 'Custom WordPress Plugin', 'Web site' ]),
 }));
 
 export const Default: Story = {
