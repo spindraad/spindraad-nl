@@ -18,36 +18,47 @@ export interface PortfolioItem {
 export const portfolioItems: PortfolioItem[] = [
   {
     title: 'Maatwerk klantportaal voor Drakenfruit',
-    summary: 'Drakenfruit, een consultancybureau dat organisaties begeleidt bij het creëren van alignment tussen visie en strategie met een focus op diversiteit en inclusie, had behoefte aan een efficiënte manier om kennis en informatie met klanten te delen. Ze schakelden spindraad in om hun klantportaal te bouwen.',
-    content: faker.lorem.paragraphs({ min: 2, max: 5 }, '<br/>'),
+    summary: 'Voor Drakenfruit hebben we een volledig maatwerk klantportaal ontwikkeld waarin contactpersonen van samenwerkende organisaties veilig kunnen inloggen. Het portaal biedt een persoonlijke omgeving waarin gebruikers relevante artikelen kunnen lezen en opslaan, tools kunnen downloaden en belangrijke contactpersonen beheerd worden, ondersteund door een custom content management systeem en geavanceerd user- en accountmanagement – alles gebouwd op Remix.',
+    content: `<p>Het klantportaal voor Drakenfruit is ontworpen met de focus op gebruiksvriendelijkheid en efficiëntie. Contactpersonen krijgen een op maat gemaakte, persoonlijke omgeving waarin ze gemakkelijk toegang hebben tot een breed scala aan relevante content en tools. Dit zorgt ervoor dat zij altijd op de hoogte blijven van de laatste ontwikkelingen en direct kunnen inspelen op de behoeften van hun organisatie.</p><p>Om zowel externe gebruikers als interne medewerkers optimaal te bedienen, is het portaal uitgerust met een volledig custom content management systeem. Dit systeem biedt uitgebreide mogelijkheden voor het beheren van content, gebruikers en accounts. Het gebruik van Remix als basis garandeert niet alleen een snelle en dynamische gebruikerservaring, maar maakt het portaal ook toekomstbestendig en flexibel voor eventuele uitbreidingen.</p>`,
     image: '/cases/drakenfruit-portaal-home.png',
     customer: 'Drakenfruit',
     featured: false,
     logo: drakenfruitLogo,
     slug: 'drakenfruit-portaal',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Custom CMS']
+    tags: ['Webapplicatie', 'React', 'Remix', 'Maatwerk CMS', 'Responsive', 'User- en accountmanagement']
   },
   {
     title: 'Een nieuwe WordPress website voor Golfvereniging Het Caves',
-    summary: 'Golfvereniging Het Caves had behoefte aan een nieuwe website die ze zelf konden beheren. Ze schakelden spindraad in om een website te bouwen die ze zelf kunnen beheren.',
-    content: faker.lorem.paragraphs({ min: 2, max: 5 }, '<br/>'),
+    summary: 'Voor Golfvereniging Het Caves hebben we een volledig maatwerk WordPress website ontwikkeld, gebaseerd op hun oude Joomla-site. Het unieke, handgeschreven thema – zonder gebruik van frameworks – zorgt voor een authentieke uitstraling, terwijl het wekelijkse onderhoud door spindraad garant staat voor optimale veiligheid en stabiliteit.',
+    content: `<p>Bij het vernieuwen van de website voor Golfvereniging Het Caves lag de focus op het behoud van de bestaande identiteit, gecombineerd met moderne functionaliteiten. We hebben een volledig op maat gemaakt WordPress thema ontwikkeld, dat met de hand is gecodeerd zonder gebruik van frameworks. Dit resulteert in een lichte, snelle en unieke website die naadloos aansluit op de wensen van de golfvereniging.</p><p>Naast de ontwikkeling van het unieke thema, hebben we veel aandacht besteed aan de veiligheid en stabiliteit van de site. Spindraad verzorgt wekelijks het onderhoud, wat zorgt voor regelmatige updates en bescherming tegen mogelijke kwetsbaarheden. Hierdoor geniet de golfvereniging van een betrouwbare online aanwezigheid die zowel visueel als technisch op het hoogste niveau functioneert.</p>`,
     image: '/portfolio/het-caves-home.png',
     customer: 'Golfvereniging Het Caves',
     featured: false,
     logo: '/het-caves-logo.png',
     slug: 'het-caves-website',
-    tags: ['WordPress', 'Custom thema', 'Server setup en onderhoud']
+    tags: ['WordPress', 'Maatwerk thema', 'Responsive', 'Hosting en onderhoud']
+  },
+  {
+    title: 'Maatwerk Plugin voor De Talentversneller',
+    summary: 'Voor De Talentversneller hebben we een maatwerk WordPress plugin ontwikkeld die klanten via de homepage een gratis e-boek aanbiedt in ruil voor hun e-mailadres. Deze plugin is naadloos geïntegreerd met WooCommerce, waardoor klantprofielen automatisch worden aangemaakt en het e-boek als product wordt verstuurd.',
+    content: `<p>Het ontwikkelen van deze plugin was gericht op het optimaliseren van leadgeneratie en het verbeteren van de klantbeleving. Door bezoekers de mogelijkheid te bieden hun e-mailadres achter te laten in ruil voor een gratis e-boek, creëren we een laagdrempelige instap en vergroten we de betrokkenheid. Deze aanpak zorgt ervoor dat geïnteresseerden direct waarde ontvangen, wat de eerste stap is in het opbouwen van een langdurige relatie.</p><p>De plugin is volledig geïntegreerd met WooCommerce, waardoor de verzamelde e-mailadressen automatisch leiden tot het aanmaken van klantprofielen. Vervolgens wordt het e-boek – dat als een product is ingericht – op een gestroomlijnde wijze verzonden. Daarnaast zorgt het wekelijkse onderhoud door spindraad ervoor dat zowel de plugin als de gehele website continu up-to-date en veilig zijn, wat essentieel is voor een optimale gebruikerservaring.</p>`,
+    image: '/portfolio/dtv-custom-plugin.png',
+    customer: 'De Talentversneller',
+    featured: false,
+    logo: '/dtv-logo.png',
+    slug: 'de-talentversneller-plugin',
+    tags: ['WordPress', 'WooCommerce', 'Maatwerk plugin', 'Integraties', 'Hosting en onderhoud']
   },
   {
     title: 'Maatwerk website en content management systeem voor Watershed',
-    summary: 'Watershed, een consultancybureau dat organisaties helpt bij het creëren van een inclusieve en diverse werkomgeving, had behoefte aan een nieuwe website en content management systeem. Ze schakelden spindraad in om hun website te bouwen.',
-    content: faker.lorem.paragraphs({ min: 2, max: 5 }, '<br/>'),
+    summary: 'Voor Stichting Watershed bouwen we een volledig maatwerk website met een custom content management systeem, die diepgaande inzichten biedt in hun projecten en evenementen. Met een sterke focus op toegankelijkheid volgens de European Accessibility Act, is deze in Remix ontwikkelde site, gehost en onderhouden door spindraad, ontworpen voor diverse doelgroepen.',
+    content: `<p>Stichting Watershed wilde een moderne, flexibele website die hun projecten en evenementen helder en overzichtelijk presenteert. Met de overstap van Wix naar een maatwerk oplossing hebben we een op maat gemaakt content management systeem ontwikkeld dat medewerkers de mogelijkheid geeft om eenvoudig content bij te werken en evenementen aan te maken. Deze zelfredzaamheid zorgt voor een efficiënte en dynamische online communicatie.</p><p>Toegankelijkheid staat bij dit project centraal. De website wordt gebouwd met de aankomende European Accessibility Act in het achterhoofd, zodat alle bezoekers, ongeacht hun beperkingen, een optimale gebruikerservaring hebben. Daarnaast zorgt het gebruik van Remix voor een snelle en schaalbare website. Spindraad draagt zorg voor het hosting- en onderhoudsproces, waardoor Stichting Watershed verzekerd is van een veilige, stabiele en toekomstbestendige online aanwezigheid.</p>`,
     image: watershedLogo,
     customer: 'Stichting Watershed',
     featured: false,
     wip: true,
     logo: watershedLogo,
     slug: 'watershed-website',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Custom CMS']
+    tags: ['React', 'Remix', 'Maatwerk CMS', 'Toegankelijkheid', 'Responsive', 'Hosting en onderhoud']
   },
 ];
