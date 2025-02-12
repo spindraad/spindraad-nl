@@ -16,7 +16,7 @@ export default function PortfolioGridItem({ title, summary, logo, featured, wip,
     w-full
     h-full
     border-2
-    ${ !url ? 'border-soft-gray' : 'border-deep-blue' }
+    ${ !url ? 'border-soft-gray/50' : 'border-soft-gray' }
     ${ !url ? '' : 'hover:border-accent-orange' }
     overflow-hidden
     ${ !url ? '' : 'cursor-pointer' }
