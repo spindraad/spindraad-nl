@@ -2,7 +2,6 @@ import { MetaFunction, json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import { portfolioItems } from '~/data/portfolio';
 import PageLayout from '~/components/PageLayout';
-import Prose from '~/components/Prose';
 import PortfolioGrid from '~/components/PortfolioGrid';
 
 export const meta: MetaFunction = () => [
@@ -17,12 +16,12 @@ export default function PortfolioGridRoute() {
   const { portfolioItems } = useLoaderData<typeof loader>();
 
   return (
-    <PageLayout topMargin>
-      <Prose>
-        <h1>Portfolio</h1>
+    <PageLayout classes="content" topMargin>
+      <div className="feature">
+        <h1 className="text-3xl font-bold tracking-tighter sm:text-7xl mb-12">Portfolio</h1>
 
         <PortfolioGrid portfolioItems={portfolioItems} />
-      </Prose>
+      </div>
     </PageLayout>
   );
 }
