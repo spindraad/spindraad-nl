@@ -1,9 +1,9 @@
 import { Link } from '@remix-run/react';
-import { Case } from '~/data/cases';
+import { CaseItem } from '~/data/cases';
 
-type Props = Case;
+type Props = CaseItem;
 
-export default function CaseItem({ title, summary, image, url, customer, logo, featured }: Props) {
+export default function CaseGridItem({ title, summary, image, url, customer, logo, featured }: Props) {
   const wrapperClasses = `
     group
     flex
@@ -38,9 +38,9 @@ export default function CaseItem({ title, summary, image, url, customer, logo, f
   `;
 
   const titleClasses = `
-    text-xl
+    text-2xl
     font-bold
-    ${featured ? 'text-gray-100 group-hover:text-white' : 'text-deep-blue group-hover:text-vibrant-teal'}
+    ${featured ? 'text-gray-100 group-hover:text-white' : 'text-deep-blue group-hover:text-accent-orange'}
     transition-colors
   `;
 
