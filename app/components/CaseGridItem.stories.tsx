@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { faker } from '@faker-js/faker';
-import CaseItem from './CaseItem';
+import CaseGridItem from 'app/components/CaseGridItem';
 import drakenfruitLogo from '~/assets/images/drakenfruit-woordmerk-logo.png';
 import letsLedsLogo from '~/assets/images/letsleds-logo.png';
 import watershedLogo from '~/assets/images/watershed-logo.png';
 
 export default {
-  title: 'Organisms/Case Item',
-  component: CaseItem,
-} satisfies Meta<typeof CaseItem>;
+  title: 'Organisms/Case Grid Item',
+  component: CaseGridItem,
+} satisfies Meta<typeof CaseGridItem>;
 
-type Story = StoryObj<typeof CaseItem>;
+type Story = StoryObj<typeof CaseGridItem>;
 
 const createCaseItem = () => ({
   title: faker.lorem.sentence(),
@@ -44,18 +44,4 @@ export const FeaturedItem: Story = {
       </div>
     )
   ]
-}
-
-export const MultipleItems: Story = {
-  render: () => {
-    const items = Array.from({ length: 9 }, createCaseItem);
-
-    return (
-      <div className="grid grid-cols-1 md:grid-cols-3 grid-flow-dense gap-4">
-        {items.map((item, index) => (
-          <CaseItem key={index} {...item} featured={index === 0 || index === 3 || index === 6} />
-        ))}
-      </div>
-    );
-  }
 };
