@@ -1,12 +1,12 @@
-import { Outlet } from '@remix-run/react';
 import PageLayout from '~/components/PageLayout';
 import Prose from '~/components/Prose';
 
-export default function CasesRoutesLayout() {
+export default function PortfolioGrid() {
   return (
-    <PageLayout>
+    <PageLayout topMargin>
       <Prose>
-        <Outlet />
+        <h1>Portfolio</h1>
+        <p>Portfolio page content</p>
       </Prose>
     </PageLayout>
   );

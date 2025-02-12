@@ -20,7 +20,7 @@ export default function Navigation({ orientation = 'horizontal', size = 'sm', ga
       <Anchor isNavLink href="/cases" className={fontSize} initiallyHideUnderline>
         Cases
       </Anchor>
-      <Anchor href="/#portfolio" className={fontSize} initiallyHideUnderline>
+      <Anchor href="/portfolio" className={fontSize} initiallyHideUnderline>
         Portfolio
       </Anchor>
       <Anchor href="/#klanten" className={fontSize} initiallyHideUnderline>
