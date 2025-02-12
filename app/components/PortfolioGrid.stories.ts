@@ -13,10 +13,10 @@ export default {
 
 type Story = StoryObj<typeof PortfolioGrid>;
 
-const portfolioItems: PortfolioItem[] = Array.from({ length: 9 }, () => ({
+const portfolioItems: Omit<PortfolioItem, 'content'>[] = Array.from({ length: 9 }, () => ({
   title: faker.lorem.sentence(),
   summary: faker.lorem.paragraph(),
-  url: faker.helpers.arrayElement([ faker.internet.url(), undefined ]),
+  slug: faker.helpers.arrayElement([ faker.internet.url(), undefined ]),
   image: faker.image.urlPicsumPhotos({ blur: 0 }),
   wip: faker.datatype.boolean(),
   customer: faker.company.name(),

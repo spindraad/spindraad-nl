@@ -2,7 +2,7 @@ import { PortfolioItem } from '~/data/portfolio';
 import PortfolioGridItem from '~/components/PortfolioGridItem';
 
 type Props = {
-  portfolioItems: PortfolioItem[];
+  portfolioItems: Omit<PortfolioItem, 'content'>[];
 };
 
 export default function PortfolioGrid({ portfolioItems }: Props) {
