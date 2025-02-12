@@ -9,13 +9,6 @@ import watershedLogo from '~/assets/images/watershed-logo.png';
 export default {
   title: 'Organisms/Portfolio Grid Item',
   component: PortfolioGridItem,
-  decorators: [
-    (Story) => (
-      <div className="grid grid-rows-1 grid-cols-1 w-96">
-        {Story()}
-        </div>
-    )
-  ]
 } satisfies Meta<typeof PortfolioGridItem>;
 
 type Story = StoryObj<typeof PortfolioGridItem>;
@@ -34,4 +27,56 @@ export const Default: Story = {
   args: {
     ...portfolioItem,
   },
+  decorators: [
+    (Story) => (
+      <div className="grid grid-rows-1 grid-cols-1 w-96">
+        {Story()}
+      </div>
+    )
+  ]
+};
+
+export const Featured: Story = {
+  args: {
+    ...portfolioItem,
+    featured: true,
+  },
+  decorators: [
+    (Story) => (
+      <div className="grid grid-rows-1 grid-cols-1 w-[36rem]">
+        {Story()}
+      </div>
+    )
+  ]
+}
+
+export const ComingSoonWIPURL: Story = {
+  name: 'Coming soon (WIP) with url',
+  args: {
+    ...portfolioItem,
+    wip: true,
+  },
+  decorators: [
+    (Story) => (
+      <div className="grid grid-rows-1 grid-cols-1 w-96">
+        {Story()}
+      </div>
+    )
+  ]
+};
+
+export const ComingSoonWIP: Story = {
+  name: 'Coming soon (WIP) without url',
+  args: {
+    ...portfolioItem,
+    wip: true,
+    url: undefined,
+  },
+  decorators: [
+    (Story) => (
+      <div className="grid grid-rows-1 grid-cols-1 w-96">
+        {Story()}
+      </div>
+    )
+  ]
 };

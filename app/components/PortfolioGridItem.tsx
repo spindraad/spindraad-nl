@@ -1,37 +1,68 @@
 import { PortfolioItem } from '~/data/portfolio';
 import { Link } from '@remix-run/react';
 import Pill from '~/components/Pill';
+import { ReactNode } from 'react';
 
 type Props = PortfolioItem
 
-export default function PortfolioGridItem({ title, summary, logo, featured, url, customer, tags, image }: Props) {
+export default function PortfolioGridItem({ title, summary, logo, featured, wip, url, customer, tags, image }: Props) {
   const wrapperClasses = `
     group
     flex
     ${ featured ? 'flex-row col-span-2' : 'flex-col' }
     ${ featured ? 'bg-accent-orange' : 'bg-crisp-white' }
+    ${ !url ? 
+      wip ? 'opacity-60' : 'opacity-100' : 'opacity-100' }
     w-full
+    h-full
     border-2
-    border-soft-gray
-    hover:border-accent-orange
+    ${ !url ? 'border-soft-gray' : 'border-deep-blue' }
+    ${ !url ? '' : 'hover:border-accent-orange' }
     overflow-hidden
-    cursor-pointer
+    ${ !url ? '' : 'cursor-pointer' }
     scale-100
-    hover:scale-[1.02]
+    ${ !url ? '' : 'hover:scale-[1.02]'}
     transition-all
   `;
 
+  const imageWrapperClasses = `
+    ${ featured ? 'w-1/2' : 'w-full' }
+    relative
+    transition-transform
+  `;
+
+  const wipBannerWrapperClasses = `
+    absolute
+    z-10
+    inset-0
+    flex
+    flex-col
+    items-center
+    justify-center
+    bg-soft-gray/75
+    scale-100
+    ${ !url ? '': 'group-hover:scale-[1.02]' }
+  `;
+
+  const wipBannerClasses = `
+    text-crisp-white
+    bg-deep-blue/90
+    px-2 py-1
+    text-lg
+    font-bold
+  `;
+
   const imageClasses = `
-    ${ featured ? 'w-1/3' : 'w-full' }
     ${ featured ? 'aspect-square' : 'aspect-video' }
+    w-full
     object-cover
     scale-100
-    group-hover:scale-[1.02]
+    ${ !url ? '': 'group-hover:scale-[1.02]' }
     transition-transform
   `;
 
   const contentWrapperClasses = `
-    ${ featured ? 'w-2/3' : 'w-full h-full' }
+    ${ featured ? 'w-1/2' : 'w-full h-full' }
     flex
     flex-col
     gap-6
@@ -41,7 +72,8 @@ export default function PortfolioGridItem({ title, summary, logo, featured, url,
   const titleClasses = `
     text-2xl
     font-bold
-    ${featured ? 'text-gray-100 group-hover:text-white' : 'text-deep-blue'}
+    ${featured ? 'text-gray-100 group-hover:text-white' : 
+      !url ? 'text-deep-blue' : 'text-deep-blue group-hover:text-accent-orange'}
     transition-colors
   `;
 
@@ -53,8 +85,15 @@ export default function PortfolioGridItem({ title, summary, logo, featured, url,
   `;
 
   return (
-    <Link to={url} className={wrapperClasses}>
-      <img className={imageClasses} src={ image } alt={ title } />
+    <ItemWrapper to={url} className={wrapperClasses}>
+      <div className={imageWrapperClasses}>
+        { wip ? (
+          <div className={wipBannerWrapperClasses}>
+            <p className={wipBannerClasses}>Work in progress</p>
+          </div>
+        ) : null}
+        <img className={imageClasses} src={ image } alt={ title } />
+      </div>
 
       <div className={contentWrapperClasses}>
         <div className="flex flex-col gap-1">
@@ -72,6 +111,20 @@ export default function PortfolioGridItem({ title, summary, logo, featured, url,
           <img className="w-full h-12 self-end object-contain" src={ logo } alt={ customer } />
         </div>
       </div>
-    </Link>
+    </ItemWrapper>
+  );
+}
+
+type ItemWrapperProps = {
+  to: string | undefined,
+  className: string,
+  children: ReactNode
+};
+
+function ItemWrapper({ to, className, children}: ItemWrapperProps) {
+  return to ? (
+    <Link to={to} className={className}>{children}</Link>
+  ) : (
+    <div className={className}>{children}</div>
   );
 }
