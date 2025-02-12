@@ -13,10 +13,10 @@ export default {
 
 type Story = StoryObj<typeof PortfolioGridItem>;
 
-const portfolioItem: PortfolioItem = {
+const portfolioItem: Omit<PortfolioItem, 'content'> = {
   title: faker.lorem.sentence(),
   summary: faker.lorem.paragraph(),
-  url: faker.internet.url(),
+  slug: faker.internet.url(),
   image: faker.image.urlPicsumPhotos({ blur: 0 }),
   customer: faker.company.name(),
   logo: faker.helpers.arrayElement([drakenfruitLogo, letsLedsLogo, watershedLogo]),
@@ -70,7 +70,7 @@ export const ComingSoonWIP: Story = {
   args: {
     ...portfolioItem,
     wip: true,
-    url: undefined,
+    slug: undefined,
   },
   decorators: [
     (Story) => (

@@ -4,7 +4,7 @@ import { Outlet } from '@remix-run/react';
 
 export default function PortfolioRoutesLayout() {
   return (
-    <PageLayout>
+    <PageLayout topMargin>
       <Prose>
         <Outlet />
       </Prose>

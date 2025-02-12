@@ -104,15 +104,18 @@
     --full: minmax(var(--gap), 1fr);
     --content: min(80ch, 100% - var(--gap) * 2);
     --popout: minmax(0, 2rem);
+    --callout: minmax(0, 5rem);
     --feature: minmax(0, 10rem);
 
     display: grid;
     grid-template-columns:
       [full-start] var(--full)
       [feature-start] var(--feature)
+      [callout-start] var(--callout)
       [popout-start] var(--popout)
       [content-start] var(--content) [content-end]
       var(--popout) [popout-end]
+      var(--callout) [callout-end]
       var(--feature) [feature-end]
       var(--full) [full-end];
   }
@@ -123,6 +126,10 @@
 
   .popout {
     grid-column: popout;
+  }
+
+  .callout {
+    grid-column: callout;
   }
 
   .feature {

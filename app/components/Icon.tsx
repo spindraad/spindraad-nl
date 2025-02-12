@@ -11,6 +11,7 @@ import {
   faScrewdriverWrench,
   faLink,
   faSearch,
+  faArrowLeft,
 } from '@awesome.me/kit-feaffe80b3/icons/classic/light';
 import {
   faPaperPlane,
@@ -34,6 +35,7 @@ library.add(
   faCopyright,
   faMastodon,
   faTwitter,
+  faArrowLeft,
 );
 
 export type Props = {

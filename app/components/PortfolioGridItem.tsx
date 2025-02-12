@@ -3,25 +3,25 @@ import { Link } from '@remix-run/react';
 import Pill from '~/components/Pill';
 import { ReactNode } from 'react';
 
-type Props = PortfolioItem
+type Props = Omit<PortfolioItem, 'content'>;
 
-export default function PortfolioGridItem({ title, summary, logo, featured, wip, url, customer, tags, image }: Props) {
+export default function PortfolioGridItem({ title, summary, logo, featured, wip, slug, customer, tags, image }: Props) {
   const wrapperClasses = `
     group
     flex
     ${ featured ? 'flex-row col-span-2' : 'flex-col' }
     ${ featured ? 'bg-accent-orange' : 'bg-crisp-white' }
-    ${ !url ? 
+    ${ !slug ? 
       wip ? 'opacity-60' : 'opacity-100' : 'opacity-100' }
     w-full
     h-full
     border-2
-    ${ !url ? 'border-soft-gray/50' : 'border-soft-gray' }
-    ${ !url ? '' : 'hover:border-accent-orange' }
+    ${ !slug ? 'border-soft-gray/50' : 'border-soft-gray' }
+    ${ !slug ? '' : 'hover:border-accent-orange' }
     overflow-hidden
-    ${ !url ? '' : 'cursor-pointer' }
+    ${ !slug ? '' : 'cursor-pointer' }
     scale-100
-    ${ !url ? '' : 'hover:scale-[1.02]'}
+    ${ !slug ? '' : 'hover:scale-[1.02]'}
     transition-all
   `;
 
@@ -41,7 +41,7 @@ export default function PortfolioGridItem({ title, summary, logo, featured, wip,
     justify-center
     bg-soft-gray/75
     scale-100
-    ${ !url ? '': 'group-hover:scale-[1.02]' }
+    ${ !slug ? '': 'group-hover:scale-[1.02]' }
   `;
 
   const wipBannerClasses = `
@@ -57,7 +57,7 @@ export default function PortfolioGridItem({ title, summary, logo, featured, wip,
     w-full
     object-cover
     scale-100
-    ${ !url ? '': 'group-hover:scale-[1.02]' }
+    ${ !slug ? '': 'group-hover:scale-[1.02]' }
     transition-transform
   `;
 
@@ -73,7 +73,7 @@ export default function PortfolioGridItem({ title, summary, logo, featured, wip,
     text-2xl
     font-bold
     ${featured ? 'text-gray-100 group-hover:text-white' : 
-      !url ? 'text-deep-blue' : 'text-deep-blue group-hover:text-accent-orange'}
+      !slug ? 'text-deep-blue' : 'text-deep-blue group-hover:text-accent-orange'}
     transition-colors
   `;
 
@@ -85,7 +85,7 @@ export default function PortfolioGridItem({ title, summary, logo, featured, wip,
   `;
 
   return (
-    <ItemWrapper to={url} className={wrapperClasses}>
+    <ItemWrapper to={slug} className={wrapperClasses}>
       <div className={imageWrapperClasses}>
         { wip ? (
           <div className={wipBannerWrapperClasses}>
