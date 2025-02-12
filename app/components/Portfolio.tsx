@@ -1,7 +1,9 @@
 import Pill from '~/components/Pill';
-import { items, PortfolioDescription } from '~/data/items';
+import { portfolioItems, PortfolioItem as IPortFolioItem } from '~/data/portfolio';
 
 export default function Portfolio() {
+  const items = portfolioItems.filter((item) => !item.wip);
+
   return (
     <section id="portfolio" className="w-full py-12 md:py-24 lg:py-32">
     <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 lg:gap-10">
@@ -24,21 +26,21 @@ export default function Portfolio() {
   );
 }
 
-type PortfolioItemProps = PortfolioDescription;
+type PortfolioItemProps = Pick<IPortFolioItem, 'title' | 'summary' | 'image'>;
 
-function PortfolioItem({ title, description, image }: PortfolioItemProps) {
+function PortfolioItem({ title, summary, image }: PortfolioItemProps) {
   return (
     <div className="rounded-xl overflow-hidden">
       <img
         src={ image }
-        height="300"
+        height="250"
         alt="Portfolio Item"
-        className="aspect-[4/3] object-cover w-full"
+        className="aspect-[4/3] object-cover object-top w-full h-[250px]"
       />
       <div className="p-4 bg-soft-gray dark:bg-gray-800 h-full">
         <h3 className="text-lg font-bold">{ title }</h3>
         <p className="text-gray-500 dark:text-gray-400">
-          { description }
+          { summary }
         </p>
       </div>
     </div>
