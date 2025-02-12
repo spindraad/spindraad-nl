@@ -7,10 +7,12 @@ type Props = {
 
 export default function PortfolioGrid({ portfolioItems }: Props) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 grid-flow-dense gap-4">
+    <ul className="flex flex-row flex-wrap gap-4">
       {portfolioItems.map((item, index) => (
-        <PortfolioGridItem key={index} {...item} />
+        <li key={index} className="w-full max-w-96">
+          <PortfolioGridItem {...item} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
