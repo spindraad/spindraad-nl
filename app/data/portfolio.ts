@@ -1,4 +1,3 @@
-import { fakerNL as faker } from '@faker-js/faker';
 import drakenfruitLogo from '~/assets/images/drakenfruit-woordmerk-logo.png';
 import watershedLogo from '~/assets/images/watershed-logo.png';
 
