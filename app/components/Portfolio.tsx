@@ -1,5 +1,6 @@
 import Pill from '~/components/Pill';
 import { portfolioItems, PortfolioItem as IPortFolioItem } from '~/data/portfolio';
+import { Link } from '@remix-run/react';
 
 export default function Portfolio() {
   const items = portfolioItems.filter((item) => !item.wip);
@@ -26,23 +27,23 @@ export default function Portfolio() {
   );
 }
 
-type PortfolioItemProps = Pick<IPortFolioItem, 'title' | 'summary' | 'image'>;
+type PortfolioItemProps = Pick<IPortFolioItem, 'title' | 'summary' | 'image' | 'slug'>;
 
-function PortfolioItem({ title, summary, image }: PortfolioItemProps) {
+function PortfolioItem({ title, summary, image, slug }: PortfolioItemProps) {
   return (
-    <div className="rounded-xl overflow-hidden">
+    <Link to={`/portfolio/${slug}`} className="rounded-xl overflow-hidden group">
       <img
         src={ image }
         height="250"
         alt="Portfolio Item"
-        className="aspect-[4/3] object-cover object-top w-full h-[250px]"
+        className="aspect-[4/3] object-cover object-top w-full h-[250px] scale-[1.01] group-hover:scale-105 transition-transform"
       />
       <div className="p-4 bg-soft-gray dark:bg-gray-800 h-full">
-        <h3 className="text-lg font-bold">{ title }</h3>
+        <h3 className="text-lg font-bold group-hover:text-accent-orange">{ title }</h3>
         <p className="text-gray-500 dark:text-gray-400">
           { summary }
         </p>
       </div>
-    </div>
+    </Link>
   );
 }
