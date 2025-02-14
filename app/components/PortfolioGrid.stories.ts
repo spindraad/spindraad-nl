@@ -20,7 +20,7 @@ const portfolioItems: Omit<PortfolioItem, 'content'>[] = Array.from({ length: 9 
   image: faker.image.urlPicsumPhotos({ blur: 0 }),
   wip: faker.datatype.boolean(),
   customer: faker.company.name(),
-  logo: faker.helpers.arrayElement([ drakenfruitLogo, letsLedsLogo, watershedLogo ]),
+  logo: faker.helpers.arrayElement([ drakenfruitLogo, letsLedsLogo, watershedLogo, undefined ]),
   tags: faker.helpers.arrayElements([ 'Web Application', 'WordPress', 'Custom WordPress theme', 'Custom WordPress Plugin', 'Web site' ]),
 }));
 

@@ -55,6 +55,7 @@ export default function PortfolioGridItem({ title, summary, logo, featured, wip,
   const imageClasses = `
     ${ featured ? 'aspect-square' : 'aspect-video' }
     w-full
+    h-full
     object-cover
     scale-100
     ${ !slug ? '': 'group-hover:scale-[1.02]' }
@@ -107,9 +108,11 @@ export default function PortfolioGridItem({ title, summary, logo, featured, wip,
         </div>
         <p className="text-base">{ summary }</p>
 
-        <div className="flex flex-row items-center justify-between gap-4 mt-auto">
-          <img className="w-full h-12 self-end object-contain" src={ logo } alt={ customer } />
-        </div>
+        { logo ? (
+          <div className="flex flex-row items-center justify-between gap-4 mt-auto">
+            <img className="w-full h-12 self-end object-contain" src={ logo } alt={ customer } />
+          </div>
+        ) : null }
       </div>
     </ItemWrapper>
   );
