@@ -11,6 +11,7 @@ export interface PortfolioItem {
   featured?: boolean;
   wip?: boolean;
   slug?: string;
+  homePage?: boolean;
   tags: string[];
 }
 
@@ -22,6 +23,7 @@ export const portfolioItems: PortfolioItem[] = [
     image: '/cases/drakenfruit-portaal-home.png',
     customer: 'Drakenfruit',
     featured: false,
+    homePage: true,
     logo: drakenfruitLogo,
     slug: 'drakenfruit-portaal',
     tags: ['Webapplicatie', 'React', 'Remix', 'Maatwerk CMS', 'Responsive', 'User- en accountmanagement']
@@ -33,6 +35,7 @@ export const portfolioItems: PortfolioItem[] = [
     image: '/portfolio/het-caves-home.png',
     customer: 'Golfvereniging Het Caves',
     featured: false,
+    homePage: true,
     logo: '/het-caves-logo.png',
     slug: 'het-caves-website',
     tags: ['WordPress', 'Maatwerk thema', 'Responsive', 'Hosting en onderhoud']
@@ -65,6 +68,7 @@ export const portfolioItems: PortfolioItem[] = [
     summary: 'Voor de Borgers Family band hebben we een website ontwikkeld met een geavanceerd event beheer- en ticketsysteem, inclusief Mollie-integratie. Dit maatwerk WordPress thema biedt de band de mogelijkheid om hun evenementen en tickets eenvoudig te beheren en verkopen, terwijl spindraad zorgt voor hosting en onderhoud.',
     content: '<p>De Borgers Family Band website is een maatwerk oplossing ontwikkeld in Remix/React Router, waarbij een intuïtief agenda beheer voor liveshows centraal staat. Voor shows die een eigen ticketverkoop vereisen, hebben we een op maat gemaakt ticketsysteem geïntegreerd. Daarnaast zorgt een Mollie-integratie voor soepele iDeal-betalingen en verstuurt de website automatisch e-mails met bestelgegevens en gegenereerde tickets naar de koper.</p>',
     image: '/portfolio/borgers-family.png',
+    homePage: true,
     customer: 'Borgers Family Band',
     slug: 'borgers-family-website',
     tags: ['React', 'Remix', 'Maatwerk ticketsysteem', 'Event management system', 'Mollie-integratie', 'Hosting en onderhoud'],

@@ -3,7 +3,7 @@ import { portfolioItems, PortfolioItem as IPortFolioItem } from '~/data/portfoli
 import { Link } from '@remix-run/react';
 
 export default function Portfolio() {
-  const items = portfolioItems.filter((item) => !item.wip);
+  const items = portfolioItems.filter((item) => !item.wip && item.homePage);
 
   return (
     <section id="portfolio" className="w-full py-12 md:py-24 lg:py-32">
