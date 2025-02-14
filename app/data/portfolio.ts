@@ -7,7 +7,7 @@ export interface PortfolioItem {
   content: string;
   image: string;
   customer: string;
-  logo: string;
+  logo?: string;
   featured?: boolean;
   wip?: boolean;
   slug?: string;
@@ -60,4 +60,22 @@ export const portfolioItems: PortfolioItem[] = [
     slug: 'watershed-website',
     tags: ['React', 'Remix', 'Maatwerk CMS', 'Toegankelijkheid', 'Responsive', 'Hosting en onderhoud']
   },
+  {
+    title: 'Website met event beheer, ticketsysteem en Mollie-integratie voor de Borgers Family Band',
+    summary: 'Voor de Borgers Family band hebben we een website ontwikkeld met een geavanceerd event beheer- en ticketsysteem, inclusief Mollie-integratie. Dit maatwerk WordPress thema biedt de band de mogelijkheid om hun evenementen en tickets eenvoudig te beheren en verkopen, terwijl spindraad zorgt voor hosting en onderhoud.',
+    content: '<p>De Borgers Family Band website is een maatwerk oplossing ontwikkeld in Remix/React Router, waarbij een intuïtief agenda beheer voor liveshows centraal staat. Voor shows die een eigen ticketverkoop vereisen, hebben we een op maat gemaakt ticketsysteem geïntegreerd. Daarnaast zorgt een Mollie-integratie voor soepele iDeal-betalingen en verstuurt de website automatisch e-mails met bestelgegevens en gegenereerde tickets naar de koper.</p>',
+    image: '/portfolio/borgers-family.png',
+    customer: 'Borgers Family Band',
+    slug: 'borgers-family-website',
+    tags: ['React', 'Remix', 'Maatwerk ticketsysteem', 'Event management system', 'Mollie-integratie', 'Hosting en onderhoud'],
+  },
+  {
+    title: 'Maatwerk bandwebsite voor THE MARCH',
+    summary: 'Voor THE MARCH, een lokale rockband uit Eindhoven, bouwde spindraad een maatwerk website in Next.js met Notion-integratie voor agenda beheer en contactmogelijkheden.',
+    content: '<p>Voor THE MARCH is een maatwerk website gebouwd in Next.js, die naadloos integreert met Notion voor zowel agendabeheer als contactverzoeken. Optredens worden automatisch uit een Notion-database ingeladen op de site, terwijl inkomend verkeer direct in een aparte Notion-database wordt vastgelegd voor een efficiënte opvolging.</p>',
+    image: '/portfolio/themarch.png',
+    customer: 'THE MARCH',
+    slug: 'the-march-website',
+    tags: ['React', 'Next.js', 'Maatwerk website', 'Notion-integratie', 'Hosting en onderhoud'],
+  }
 ];

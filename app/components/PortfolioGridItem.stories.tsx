@@ -43,7 +43,7 @@ export const Featured: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="grid grid-rows-1 grid-cols-1 w-[36rem]">
+      <div className="grid grid-rows-1 grid-cols-1 w-[700px]">
         {Story()}
       </div>
     )
