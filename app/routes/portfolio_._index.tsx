@@ -1,4 +1,4 @@
-import { MetaFunction, json } from '@remix-run/node';
+import { MetaFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import { portfolioItems } from '~/data/portfolio';
 import PageLayout from '~/components/PageLayout';
@@ -9,7 +9,7 @@ export const meta: MetaFunction = () => [
 ];
 
 export function loader() {
-  return json({ portfolioItems });
+  return { portfolioItems };
 }
 
 export default function PortfolioGridRoute() {
