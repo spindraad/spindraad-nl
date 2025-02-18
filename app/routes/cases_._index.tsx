@@ -1,5 +1,5 @@
-import { MetaFunction, json } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
+import { MetaFunction } from 'react-router';
+import { useLoaderData } from 'react-router';
 import { cases } from '~/data/cases';
 import PageLayout from '~/components/PageLayout';
 import CaseGrid from '~/components/CaseGrid';
@@ -9,7 +9,7 @@ export const meta: MetaFunction = () => [
 ];
 
 export function loader() {
-  return json({ cases });
+  return { cases };
 }
 
 export default function CasesIndexRoute() {

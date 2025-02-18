@@ -1,4 +1,4 @@
-import { Outlet } from '@remix-run/react';
+import { Outlet } from 'react-router';
 import PageLayout from '~/components/PageLayout';
 import Prose from '~/components/Prose';
 

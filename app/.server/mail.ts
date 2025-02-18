@@ -40,7 +40,7 @@ export function spamCheck(values: ContactFormValues) {
 
   let isSpam = false;
 
-  if (values.email.includes('do-not-respond.me')) {
+  if (addresseeIsSpam(values)) {
     isSpam = true;
   }
 
@@ -49,4 +49,16 @@ export function spamCheck(values: ContactFormValues) {
   }
 
   return isSpam;
+}
+
+function addresseeIsSpam(values: ContactFormValues) {
+  const addressDomain = values.email.split('@')[1];
+
+  const bannedEmails = [
+    'do-not-respond.me',
+    'dont-reply.me',
+    'no-reply.me',
+  ];
+
+  return bannedEmails.includes(addressDomain);
 }

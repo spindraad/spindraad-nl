@@ -38,4 +38,18 @@ describe('Testing mail services', () => {
 
     expect(result).toBe(true);
   });
+
+  test('spam check should fail for spammy mails', () => {
+    const values: ContactFormValues = {
+      name: 'Spammy McSpamface',
+      email: 'rzzmzmbbrjuj@dont-reply.me',
+      brief: 'blhablah',
+      deadline: 'askcmalkscxz',
+      budget: '0',
+    };
+
+    const result = spamCheck(values);
+
+    expect(result).toBe(true);
+  });
 });
