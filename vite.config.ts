@@ -1,4 +1,4 @@
-import { vitePlugin as remix } from "@remix-run/dev";
+import { reactRouter } from "@react-router/dev/vite";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import mdx from '@mdx-js/rollup';
@@ -14,7 +14,7 @@ declare module "@remix-run/server-runtime" {
 const isStorybook = process.argv[1]?.includes("storybook");
 
 export default defineConfig({
-  plugins: [mdx(), !isStorybook && remix({
+  plugins: [mdx(), !isStorybook && reactRouter({
     future: {
       v3_routeConfig: true,
       v3_singleFetch: true,

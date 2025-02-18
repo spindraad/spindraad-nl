@@ -1,4 +1,4 @@
-import { ActionFunctionArgs, data } from '@remix-run/node';
+import { ActionFunctionArgs, data } from 'react-router';
 import { validateContactForm } from '~/validations/contactform';
 import { ContactFormActionData } from '~/components/Contact';
 import { sendMail } from '~/.server/mail';

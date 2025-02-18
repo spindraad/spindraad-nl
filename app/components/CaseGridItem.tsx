@@ -1,4 +1,4 @@
-import { Link } from '@remix-run/react';
+import { Link } from 'react-router';
 import { CaseItem } from '~/data/cases';
 
 type Props = CaseItem;

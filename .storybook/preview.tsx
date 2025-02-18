@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react";
-import { createRemixStub } from '@remix-run/testing';
+import { createRoutesStub } from 'react-router';
 
 import '@fontsource-variable/chivo';
 import '@fontsource-variable/manrope';
@@ -45,7 +45,7 @@ const preview: Preview = {
       const routes = context.args.remixStub?.routes ?? [{ path: '/' }];
       const initialEntries = context.args.remixStub?.initialEntries ?? ['/'];
 
-      const RemixStub = createRemixStub(
+      const RemixStub = createRoutesStub(
         routes.map((route: any) => ({
           ...route,
           Component() {

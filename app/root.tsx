@@ -1,11 +1,5 @@
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
-import { LinksFunction, MetaFunction } from '@remix-run/node';
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import { LinksFunction, MetaFunction } from "react-router";
 import stylesheet from "~/tailwind.css?url";
 import chivo from "@fontsource-variable/chivo?url";
 import manrope from "@fontsource-variable/manrope?url";

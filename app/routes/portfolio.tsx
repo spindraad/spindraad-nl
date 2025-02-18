@@ -1,6 +1,6 @@
 import Prose from '~/components/Prose';
 import PageLayout from '~/components/PageLayout';
-import { Outlet } from '@remix-run/react';
+import { Outlet } from 'react-router';
 
 export default function PortfolioRoutesLayout() {
   return (
