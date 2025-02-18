@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { Link, LinkProps, NavLink, NavLinkProps } from '@remix-run/react';
+import { Link, LinkProps, NavLink, NavLinkProps } from 'react-router';
 
 interface BaseLinkProps {
   external?: boolean;

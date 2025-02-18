@@ -1,5 +1,5 @@
-import { MetaFunction } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
+import { MetaFunction } from 'react-router';
+import { useLoaderData } from 'react-router';
 import { portfolioItems } from '~/data/portfolio';
 import PageLayout from '~/components/PageLayout';
 import PortfolioGrid from '~/components/PortfolioGrid';

@@ -1,5 +1,5 @@
-import { MetaFunction } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
+import { MetaFunction } from 'react-router';
+import { useLoaderData } from 'react-router';
 import { cases } from '~/data/cases';
 import PageLayout from '~/components/PageLayout';
 import CaseGrid from '~/components/CaseGrid';

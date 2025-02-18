@@ -1,6 +1,6 @@
 import Pill from '~/components/Pill';
 import { portfolioItems, PortfolioItem as IPortFolioItem } from '~/data/portfolio';
-import { Link } from '@remix-run/react';
+import { Link } from 'react-router';
 
 export default function Portfolio() {
   const items = portfolioItems.filter((item) => !item.wip && item.homePage);

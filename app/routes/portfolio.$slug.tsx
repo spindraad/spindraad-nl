@@ -1,5 +1,5 @@
-import { ActionFunctionArgs, MetaFunction } from '@remix-run/node';
-import { Link, useLoaderData } from '@remix-run/react';
+import { ActionFunctionArgs, MetaFunction } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 import { portfolioItems } from '~/data/portfolio';
 import Pill from '~/components/Pill';
 import Icon from '~/components/Icon';
