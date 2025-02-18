@@ -52,12 +52,13 @@ export function spamCheck(values: ContactFormValues) {
 }
 
 function addresseeIsSpam(values: ContactFormValues) {
-  // Does not run.
+  const addressDomain = values.email.split('@')[1];
+
   const bannedEmails = [
     'do-not-respond.me',
     'dont-reply.me',
     'no-reply.me',
   ];
 
-  return bannedEmails.includes(values.email);
+  return bannedEmails.includes(addressDomain);
 }
