@@ -1,5 +1,9 @@
-import { json } from "@remix-run/node";
 
 export function loader() {
-  return json(undefined, { status: 200 });
+  return new Response("OK", {
+    status: 200,
+    headers: {
+      "Content-Type": "text/plain",
+    },
+  });
 }

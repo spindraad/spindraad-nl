@@ -3,8 +3,6 @@ import { ActionFunctionArgs } from '@remix-run/node';
 export async function action({ request }: ActionFunctionArgs) {
   const { method, body, headers } = request;
 
-  console.log('headers: ', Object.fromEntries(request.headers));
-
   const response = await fetch('https://plausible.io/api/event', {
     body,
     method,
@@ -13,6 +11,7 @@ export async function action({ request }: ActionFunctionArgs) {
       'User-Agent': headers.get('User-Agent') || '',
       'X-Forwarded-For': headers.get('X-Forwarded-For') || headers.get('X-Real-IP') || '',
     },
+    duplex: 'half',
   });
   const { status, headers: responseHeaders } = response;
   const responseBody = await response.text();

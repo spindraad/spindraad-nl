@@ -1,4 +1,4 @@
-import { ActionFunctionArgs, json, MetaFunction } from '@remix-run/node';
+import { ActionFunctionArgs, MetaFunction } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
 import { portfolioItems } from '~/data/portfolio';
 import Pill from '~/components/Pill';
@@ -11,7 +11,7 @@ export function loader({ params }: ActionFunctionArgs) {
     throw new Error('Item not found');
   }
 
-  return json({ item });
+  return { item };
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => [
