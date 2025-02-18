@@ -1,4 +1,3 @@
-/// <reference types="vitest" />
 import { vitePlugin as remix } from "@remix-run/dev";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -17,7 +16,7 @@ const isStorybook = process.argv[1]?.includes("storybook");
 export default defineConfig({
   plugins: [mdx(), !isStorybook && remix({
     future: {
-      v3_routeConfig: false,
+      v3_routeConfig: true,
       v3_singleFetch: true,
       v3_throwAbortReason: true,
       v3_relativeSplatPath: true,
