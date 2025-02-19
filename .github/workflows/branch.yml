@@ -15,7 +15,7 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
       - run: ls -la
-      - uses: .github/actions/setup.yml
+      - uses: ./.github/actions/setup.yml
       - run: npm run lint
 
   typecheck:
@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
-      - uses: .github/actions/setup.yml
+      - uses: ./.github/actions/setup.yml
       - run: npm run typecheck
 
   build:
@@ -33,5 +33,5 @@ jobs:
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
-      - uses: .github/actions/setup.yml
+      - uses: ./.github/actions/setup.yml
       - run: npm run build
