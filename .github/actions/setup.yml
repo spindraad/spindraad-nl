@@ -3,9 +3,6 @@ description: Set up Node.js from cache or install from scratch
 runs:
   using: composite
   steps:
-    - name: ⬇️ Checkout repo
-      uses: actions/checkout@v4
-
     - name: ⎔ Setup node
       uses: actions/setup-node@v4
       with:
