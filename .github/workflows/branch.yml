@@ -12,19 +12,19 @@ jobs:
     name: 🧹 Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: .github/actions/setup.yml
+      - uses: ./.github/actions/setup.yml
       - run: npm run lint
 
   typecheck:
     name: 🔍 Typecheck
     runs-on: ubuntu-latest
     steps:
-      - uses: .github/actions/setup.yml
+      - uses: ./.github/actions/setup.yml
       - run: npm run typecheck
 
   build:
     name: 🏗️ Build
     runs-on: ubuntu-latest
     steps:
-      - uses: .github/actions/setup.yml
+      - uses: ./.github/actions/setup.yml
       - run: npm run build
