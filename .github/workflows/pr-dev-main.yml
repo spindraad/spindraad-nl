@@ -218,4 +218,4 @@ jobs:
         env:
           FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
 
-      - run: npm run test:end-to-end
+      - run: npm run test:e2e
