@@ -146,7 +146,7 @@ jobs:
         env:
           FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
 
-      - run: npm run test:component:ci
+      - run: npm run test:components:ci
 
   integration-tests:
     name: 🔗 Integration tests
