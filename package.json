@@ -22,6 +22,8 @@
     "test:unit": "vitest",
     "test:components": "test-storybook",
     "test:components:ci": "concurrently --kill-others --success first --names \"storybook,test\" --prefix-colors \"magenta,blue\" --pad-prefix \"npm run storybook:serve\" \"npm run storybook:wait-on && npm run test:components\"",
+    "test:integration": "exit 0",
+    "test:e2e": "exit 0",
     "postversion": "git push --follow-tags",
     "storybook:serve": "http-server storybook-static -p 6006 --silent",
     "storybook:wait-on": "wait-on tcp:6006",

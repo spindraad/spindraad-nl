@@ -35,7 +35,7 @@ jobs:
 
       - run: npm run lint
 
-# Disabled running typecheck because React Router is triggering type errors, see https://github.com/remix-run/react-router/issues/12362.
+# Todo: Disabled running typecheck because React Router is triggering type errors, see https://github.com/remix-run/react-router/issues/12362.
 # When this is fixed and/or we move to defining the routes in app/routes.ts, we can re-enable this.
 #  typecheck:
 #    name: 🔍 Typecheck
@@ -92,6 +92,10 @@ jobs:
 
   unit-tests:
     name: 🧪 Unit tests
+    needs:
+      - lint
+      # - typecheck # Todo: Uncomment when typecheck is re-enabled
+      - build
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
