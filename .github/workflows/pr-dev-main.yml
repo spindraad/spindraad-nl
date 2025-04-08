@@ -149,7 +149,14 @@ jobs:
         env:
           FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
 
-      - run: npm run test:components:ci
+      - name: 🎭 Install Playwright dependencies
+        run: npm run playwright:install
+
+      - name: 🏗️ Build Storybook
+        run: npm run build:storybook
+
+      - name: 🧪 Test
+        run: npm run test:components:ci
 
   integration-tests:
     name: 🔗 Integration tests
