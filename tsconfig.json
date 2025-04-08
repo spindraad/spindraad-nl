@@ -1,18 +1,13 @@
 {
   "include": [
-    "environment.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.mdx",
-    "**/.server/**/*.ts",
-    "**/.server/**/*.tsx",
-    "**/.client/**/*.ts",
-    "**/.client/**/*.tsx",
-    ".react-router/types/**/*",
+    "**/*",
+    "**/.server/**/*",
+    "**/.client/**/*",
+    ".react-router/types/**/*"
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": ["@react-router/node", "vite/client"],
+    "types": ["@react-router/node", "vite/client", "mdx"],
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
