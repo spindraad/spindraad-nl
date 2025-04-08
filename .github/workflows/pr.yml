@@ -1,0 +1,223 @@
+name: 🪢 Pull Request CI
+
+on:
+  pull_request:
+
+jobs:
+  lint:
+    name: 🧹 Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Extract node version
+        id: node-version
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+
+      - name: Cache node_modules
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+
+      - name: 📥 Install deps
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+        env:
+          FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+
+      - run: npm run lint
+
+  # Todo: Disabled running typecheck because React Router is triggering type errors, see https://github.com/remix-run/react-router/issues/12362.
+  # When this is fixed and/or we move to defining the routes in app/routes.ts, we can re-enable this.
+  #  typecheck:
+  #    name: 🔍 Typecheck
+  #    runs-on: ubuntu-latest
+  #    steps:
+  #      - name: ⬇️ Checkout repo
+  #        uses: actions/checkout@v4
+  #
+  #      - name: Extract node version
+  #        id: node-version
+  #        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+  #
+  #      - name: ⎔ Setup node
+  #        uses: actions/setup-node@v4
+  #        with:
+  #          node-version-file: ".nvmrc"
+  #          cache: "npm"
+  #
+  #      - name: Cache node_modules
+  #        id: cache
+  #        uses: actions/cache@v4
+  #        with:
+  #          path: node_modules
+  #          key: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+  #          restore-keys: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+  #
+  #      - name: 📥 Install deps
+  #        if: steps.cache.outputs.cache-hit != 'true'
+  #        run: npm ci
+  #        env:
+  #          FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+  #      - run: npm run typecheck
+
+  build:
+    name: 🏗️ Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Extract node version
+        id: node-version
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+
+      - name: Cache node_modules
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+
+      - name: 📥 Install deps
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+        env:
+          FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+
+      - run: npm run build
+
+  unit-tests:
+    name: 🧪 Unit tests
+    needs:
+      - lint
+      # - typecheck # Todo: Uncomment when typecheck is re-enabled
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Extract node version
+        id: node-version
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+
+      - name: Cache node_modules
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+
+      - name: 📥 Install deps
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+        env:
+          FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+
+      - run: npm run test:unit
+
+  component-tests:
+    name: 🧩 Component tests
+    needs:
+      - lint
+      # - typecheck # Todo: Uncomment when typecheck is re-enabled
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Extract node version
+        id: node-version
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+
+      - name: Cache node_modules
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+
+      - name: 📥 Install deps
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+        env:
+          FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+
+      - name: 🎭 Install Playwright dependencies
+        run: npm run playwright:install
+
+      - name: 🏗️ Build Storybook
+        run: npm run build:storybook
+
+      - name: 🧪 Test
+        run: npm run test:components:ci
+
+  integration-tests:
+    name: 🔗 Integration tests
+    needs:
+      - lint
+      # - typecheck # Todo: Uncomment when typecheck is re-enabled
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Extract node version
+        id: node-version
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+
+      - name: Cache node_modules
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+
+      - name: 📥 Install deps
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+        env:
+          FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+
+      - run: npm run test:integration

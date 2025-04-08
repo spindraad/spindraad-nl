@@ -20,8 +20,8 @@ export default function Footer() {
         <Anchor ref={mailToRef} className="text-xl text-deep-blue font-bold" href="mailto:stake.metros_07@icloud.com">hallo@spindraad.nl</Anchor>
 
         <p className="mt-2">
-          Torenallee 36-40<br/>
-          5617BD Eindhoven<br/>
+          Hurksestraat 19, Unit 3.24<br/>
+          5652 AH Eindhoven<br/>
           Nederland<br/>
         </p>
       </div>
@@ -42,6 +42,11 @@ export default function Footer() {
         <li>
           <Anchor className="space-x-2" rel="me noopener noreferrer" href="https://x.com/spindraad" target="_blank">
             <Icon prefix="fab" name="twitter"/> X
+          </Anchor>
+        </li>
+        <li>
+          <Anchor className="space-x-2" rel="me noopener noreferrer" href="https://linkedin.com/company/spindraad" target="_blank">
+            <Icon prefix="fab" name="linkedin"/> LinkedIn
           </Anchor>
         </li>
       </ul>

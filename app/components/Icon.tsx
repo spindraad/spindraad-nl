@@ -19,6 +19,7 @@ import {
   faStroopwafel,
 } from '@awesome.me/kit-feaffe80b3/icons/classic/solid';
 import {
+  faLinkedin,
   faMastodon,
   faTwitter,
 } from '@awesome.me/kit-feaffe80b3/icons/classic/brands';
@@ -36,6 +37,7 @@ library.add(
   faMastodon,
   faTwitter,
   faArrowLeft,
+  faLinkedin,
 );
 
 export type Props = {
