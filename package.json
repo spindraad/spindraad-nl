@@ -1,6 +1,6 @@
 {
   "name": "spindraad",
-  "version": "2.1.0",
+  "version": "2.1.1-beta.0",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -22,10 +22,16 @@
     "test:unit": "vitest",
     "test:components": "test-storybook",
     "test:components:ci": "concurrently --kill-others --success first --names \"storybook,test\" --prefix-colors \"magenta,blue\" --pad-prefix \"npm run storybook:serve\" \"npm run storybook:wait-on && npm run test:components\"",
-    "postversion": "git push --follow-tags",
+    "test:integration": "exit 0",
+    "test:e2e": "exit 0",
     "storybook:serve": "http-server storybook-static -p 6006 --silent",
     "storybook:wait-on": "wait-on tcp:6006",
-    "playwright:install": "playwright install --with-deps"
+    "playwright:install": "playwright install --with-deps",
+    "release:patch": "npm version patch",
+    "release:minor": "npm version minor",
+    "release:major": "npm version major",
+    "release:beta": "npm version prerelease",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
     "@awesome.me/kit-feaffe80b3": "^1.0.7",
@@ -34,8 +40,8 @@
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@radix-ui/react-label": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.1",
-    "@react-router/node": "^7.0.0",
-    "@react-router/serve": "^7.0.0",
+    "@react-router/node": "^7.5.0",
+    "@react-router/serve": "^7.5.0",
     "@sendgrid/mail": "^8.1.4",
     "@tailwindcss/typography": "^0.5.15",
     "class-variance-authority": "^0.7.1",
@@ -45,7 +51,7 @@
     "npm-run-all": "^4.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router": "^7.0.0",
+    "react-router": "^7.5.0",
     "shadcn": "^2.3.0",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7"
@@ -55,8 +61,8 @@
     "@faker-js/faker": "^9.3.0",
     "@mdx-js/rollup": "^3.1.0",
     "@playwright/test": "^1.49.1",
-    "@react-router/dev": "^7.0.0",
-    "@react-router/fs-routes": "^7.0.0",
+    "@react-router/dev": "^7.5.0",
+    "@react-router/fs-routes": "^7.5.0",
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/addon-interactions": "^8.4.7",
     "@storybook/addon-links": "^8.4.7",
@@ -65,6 +71,7 @@
     "@storybook/react-vite": "^8.4.7",
     "@storybook/test": "^8.4.7",
     "@storybook/test-runner": "^0.20.1",
+    "@types/mdx": "^2.0.13",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
@@ -92,6 +99,6 @@
     "wait-on": "^8.0.1"
   },
   "engines": {
-    "node": ">=20.14.0"
+    "node": ">=22.11.0"
   }
 }
