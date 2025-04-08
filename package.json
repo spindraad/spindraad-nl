@@ -24,10 +24,14 @@
     "test:components:ci": "concurrently --kill-others --success first --names \"storybook,test\" --prefix-colors \"magenta,blue\" --pad-prefix \"npm run storybook:serve\" \"npm run storybook:wait-on && npm run test:components\"",
     "test:integration": "exit 0",
     "test:e2e": "exit 0",
-    "postversion": "git push --follow-tags",
     "storybook:serve": "http-server storybook-static -p 6006 --silent",
     "storybook:wait-on": "wait-on tcp:6006",
-    "playwright:install": "playwright install --with-deps"
+    "playwright:install": "playwright install --with-deps",
+    "release:patch": "npm version patch",
+    "release:minor": "npm version minor",
+    "release:major": "npm version major",
+    "release:beta": "npm version prerelease",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
     "@awesome.me/kit-feaffe80b3": "^1.0.7",
