@@ -2,6 +2,9 @@ name: 🪢 Pull Request CI
 
 on:
   pull_request:
+    branches-ignore:
+      - main
+      - dev
 
 jobs:
   lint:
