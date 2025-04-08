@@ -14,17 +14,23 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
+      - name: Extract node version
+        id: node-version
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+
       - name: ⎔ Setup node
         uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
+          cache: "npm"
 
       - name: Cache node_modules
         id: cache
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: node_modules-${{ hashFiles('package-lock.json') }}
+          key: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
 
       - name: 📥 Install deps
         if: steps.cache.outputs.cache-hit != 'true'
@@ -43,17 +49,23 @@ jobs:
   #      - name: ⬇️ Checkout repo
   #        uses: actions/checkout@v4
   #
+  #      - name: Extract node version
+  #        id: node-version
+  #        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+  #
   #      - name: ⎔ Setup node
   #        uses: actions/setup-node@v4
   #        with:
   #          node-version-file: ".nvmrc"
+  #          cache: "npm"
   #
   #      - name: Cache node_modules
   #        id: cache
   #        uses: actions/cache@v4
   #        with:
   #          path: node_modules
-  #          key: node_modules-${{ hashFiles('package-lock.json') }}
+  #          key: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+  #          restore-keys: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
   #
   #      - name: 📥 Install deps
   #        if: steps.cache.outputs.cache-hit != 'true'
@@ -69,17 +81,23 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
+      - name: Extract node version
+        id: node-version
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+
       - name: ⎔ Setup node
         uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
+          cache: "npm"
 
       - name: Cache node_modules
         id: cache
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: node_modules-${{ hashFiles('package-lock.json') }}
+          key: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
 
       - name: 📥 Install deps
         if: steps.cache.outputs.cache-hit != 'true'
@@ -100,17 +118,23 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
+      - name: Extract node version
+        id: node-version
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+
       - name: ⎔ Setup node
         uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
+          cache: "npm"
 
       - name: Cache node_modules
         id: cache
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: node_modules-${{ hashFiles('package-lock.json') }}
+          key: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
 
       - name: 📥 Install deps
         if: steps.cache.outputs.cache-hit != 'true'
@@ -131,17 +155,23 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
+      - name: Extract node version
+        id: node-version
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+
       - name: ⎔ Setup node
         uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
+          cache: "npm"
 
       - name: Cache node_modules
         id: cache
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: node_modules-${{ hashFiles('package-lock.json') }}
+          key: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
 
       - name: 📥 Install deps
         if: steps.cache.outputs.cache-hit != 'true'
@@ -169,17 +199,23 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
+      - name: Extract node version
+        id: node-version
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+
       - name: ⎔ Setup node
         uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
+          cache: "npm"
 
       - name: Cache node_modules
         id: cache
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: node_modules-${{ hashFiles('package-lock.json') }}
+          key: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
 
       - name: 📥 Install deps
         if: steps.cache.outputs.cache-hit != 'true'
@@ -200,17 +236,23 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
+      - name: Extract node version
+        id: node-version
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+
       - name: ⎔ Setup node
         uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
+          cache: "npm"
 
       - name: Cache node_modules
         id: cache
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: node_modules-${{ hashFiles('package-lock.json') }}
+          key: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ steps.node-version.outputs.NODE_VERSION }}-node-${{ hashFiles('package-lock.json') }}
 
       - name: 📥 Install deps
         if: steps.cache.outputs.cache-hit != 'true'
