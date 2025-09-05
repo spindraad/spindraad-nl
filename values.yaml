@@ -7,9 +7,17 @@ app:
   image:
     repository: registry.digitalocean.com/lodybo-registry/spindraad-nl
     tag: latest
+  domains:
+    production: spindraad-nl.spindraad.app
+    development: spindraad-nl.spindraad.dev
+    external: spindraad.nl
+
+environment: production # or: development
+
 service:
-  name: spindraad-nl
+  name: spindraad-nl-service
   port: 80
   targetPort: 3000
+
 secrets:
     sendgridApiKey: "<PLACEHOLDER>"

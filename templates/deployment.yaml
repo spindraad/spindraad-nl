@@ -17,6 +17,13 @@ spec:
     spec:
       nodeSelector:
         app-node: "true"
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: {{ .Values.app.name }}
           image: {{ .Values.app.image.repository }}:{{ .Values.app.image.tag }}
@@ -28,6 +35,12 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.app.name }}-secrets
                   key: SENDGRID_API_KEY
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
           resources:
             requests:
               cpu: "10m"      # 0.01 cores or 10 millicores
