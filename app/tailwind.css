@@ -4,6 +4,10 @@
 
 @layer base {
   :root {
+    --wa-border-radius-scale: 0.5;
+    --wa-border-width-scale: 0.5;
+    --wa-space-scale: 1.125;
+
     --deep-blue: 0 51 102; /* #003366 */
     --vibrant-teal: 48 213 200; /* #30D5C8 */
     --soft-gray: 244 244 244; /* #F4F4F4 */

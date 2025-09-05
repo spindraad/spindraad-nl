@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@awesome.me/kit-feaffe80b3": "^1.0.7",
+    "@awesome.me/webawesome": "^3.0.0-beta.4",
     "@fontsource-variable/chivo": "^5.2.6",
     "@fontsource-variable/manrope": "^5.2.6",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
