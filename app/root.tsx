@@ -3,7 +3,6 @@ import stylesheet from "~/tailwind.css?url";
 import chivo from "@fontsource-variable/chivo?url";
 import manrope from "@fontsource-variable/manrope?url";
 import webawesome from '@awesome.me/webawesome/dist/styles/webawesome.css?url';
-import { setKitCode } from '@awesome.me/webawesome';
 
 import '@awesome.me/webawesome/dist/components/button/button.js';
 
