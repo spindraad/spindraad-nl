@@ -5,14 +5,15 @@ import manrope from "@fontsource-variable/manrope?url";
 import webawesome from '@awesome.me/webawesome/dist/styles/webawesome.css?url';
 
 import '@awesome.me/webawesome/dist/components/button/button.js';
+import '@awesome.me/webawesome/dist/components/card/card.js';
 
 export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: webawesome },
+{ rel: 'stylesheet', href: 'https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/styles/themes/mellow.css' },
+{ rel: 'stylesheet', href: 'https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/styles/color/palettes/vogue.css' },
   { rel: "stylesheet", href: stylesheet },
   { rel: "stylesheet", href: chivo },
   { rel: "stylesheet", href: manrope },
-  { rel: "stylesheet", href: webawesome },
-  { rel: 'stylesheet', href: 'https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/styles/themes/mellow.css' },
-  { rel: 'stylesheet', href: 'https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/styles/color/palettes/vogue.css' },
   {
     rel: 'icon',
     href: '/favicon.ico',

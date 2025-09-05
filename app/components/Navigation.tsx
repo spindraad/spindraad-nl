@@ -26,6 +26,9 @@ export default function Navigation({ orientation = 'horizontal', size = 'sm', ga
       <Anchor href="/#klanten" className={fontSize} initiallyHideUnderline>
         Klanten
       </Anchor>
+      <Anchor href="/winkel" className={fontSize} initiallyHideUnderline>
+        Winkel
+      </Anchor>
       <Anchor href="/#contact" className={fontSize} initiallyHideUnderline>
         Contact
       </Anchor>

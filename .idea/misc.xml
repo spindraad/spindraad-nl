@@ -57,7 +57,4 @@
       </profile-state>
     </entry>
   </component>
-  <component name="TypeScriptCompiler">
-    <option name="nodeInterpreterTextField" value="node" />
-  </component>
 </project>
