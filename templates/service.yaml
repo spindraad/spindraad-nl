@@ -4,29 +4,16 @@ metadata:
   name: {{ .Values.service.name }}
   namespace: {{ .Values.app.namespace }}
   annotations:
+    {{-if eq .Values.environment "production" }}
     external-dns.alpha.kubernetes.io/hostname: {{ .Values.app.domain }}
+    {{- else if eq .Values.environment "development" }}
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.app.domains.development }}
+    {{- end }}
   labels:
-    app: {{ .Values.service.name }}
+    app: {{ .Values.app.name }}
 spec:
   selector:
-    app: {{ .Values.service.name }}
-  ports:
-    - protocol: TCP
-      port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{ .Values.service.name }}
-  namespace: {{ .Values.app.namespace }}
-  annotations:
-    external-dns.alpha.kubernetes.io/hostname: {{ .Values.app.devDomain }}
-  labels:
-    app: {{ .Values.service.name }}
-spec:
-  selector:
-    app: {{ .Values.service.name }}
+    app: {{ .Values.app.name }}
   ports:
     - protocol: TCP
       port: {{ .Values.service.port }}
