@@ -6,6 +6,9 @@ import webawesome from '@awesome.me/webawesome/dist/styles/webawesome.css?url';
 
 import '@awesome.me/webawesome/dist/components/button/button.js';
 import '@awesome.me/webawesome/dist/components/card/card.js';
+import '@awesome.me/webawesome/dist/components/input/input.js';
+import '@awesome.me/webawesome/dist/components/avatar/avatar.js';
+import '@awesome.me/webawesome/dist/components/icon/icon.js';
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: webawesome },

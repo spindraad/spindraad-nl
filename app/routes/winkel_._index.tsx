@@ -1,6 +1,7 @@
 import { useLoaderData } from 'react-router';
 import { products } from '~/data/products';
 import PageLayout from '~/components/PageLayout';
+import { renderPrice } from '~/utils';
 
 export function loader() {
   return { products };
@@ -9,13 +10,7 @@ export function loader() {
 export default function ShopIndexRoute() {
   const { products: allProducts } = useLoaderData<typeof loader>();
 
-  function renderPrice(price: number) {
-    return new Intl.NumberFormat('nl-NL', {
-      style: 'currency',
-      currency: 'EUR',
-      minimumFractionDigits: 2,
-    }).format(price); // Assuming price is in cents
-  }
+
 
   return (
     <PageLayout classes="content" topMargin>
