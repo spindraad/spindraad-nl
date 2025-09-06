@@ -47,7 +47,7 @@ export default function CourtsePromo() {
 
             <div className="w-2/3 mx-auto my-6">
             <Button className="w-full" size="lg" asChild>
-              <a href="https://drakenfruit.com/product/persoonlijke-veiligheid-online-offline/" target="_blank" rel="noreferrer">
+              <a href="https://drakenfruit.com/cursus-persoonlijke-veiligheid-online-offline/" target="_blank" rel="noreferrer">
                 Meer informatie en aanmelden
               </a>
             </Button>
