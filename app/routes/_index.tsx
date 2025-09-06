@@ -7,6 +7,7 @@ import Customers from '~/components/Customers';
 import Contact from '~/components/Contact';
 import Footer from '~/components/Footer';
 import Reviews from '~/components/Reviews';
+import CoursePromo from '~/components/CoursePromo';
 
 export const meta: MetaFunction = () => {
   return [
@@ -36,7 +37,11 @@ export default function Component() {
         <Hero/>
 
         <Services/>
+
+        <CoursePromo />
+
         <Portfolio/>
+
 
         <Customers/>
 
