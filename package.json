@@ -1,6 +1,6 @@
 {
   "name": "spindraad",
-  "version": "2.2.1-beta.0",
+  "version": "2.3.1-beta.0",
   "private": true,
   "sideEffects": false,
   "type": "module",
